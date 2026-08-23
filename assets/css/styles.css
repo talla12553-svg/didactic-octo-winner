@@ -1170,3 +1170,26 @@ p { margin: 0 0 1rem; }
   .dish__tile-name { font-size: 1.02rem; }
   .footer-crew { flex-wrap: wrap; }
 }
+
+/* ---------- 404 ---------- */
+
+.notfound {
+  max-width: 46rem;
+  margin-inline: auto;
+  text-align: center;
+  padding: clamp(2rem, 8vw, 6rem) 0;
+}
+
+.notfound .eyebrow { justify-content: center; }
+.notfound h1 { color: #fff; }
+.notfound .lede { margin-inline: auto; max-width: 44ch; }
+.notfound .hero__actions { justify-content: center; }
+
+.notfound__crew {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+}
+
+.notfound__crew .char { width: clamp(56px, 9vw, 84px); }

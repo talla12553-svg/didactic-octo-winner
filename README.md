@@ -85,6 +85,27 @@ Menu tiles pull from a per-section cast automatically.
 | `menu.html` | Full menu with section filters and deep links (`menu.html#desserts`) |
 | `contact.html` | Hours, location, phone numbers, FAQ |
 
+## Deploying
+
+The site is plain static files at the repo root, so it needs no build step.
+
+`.github/workflows/pages.yml` publishes to GitHub Pages on every push to
+`main`, and can also be run by hand from the Actions tab. Before the first run,
+someone with repo admin has to set **Settings → Pages → Source** to
+**GitHub Actions** — that setting cannot be flipped from the API.
+
+The alternative, if you would rather skip Actions entirely, is
+**Settings → Pages → Source → Deploy from a branch**, pointed at the branch and
+the `/ (root)` folder. Pick one or the other, not both.
+
+Two details that matter for Pages:
+
+- `.nojekyll` stops Jekyll from processing the directory.
+- Every path in the site is relative, so it works under a project subpath
+  (`https://<user>.github.io/<repo>/`) as well as at a domain root. Keep it
+  that way — a leading `/` in any `src` or `href` would break the subpath.
+- `404.html` is served by Pages for any unknown URL.
+
 ## Running it
 
 Open `index.html` in a browser, or serve the folder:
