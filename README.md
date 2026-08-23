@@ -1,16 +1,16 @@
 # Sene Fast Food — website
 
-A static marketing site for Sene Fast Food: charcoal-grilled chicken, burgers and
-West African plates. No build step, no dependencies — plain HTML, CSS and
-vanilla JavaScript.
+Website for Sene Fast Food, an authentic Senegalese kitchen at 151 W 116th St in
+Harlem, NYC. Static HTML, CSS and vanilla JavaScript — no build step, no
+dependencies, no image files (all artwork is inline SVG).
 
 ## Pages
 
 | File | What it is |
 | --- | --- |
-| `index.html` | Homepage: hero, featured dishes, combo deals, story, reviews, hours, CTA |
-| `menu.html` | Full menu with category filters and deep links (`menu.html#chicken`) |
-| `contact.html` | Address, hours, order-ahead form and FAQ |
+| `index.html` | Hero, $10 breakfast special, story, what's cooking, desserts, hours/location/contact |
+| `menu.html` | Full menu with section filters and deep links (`menu.html#desserts`) |
+| `contact.html` | Hours, location, phone numbers, FAQ |
 
 ## Running it
 
@@ -26,53 +26,74 @@ python3 -m http.server 8000
 ```
 assets/
   css/styles.css      all styling, design tokens at the top of the file
-  js/menu-data.js     menu items, categories and combos — the data
-  js/main.js          nav, menu rendering/filtering, form, hours, reveal
+  js/menu-data.js     dishes, sections and contact numbers — the data
+  js/main.js          nav, menu rendering/filtering, open-now pill, reveal
 ```
+
+## Business details
+
+These are set in `assets/js/menu-data.js` (phone numbers) and directly in the
+HTML of all three pages:
+
+- **Address** — 151 W 116th Street, Harlem, New York, NY 10026
+- **Hours** — Monday to Sunday, 9:00 AM – 12:00 AM
+- **Breakfast special** — $10 flat, served until 11:00 AM
+- **Phone** — (917) 569-6057 primary, (917) 569-6871 alternate
+- **Halal kitchen**, dine-in, takeout and delivery
+
+The "Open now / Closed" pill in the header stats and on the contact page is
+computed in `initOpenNow()` in `assets/js/main.js` from `OPEN_HOUR` and
+`CLOSE_HOUR`. It reads the *visitor's* clock, not New York time — fine for local
+customers, worth revisiting if that matters.
 
 ## Editing the menu
 
-Everything on the menu lives in `assets/js/menu-data.js`. Both the homepage
-highlights and the menu page read from it, so a change there updates both.
+Everything on the menu lives in `assets/js/menu-data.js`. The homepage sections
+and the menu page both read from it, so a change there updates both.
 
 ```js
 {
-  name: 'Sene Signature Burger',
-  category: 'burgers',    // must match an id in SENE.CATEGORIES
-  price: 8.50,
+  name: 'Thiebou Dienne',
+  category: 'mains',       // breakfast | mains | desserts
+  price: 10,               // omit entirely if the price is not fixed
   desc: '…',
-  tags: ['Bestseller'],   // a tag containing "spicy" renders in the hot style
-  featured: true,         // shows on the homepage highlights row
-  flag: 'Chef’s pick'     // optional corner ribbon on the card
+  tags: ['Senegalese classic'],
+  flag: 'Senegalese classic',  // optional corner ribbon
+  needsCopy: true          // renders "ask the kitchen" instead of a description
 }
 ```
 
-`window.SENE.CURRENCY` at the top of that file sets the currency symbol used
-everywhere.
+An item with no `price` shows no number at all — the note above each grid tells
+customers to call. Add `price:` and the figure appears automatically.
 
-## Notes on the content
+## Still to confirm
 
-The copy, dishes and prices are a plausible starting point, not real business
-data. Before this goes live, replace:
+Content taken from the business; a few gaps remain:
 
-- **Contact details** — `24 Market Street, City Centre`, `+1 555 0100` and
-  `hello@senefastfood.example` are placeholders, repeated in the header/footer
-  of all three pages and in the contact page body.
-- **Opening hours** — the tables in `index.html` and `contact.html`.
-- **Prices and currency** — in `assets/js/menu-data.js`.
-- **Reviews** — the three quotes on the homepage are illustrative.
-- **Social links** — the footer icons currently point at `#`.
+- **Lunch and dinner prices.** Only the $10 breakfast special has a confirmed
+  price. The eight lunch/dinner dishes and three desserts currently show no
+  price. Add `price:` to each in `menu-data.js` when the figures are known.
+- **Lunch vs dinner split.** The source listed separate lunch and dinner
+  sections, but only breakfast was itemised, so the eight main dishes are
+  grouped as "Lunch & Dinner". Split the `mains` category in two if they belong
+  to different services.
+- **Dish descriptions.** Descriptions for the mains are written from what these
+  traditional dishes generally are, not from the kitchen's own wording — worth
+  a read-through. `C'est Bon` has `needsCopy: true` and shows "ask the kitchen"
+  because it appears to be a house name rather than a standard dish.
+- **Photos.** The site ships with SVG illustrations. Real photos of the dishes
+  and the kitchen boards would be a straight upgrade — drop them in and replace
+  the `.dish__media` contents.
+- **Social links.** None are in the site; add them to the footer if the business
+  has accounts.
 
-## The order form
+## Ordering
 
-`contact.html` has an order-ahead form. It is **front-end only**: it validates
-input and shows a confirmation message, but does not send anything anywhere.
-Wiring it up means either pointing the `<form>` at a form service (Formspree,
-Netlify Forms, etc.) or posting to your own endpoint from the submit handler in
-`assets/js/main.js`.
+There is no online ordering form. Every call to action is a `tel:` or `sms:`
+link to the shop's real numbers, which is how orders are actually taken.
 
 ## Browser support
 
 Modern evergreen browsers. Layout uses CSS grid and flexbox; the site degrades
-to readable content with JavaScript disabled, except the menu grid, which shows
+to readable content with JavaScript disabled, except the dish grids, which show
 a fallback message with the phone number.

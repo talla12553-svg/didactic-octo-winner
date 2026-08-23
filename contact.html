@@ -3,10 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact &amp; order ahead — Sene Fast Food</title>
-<meta name="description" content="Find Sene Fast Food, check opening hours, call the shop or send a pickup order ahead of time.">
-<meta name="theme-color" content="#e23b23">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23e23b23'/><text x='16' y='23' font-size='19' font-family='Georgia,serif' fill='white' text-anchor='middle'>S</text></svg>">
+<title>Hours, Location & Contact — Sene Fast Food, Harlem</title>
+<meta name="description" content="Sene Fast Food is at 151 W 116th St, Harlem NYC. Open daily 9AM–12AM. Call (917) 569-6057 or text to order delivery or pickup.">
+<meta name="theme-color" content="#c8102e">
+<meta property="og:title" content="Sene Fast Food — Senegalese kitchen in Harlem">
+<meta property="og:description" content="Sene Fast Food is at 151 W 116th St, Harlem NYC. Open daily 9AM–12AM. Call (917) 569-6057 or text to order delivery or pickup.">
+<meta property="og:type" content="restaurant">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23c8102e'/><text x='16' y='23' font-size='19' font-family='Georgia,serif' fill='white' text-anchor='middle'>S</text></svg>">
 <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -16,7 +19,7 @@
   <div class="wrap site-header__inner">
     <a class="logo" href="index.html">
       <span class="logo__mark" aria-hidden="true">S</span>
-      <span class="logo__text">Sene<small>Fast Food</small></span>
+      <span class="logo__text">Sene<small>Fast Food · Harlem</small></span>
     </a>
 
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
@@ -28,9 +31,10 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="menu.html">Menu</a></li>
-        <li><a href="index.html#story">Our story</a></li>
+        <li><a href="menu.html#desserts">Desserts</a></li>
+        <li><a href="index.htmlindex.html#story">Our story</a></li>
         <li><a href="contact.html" aria-current="page">Visit</a></li>
-        <li><a class="btn btn--primary" href="#order">Order ahead</a></li>
+        <li><a class="btn btn--primary" href="tel:+19175696057">📞 Call to order</a></li>
       </ul>
     </nav>
   </div>
@@ -40,116 +44,59 @@
 
   <div class="page-head">
     <div class="wrap">
-      <p class="crumbs"><a href="index.html">Home</a> / Contact</p>
-      <h1>Contact &amp; order ahead</h1>
+      <p class="crumbs"><a href="index.html">Home</a> / Visit</p>
+      <h1>Hours, location &amp; contact</h1>
       <p class="lede">
-        Call the shop for anything urgent. For pickup orders, the form below reaches
-        the counter — we will ring you back to confirm the time.
+        Open every day, late into the night — right in the heart of Harlem.
+        Call or text to place a delivery or pickup order.
       </p>
     </div>
   </div>
 
   <section class="section">
-    <div class="wrap contact-grid">
+    <div class="wrap">
+      <div class="contact-cards reveal">
+        <div class="contact-card">
+          <p class="contact-card__icon" aria-hidden="true">🕘</p>
+          <h3>Hours <span id="open-now"></span></h3>
+          <dl>
+            <dt>Monday – Sunday</dt>
+            <dd>9:00 AM – 12:00 AM</dd>
+            <dt>Breakfast special</dt>
+            <dd>Until 11:00 AM</dd>
+            <dt>Delivery</dt>
+            <dd>All day</dd>
+            <dt>Kitchen</dt>
+            <dd>Halal</dd>
+          </dl>
+        </div>
 
-      <div class="reveal">
-        <h2>Where to find us</h2>
+        <div class="contact-card">
+          <p class="contact-card__icon" aria-hidden="true">📍</p>
+          <h3>Location</h3>
+          <dl>
+            <dt>Address</dt>
+            <dd>151 W 116th Street<br>Harlem, New York, NY 10026</dd>
+            <dt>Getting here</dt>
+            <dd>A short walk from the 2/3 and B/C trains on 116th St.</dd>
+          </dl>
+          <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=151+W+116th+St+New+York+NY+10026" target="_blank" rel="noopener">🧭 Get directions</a>
+        </div>
 
-        <ul class="info-list">
-          <li>
-            <span class="card__icon" aria-hidden="true">📍</span>
-            <div><b>Address</b><span>24 Market Street, City Centre</span></div>
-          </li>
-          <li>
-            <span class="card__icon" aria-hidden="true">📞</span>
-            <div><b>Phone</b><a href="tel:+15550100">+1 555 0100</a></div>
-          </li>
-          <li>
-            <span class="card__icon" aria-hidden="true">✉️</span>
-            <div><b>Email</b><a href="mailto:hello@senefastfood.example">hello@senefastfood.example</a></div>
-          </li>
-          <li>
-            <span class="card__icon" aria-hidden="true">🛵</span>
-            <div><b>Delivery</b><span>Within 5 km, evenings from 18:00</span></div>
-          </li>
-        </ul>
-
-        <h3>Opening hours</h3>
-        <table class="hours" data-hours>
-          <caption class="visually-hidden">Opening hours by day</caption>
-          <tbody>
-            <tr data-day="1"><th scope="row">Monday</th><td>11:00 – 22:00</td></tr>
-            <tr data-day="2"><th scope="row">Tuesday</th><td>11:00 – 22:00</td></tr>
-            <tr data-day="3"><th scope="row">Wednesday</th><td>11:00 – 22:00</td></tr>
-            <tr data-day="4"><th scope="row">Thursday</th><td>11:00 – 23:00</td></tr>
-            <tr data-day="5"><th scope="row">Friday</th><td>11:00 – 00:00</td></tr>
-            <tr data-day="6"><th scope="row">Saturday</th><td>12:00 – 00:00</td></tr>
-            <tr data-day="0"><th scope="row">Sunday</th><td>12:00 – 21:00</td></tr>
-          </tbody>
-        </table>
-        <p class="form-note">Kitchen stops taking orders 30 minutes before closing.</p>
+        <div class="contact-card">
+          <p class="contact-card__icon" aria-hidden="true">📞</p>
+          <h3>Call, text &amp; order</h3>
+          <dl>
+            <dt>Primary</dt>
+            <dd><a href="tel:+19175696057">(917) 569-6057</a></dd>
+            <dt>Alternate</dt>
+            <dd><a href="tel:+19175696871">(917) 569-6871</a></dd>
+            <dt>Delivery &amp; pickup</dt>
+            <dd>Delivery available — call or text ahead, or place your order for pickup.</dd>
+          </dl>
+          <a class="btn btn--green" href="sms:+19175696057">💬 Text to order</a>
+        </div>
       </div>
-
-      <div class="form-card reveal" id="order">
-        <h2>Order ahead</h2>
-        <p class="lede" style="font-size:.98rem">
-          Tell us what you want and when you will collect it. Group platters need at
-          least two hours' notice.
-        </p>
-
-        <form id="order-form" novalidate>
-          <div class="field">
-            <label for="name">Your name</label>
-            <input type="text" id="name" name="name" autocomplete="name" required>
-          </div>
-
-          <div class="field-row">
-            <div class="field">
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" autocomplete="tel" required>
-            </div>
-            <div class="field">
-              <label for="people">Portions</label>
-              <input type="number" id="people" name="people" min="1" max="30" value="1" required>
-            </div>
-          </div>
-
-          <div class="field-row">
-            <div class="field">
-              <label for="date">Pickup date</label>
-              <input type="date" id="date" name="date" required>
-            </div>
-            <div class="field">
-              <label for="time">Pickup time</label>
-              <input type="time" id="time" name="time" value="12:30" required>
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="type">Order type</label>
-            <select id="type" name="type">
-              <option>Pickup at the counter</option>
-              <option>Eat in — reserve a table</option>
-              <option>Local delivery (within 5 km)</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="order-items">What would you like?</label>
-            <textarea id="order-items" name="order" placeholder="e.g. 2× Sene Box, one mild — plus a bissap iced tea" required></textarea>
-          </div>
-
-          <button class="btn btn--primary" type="submit" style="width:100%">Send order request</button>
-
-          <p class="form-note">
-            We reply by phone within 15 minutes during opening hours. No payment is
-            taken through this form.
-          </p>
-
-          <p class="form-status" id="form-status" role="status" tabindex="-1" hidden></p>
-        </form>
-      </div>
-
     </div>
   </section>
 
@@ -157,34 +104,47 @@
     <div class="wrap">
       <div class="section-head section-head--center reveal">
         <p class="eyebrow">Questions</p>
-        <h2>Things people ask at the counter</h2>
+        <h2>Things people ask</h2>
       </div>
 
       <div class="grid grid--3 reveal">
         <div class="card">
-          <h3>Do you take card?</h3>
-          <p>Card and contactless, yes. Cash too. Card is quicker at the lunch rush.</p>
+          <h3>Do you deliver?</h3>
+          <p>Yes, all day. Call or text and we’ll take the order and your address.</p>
         </div>
         <div class="card">
-          <h3>Can I book a table?</h3>
-          <p>For groups of six or more, yes — use the form and pick “Eat in”. Smaller groups walk in.</p>
+          <h3>Is the food halal?</h3>
+          <p>Yes — everything we serve is prepared in a halal kitchen.</p>
         </div>
         <div class="card">
-          <h3>Is there parking?</h3>
-          <p>Street parking on Market Street and a public car park two minutes' walk away.</p>
+          <h3>How late are you open?</h3>
+          <p>Midnight, every night. We open at 9:00 AM the next morning.</p>
         </div>
         <div class="card">
-          <h3>Halal?</h3>
-          <p>All our chicken and beef is halal certified. Certificates are on the wall by the counter.</p>
+          <h3>When does breakfast end?</h3>
+          <p>The $10 breakfast plates are served until 11:00 AM daily.</p>
         </div>
         <div class="card">
-          <h3>Do you cater events?</h3>
-          <p>We do platters up to about forty people. Email us with the date and headcount.</p>
+          <h3>Can I order ahead?</h3>
+          <p>Please do — call or text and we’ll have it ready for pickup.</p>
         </div>
         <div class="card">
-          <h3>Any vegan options?</h3>
-          <p>The veggie rice bowl and hand-cut fries are vegan. The garden bean burger is vegetarian.</p>
+          <h3>Where exactly are you?</h3>
+          <p>151 W 116th St, between the 2/3 and B/C stops on 116th Street.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="cta reveal">
+      <div>
+        <h2>Hungry right now?</h2>
+        <p>Call or text us directly — fresh Senegalese food, right to your door.</p>
+      </div>
+      <div class="hero__actions" style="margin:0">
+        <a class="btn btn--light" href="tel:+19175696057">📞 (917) 569-6057</a>
+        <a class="btn btn--light" href="sms:+19175696057">💬 Text to order</a>
       </div>
     </div>
   </section>
@@ -197,50 +157,45 @@
       <div>
         <a class="logo" href="index.html">
           <span class="logo__mark" aria-hidden="true">S</span>
-          <span class="logo__text">Sene<small>Fast Food</small></span>
+          <span class="logo__text">Sene<small>Fast Food · Harlem</small></span>
         </a>
-        <p>Charcoal-grilled chicken, hand-made burgers and West African classics, cooked to order.</p>
-        <div class="socials">
-          <a href="#" aria-label="Sene Fast Food on Instagram">📷</a>
-          <a href="#" aria-label="Sene Fast Food on Facebook">📘</a>
-          <a href="#" aria-label="Sene Fast Food on TikTok">🎵</a>
-        </div>
+        <p>Authentic Senegalese kitchen on 116th Street — breakfast, lunch and slow-cooked dinners, made fresh every day.</p>
+        <p><strong>Halal kitchen · Dine-in · Takeout · Delivery</strong></p>
       </div>
 
       <div>
         <h4>Menu</h4>
         <ul>
-          <li><a href="menu.html#burgers">Burgers</a></li>
-          <li><a href="menu.html#chicken">Chicken</a></li>
-          <li><a href="menu.html#wraps">Wraps &amp; rice</a></li>
-          <li><a href="menu.html#sides">Sides</a></li>
-          <li><a href="menu.html#drinks">Drinks</a></li>
+          <li><a href="menu.html#breakfast">Breakfast special</a></li>
+          <li><a href="menu.html#mains">Lunch &amp; dinner</a></li>
+          <li><a href="menu.html#desserts">Desserts</a></li>
+          <li><a href="menu.html">Full menu</a></li>
         </ul>
       </div>
 
       <div>
         <h4>Visit</h4>
         <ul>
-          <li><a href="index.html#visit">Opening hours</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="contact.html#order">Order ahead</a></li>
-          <li><a href="index.html#story">Our story</a></li>
+          <li><a href="contact.html">Hours &amp; location</a></li>
+          <li><a href="index.htmlindex.html#story">Our story</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=151+W+116th+St+New+York+NY+10026" target="_blank" rel="noopener">Get directions</a></li>
         </ul>
       </div>
 
       <div>
-        <h4>Get in touch</h4>
+        <h4>Call, text &amp; order</h4>
         <ul>
-          <li>24 Market Street, City Centre</li>
-          <li><a href="tel:+15550100">+1 555 0100</a></li>
-          <li><a href="mailto:hello@senefastfood.example">hello@senefastfood.example</a></li>
+          <li>151 W 116th St, Harlem, NY 10026</li>
+          <li><a href="tel:+19175696057">(917) 569-6057</a></li>
+          <li><a href="tel:+19175696871">(917) 569-6871</a></li>
+          <li><a href="sms:+19175696057">Text to order</a></li>
         </ul>
       </div>
     </div>
 
     <div class="colophon">
-      <span>&copy; <span id="year">2026</span> Sene Fast Food. All rights reserved.</span>
-      <span>Allergen information available at the counter.</span>
+      <span>&copy; <span id="year">2026</span> Sene Fast Food · 151 W 116th St, Harlem, NYC</span>
+      <span>Open daily 9:00 AM – 12:00 AM · Halal</span>
     </div>
   </div>
 </footer>

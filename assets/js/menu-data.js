@@ -1,176 +1,160 @@
 /* Sene Fast Food — menu data.
- * Single source of truth for both the homepage highlights and the full menu page.
- * Edit prices/items here and both pages update.
+ * Single source of truth for the homepage highlights and the full menu page.
  *
- * Change CURRENCY once to switch the symbol shown everywhere.
+ * NOTE ON PRICES: only the $10 breakfast special has a confirmed price.
+ * Lunch and dinner dishes deliberately carry no price — they render with a
+ * "call for today's price" line instead of a number. Add `price:` to an item
+ * as soon as the real figure is known and it will show automatically.
  */
 window.SENE = window.SENE || {};
 
 window.SENE.CURRENCY = '$';
 
+window.SENE.PHONE      = '(917) 569-6057';
+window.SENE.PHONE_TEL  = '+19175696057';
+window.SENE.PHONE_ALT  = '(917) 569-6871';
+window.SENE.PHONE_ALT_TEL = '+19175696871';
+
 window.SENE.CATEGORIES = [
-  { id: 'all',     label: 'Everything' },
-  { id: 'burgers', label: 'Burgers' },
-  { id: 'chicken', label: 'Chicken' },
-  { id: 'wraps',   label: 'Wraps & Rice' },
-  { id: 'sides',   label: 'Sides' },
-  { id: 'drinks',  label: 'Drinks' },
-  { id: 'sweets',  label: 'Desserts' }
+  { id: 'all',       label: 'Everything' },
+  { id: 'breakfast', label: 'Breakfast' },
+  { id: 'mains',     label: 'Lunch & Dinner' },
+  { id: 'desserts',  label: 'Desserts' }
 ];
 
 window.SENE.MENU = [
-  {
-    name: 'Sene Signature Burger',
-    category: 'burgers',
-    price: 8.50,
-    desc: 'Flame-grilled beef patty, smoked cheddar, caramelised onion and our house yassa sauce in a toasted brioche bun.',
-    tags: ['Bestseller'],
-    featured: true,
-    flag: 'Chef’s pick'
-  },
-  {
-    name: 'Double Fire Burger',
-    category: 'burgers',
-    price: 11.00,
-    desc: 'Two beef patties, pepper jack, jalapeños and scotch-bonnet mayo. Built for a serious appetite.',
-    tags: ['Spicy'],
-    spicy: true
-  },
-  {
-    name: 'Garden Bean Burger',
-    category: 'burgers',
-    price: 7.50,
-    desc: 'Black bean and sweet potato patty, avocado, crisp lettuce and lime aioli.',
-    tags: ['Vegetarian']
-  },
-  {
-    name: 'Crispy Chicken Sandwich',
-    category: 'chicken',
-    price: 8.00,
-    desc: 'Buttermilk-marinated chicken thigh, pickles and honey-mustard slaw.',
-    tags: ['Bestseller'],
-    featured: true
-  },
-  {
-    name: 'Dibi Grilled Chicken',
-    category: 'chicken',
-    price: 12.50,
-    desc: 'Half chicken marinated overnight in garlic, mustard and lemon, grilled over charcoal and served with onion relish.',
-    tags: ['Grilled'],
-    featured: true,
-    flag: 'House speciality'
-  },
-  {
-    name: 'Wings Basket (8 pcs)',
-    category: 'chicken',
-    price: 9.00,
-    desc: 'Eight wings tossed in your choice of mild barbecue, sticky honey or scotch-bonnet glaze.',
-    tags: ['Spicy option'],
-    spicy: true,
-    featured: true
-  },
-  {
-    name: 'Chicken Yassa Wrap',
-    category: 'wraps',
-    price: 7.00,
-    desc: 'Onion-and-lemon braised chicken, rice, salad and mustard sauce rolled in a warm flatbread.',
-    tags: ['Quick lunch']
-  },
-  {
-    name: 'Thieboudienne Bowl',
-    category: 'wraps',
-    price: 11.50,
-    desc: 'Jollof-style rice cooked in tomato and fish stock, with seasonal vegetables and a fillet of the day.',
-    tags: ['Weekend only'],
-    flag: 'Fri – Sun'
-  },
-  {
-    name: 'Veggie Rice Bowl',
-    category: 'wraps',
-    price: 8.50,
-    desc: 'Spiced rice, roasted vegetables, black-eyed peas, herb salad and peanut dressing.',
-    tags: ['Vegan']
-  },
-  {
-    name: 'Hand-Cut Fries',
-    category: 'sides',
-    price: 3.20,
-    desc: 'Fresh potatoes cut in-house every morning, twice-fried and salted.',
-    tags: ['Vegan']
-  },
-  {
-    name: 'Attieke & Plantain',
-    category: 'sides',
-    price: 4.50,
-    desc: 'Steamed cassava couscous with sweet fried plantain and chilli oil on the side.',
-    tags: ['Vegetarian'],
-    featured: true
-  },
-  {
-    name: 'Pastels (4 pcs)',
-    category: 'sides',
-    price: 5.00,
-    desc: 'Golden fried pastries stuffed with spiced fish and herbs, served with tomato dip.',
-    tags: ['Sharing']
-  },
-  {
-    name: 'Bissap Iced Tea',
-    category: 'drinks',
-    price: 3.00,
-    desc: 'Hibiscus steeped with mint and a hint of vanilla. Sweetened or unsweetened.',
-    tags: ['House made'],
-    featured: true
-  },
-  {
-    name: 'Ginger Bouye',
-    category: 'drinks',
-    price: 3.50,
-    desc: 'Baobab fruit blended with fresh ginger and lime. Cold, thick and refreshing.',
-    tags: ['House made']
-  },
-  {
-    name: 'Soft Drinks',
-    category: 'drinks',
-    price: 2.20,
-    desc: 'Chilled cans and bottled water. Ask for the day’s selection.',
-    tags: []
-  },
-  {
-    name: 'Thiakry Cup',
-    category: 'sweets',
-    price: 4.00,
-    desc: 'Sweet millet couscous with yoghurt, nutmeg and raisins. Served cold.',
-    tags: ['House made']
-  },
-  {
-    name: 'Banana Beignets',
-    category: 'sweets',
-    price: 3.80,
-    desc: 'Warm banana fritters dusted with sugar, six to a portion.',
-    tags: ['Sharing']
-  }
-];
 
-window.SENE.COMBOS = [
+  /* ---- Breakfast — served daily until 11:00 AM, $10 flat ---- */
+
   {
-    name: 'Solo Deal',
-    price: 11.50,
-    blurb: 'Lunch sorted in under ten minutes.',
-    includes: ['Any burger or wrap', 'Regular hand-cut fries', 'Any soft drink'],
-    featured: false
-  },
-  {
-    name: 'Sene Box',
-    price: 16.90,
-    blurb: 'Our most popular plate, front to back.',
-    includes: ['Signature burger or crispy chicken', 'Large fries + plantain', 'Bissap iced tea', 'Banana beignets'],
+    name: 'Meat Sandwich',
+    category: 'breakfast',
+    price: 10,
+    desc: 'A warm French bread roll piled with seasoned, grilled beef and sautéed onions in a light sauce — Senegal’s version of a steak sandwich.',
+    tags: ['Breakfast special'],
     featured: true
   },
   {
-    name: 'Family Platter',
-    price: 42.00,
-    blurb: 'Feeds four comfortably. Order ahead for pickup.',
-    includes: ['Dibi grilled chicken (whole)', '16 wings, two sauces', 'Large attieke & plantain', '1.5L bissap jug'],
-    featured: false
+    name: 'Chicken Sandwich',
+    category: 'breakfast',
+    price: 10,
+    desc: 'Grilled, marinated chicken breast tucked into fresh French bread with onions and our house sauce — simple, savory and filling.',
+    tags: ['Breakfast special'],
+    featured: true
+  },
+  {
+    name: 'Thon (Tuna)',
+    category: 'breakfast',
+    price: 10,
+    desc: 'A cold tuna salad sandwich — flaked tuna mixed with onions, peppers and a creamy dressing on French bread. Light and tangy, a classic Senegalese breakfast.',
+    tags: ['Breakfast special']
+  },
+  {
+    name: 'Ndambé',
+    category: 'breakfast',
+    price: 10,
+    desc: 'Black-eyed peas slow-simmered in a mild tomato-onion sauce until soft and creamy, often topped with a boiled egg — a hearty bean stew scooped up with French bread.',
+    tags: ['Breakfast special', 'Vegetarian base'],
+    featured: true
+  },
+  {
+    name: 'Foie',
+    category: 'breakfast',
+    price: 10,
+    desc: 'Thin-sliced beef liver, pan-seared with onions and warm spices and served on French bread — rich and savory, liver-and-onions tucked into a sandwich.',
+    tags: ['Breakfast special']
+  },
+
+  /* ---- Lunch & dinner ----
+   * Cooked fresh in-house and rotating through the day. Prices to be confirmed.
+   * `needsCopy: true` marks a dish whose description still needs the kitchen's
+   * own wording — it renders a neutral line rather than a guess.
+   */
+
+  {
+    name: 'Thiebou Dienne',
+    category: 'mains',
+    desc: 'Senegal’s national dish — rice simmered in a rich tomato base with fish and seasonal vegetables.',
+    tags: ['Senegalese classic'],
+    flag: 'Senegalese classic',
+    featured: true
+  },
+  {
+    name: 'Thiebou Guinar',
+    category: 'mains',
+    desc: 'The same deep red rice, cooked with chicken in place of fish, and served hearty.',
+    tags: ['Grilled & hearty'],
+    flag: 'Grilled & hearty',
+    featured: true
+  },
+  {
+    name: 'Tiebou Naar',
+    category: 'mains',
+    desc: 'Rice cooked in the Moorish style with meat — served in a bowl, made to be shared.',
+    tags: ['To share'],
+    flag: 'Au bol · à partager'
+  },
+  {
+    name: 'Mbakhal Yapp',
+    category: 'mains',
+    desc: 'Rice simmered with peanut and meat until thick and savory — a house favorite.',
+    tags: ['House favorite'],
+    flag: 'House favorite',
+    featured: true
+  },
+  {
+    name: 'Dibi',
+    category: 'mains',
+    desc: 'Meat grilled over the fire and served with onions — straight off the grill.',
+    tags: ['On the grill'],
+    flag: 'Sur le gril',
+    featured: true
+  },
+  {
+    name: 'Poulet Entier',
+    category: 'mains',
+    desc: 'A whole chicken, seasoned and roasted in the oven.',
+    tags: ['Family size'],
+    flag: 'Au four'
+  },
+  {
+    name: 'C’est Bon',
+    category: 'mains',
+    desc: '',
+    needsCopy: true,
+    tags: ['Plated'],
+    flag: 'En assiette'
+  },
+  {
+    name: 'Tiere Sim',
+    category: 'mains',
+    desc: 'Steamed millet couscous, served as the evening special.',
+    tags: ['Evening special'],
+    flag: 'Spécial du soir'
+  },
+
+  /* ---- Desserts ---- */
+
+  {
+    name: 'Thiakry',
+    category: 'desserts',
+    desc: 'Fine steamed millet folded into sweetened yogurt and fresh milk, finished with raisins, vanilla and a dusting of nutmeg. Cool, creamy and lightly tangy — somewhere between rice pudding and a thick yogurt parfait.',
+    tags: ['Sweet millet & yogurt'],
+    flag: 'Sweet millet & yogurt',
+    featured: true
+  },
+  {
+    name: 'Ngalakh',
+    category: 'desserts',
+    desc: 'A rich, velvety pudding of ground millet blended with peanut butter and baobab fruit, sweetened and spiced. Nutty and mildly tart — traditionally shared with family and neighbors on holidays.',
+    tags: ['Peanut & baobab', 'Contains peanut'],
+    flag: 'Peanut & baobab'
+  },
+  {
+    name: 'Lakhou Sow',
+    category: 'desserts',
+    desc: 'Warm, smooth millet porridge topped with fresh soured milk curd, raisins and a drizzle of honey. Comforting and gently sweet — a Senegalese breakfast-or-dessert bowl loved at any hour.',
+    tags: ['Millet & fresh curd'],
+    flag: 'Millet & fresh curd'
   }
 ];

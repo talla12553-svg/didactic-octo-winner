@@ -38,80 +38,95 @@
   /* ---------------- Dish artwork ---------------- */
 
   var ART = {
-    burgers:
-      '<circle cx="60" cy="52" r="34" fill="#f6c177"/>' +
-      '<rect x="22" y="52" width="76" height="12" rx="6" fill="#8a5a2b"/>' +
-      '<path d="M20 66h80c0 6-4 9-10 9H30c-6 0-10-3-10-9z" fill="#6fae4e"/>' +
-      '<rect x="22" y="74" width="76" height="11" rx="5" fill="#e2b25e"/>' +
-      '<path d="M22 88h76c0 7-5 11-12 11H34c-7 0-12-4-12-11z" fill="#f6c177"/>',
-    chicken:
-      // Drumstick: meaty end, tapering shank, bone knuckle.
-      '<path d="M42 30c14-14 38-13 50 2 11 14 8 34-6 43-7 5-11 9-13 16l-4 12-28-10 3-12c2-7 1-13-3-19-8-12-6-25 1-32z" fill="#d98a3e"/>' +
-      '<path d="M50 39c8-8 20-9 28-2" stroke="#f0b271" stroke-width="5" stroke-linecap="round" fill="none"/>' +
-      '<path d="M41 93l28 10-5 14c-2 5-8 8-13 6l-9-3c-5-2-8-8-6-13z" fill="#f2e3cd"/>' +
-      '<circle cx="44" cy="112" r="9" fill="#f7efe1"/><circle cx="62" cy="118" r="9" fill="#f7efe1"/>',
-    wraps:
-      '<path d="M30 88l24-64c2-6 9-9 15-7l22 8c6 2 9 9 7 15L74 96z" fill="#e8cd9c"/>' +
-      '<path d="M44 78l18-48 14 5-18 48z" fill="#e05b3a" opacity=".85"/>' +
-      '<path d="M56 84l16-44 8 3-16 44z" fill="#6fae4e" opacity=".8"/>',
-    sides:
-      '<path d="M36 44h48l-6 48c-1 6-6 10-12 10H54c-6 0-11-4-12-10z" fill="#e05b3a"/>' +
-      '<g fill="#f6c177"><rect x="42" y="16" width="8" height="34" rx="4" transform="rotate(-12 46 33)"/>' +
-      '<rect x="56" y="12" width="8" height="38" rx="4"/>' +
-      '<rect x="70" y="16" width="8" height="34" rx="4" transform="rotate(12 74 33)"/></g>',
-    drinks:
-      '<path d="M40 26h40l-5 66c-.5 6-5 10-11 10h-8c-6 0-10.5-4-11-10z" fill="#c23b6d" opacity=".85"/>' +
-      '<rect x="36" y="20" width="48" height="10" rx="5" fill="#f2e3cd"/>' +
-      '<rect x="66" y="4" width="7" height="28" rx="3.5" fill="#6fae4e" transform="rotate(14 69 18)"/>',
-    sweets:
-      '<path d="M32 60c0-16 13-28 28-28s28 12 28 28z" fill="#f2e3cd"/>' +
-      '<rect x="28" y="60" width="64" height="12" rx="6" fill="#e05b3a"/>' +
-      '<path d="M34 72h52l-5 22c-1 6-6 10-12 10H51c-6 0-11-4-12-10z" fill="#d98a3e"/>'
+    // Baguette sandwich — the $10 breakfast plates are all served this way.
+    breakfast:
+      '<path d="M14 74c-4-8 0-17 9-21l58-27c9-4 19-1 23 7 4 8 0 17-9 21l-58 27c-9 4-19 1-23-7z" fill="#e8c98f"/>' +
+      '<path d="M20 66l60-28" stroke="#d9b271" stroke-width="4" stroke-linecap="round"/>' +
+      '<path d="M26 62c14 6 30 5 44-2 8-4 16-4 23 0l-9 5c-6-3-12-3-18 0-15 7-32 8-47 2z" fill="#8a5a2b"/>' +
+      '<path d="M30 56c13 5 28 4 41-2" stroke="#6fae4e" stroke-width="6" stroke-linecap="round" fill="none"/>',
+    // Bowl of rice with fish/meat and vegetables — thiebou and mbakhal.
+    // GARNISH swaps the centre and vegetable colours so a row of bowls varies.
+    mains:
+      '<path d="M16 52h88c0 26-20 44-44 44S16 78 16 52z" fill="#f2f2f2"/>' +
+      '<path d="M22 52c0-14 17-24 38-24s38 10 38 24z" fill="{rice}"/>' +
+      '<ellipse cx="60" cy="40" rx="17" ry="8" fill="{centre}"/>' +
+      '<circle cx="38" cy="45" r="5" fill="{veg}"/><circle cx="84" cy="45" r="5" fill="{veg}"/>' +
+      '<rect x="14" y="50" width="92" height="7" rx="3.5" fill="#cfcfcf"/>',
+    // Cup of thiakry / ngalakh with a spoon.
+    desserts:
+      '<path d="M30 44h60l-7 46c-1 7-7 12-14 12H51c-7 0-13-5-14-12z" fill="#f7efe1"/>' +
+      '<path d="M31 52h58l-2 14H33z" fill="#e8d3a8"/>' +
+      '<circle cx="46" cy="60" r="3.5" fill="#8a5a2b"/><circle cx="60" cy="58" r="3.5" fill="#8a5a2b"/>' +
+      '<circle cx="74" cy="61" r="3.5" fill="#8a5a2b"/>' +
+      '<rect x="26" y="40" width="68" height="9" rx="4.5" fill="#e0d2b8"/>'
   };
 
-  // A wash behind the artwork so categories read apart at a glance.
+  // A wash behind the artwork so sections read apart at a glance.
   var TINT = {
-    burgers: '#fff3e2',
-    chicken: '#fdeade',
-    wraps:   '#f2f6e8',
-    sides:   '#feeee9',
-    drinks:  '#fbeaf1',
-    sweets:  '#f6efe6'
+    breakfast: '#fff5e3',
+    mains:     '#fdeade',
+    desserts:  '#f4f1e6'
   };
 
-  // The drumstick is drawn taller than the rest, so it gets its own box.
-  var VIEWBOX = { chicken: '0 0 120 132' };
+  var GARNISH = [
+    { rice: '#e06a3a', centre: '#d98a3e', veg: '#6fae4e' },
+    { rice: '#d4552c', centre: '#e8a460', veg: '#3f8f57' },
+    { rice: '#e8843f', centre: '#c96a2c', veg: '#7cb85f' },
+    { rice: '#c85a30', centre: '#eab173', veg: '#5aa15c' }
+  ];
 
-  function dishArt(category) {
-    var art = ART[category] || ART.sides;
-    var box = VIEWBOX[category] || '0 0 120 110';
-    return '<svg viewBox="' + box + '" role="img" aria-hidden="true" focusable="false">' + art + '</svg>';
+  function dishArt(category, seed) {
+    var art = ART[category] || ART.mains;
+    if (art.indexOf('{rice}') !== -1) {
+      var g = GARNISH[(seed || 0) % GARNISH.length];
+      art = art.replace(/\{rice\}/g, g.rice)
+               .replace(/\{centre\}/g, g.centre)
+               .replace(/\{veg\}/g, g.veg);
+    }
+    return '<svg viewBox="0 0 120 110" role="img" aria-hidden="true" focusable="false">' + art + '</svg>';
   }
 
   /* ---------------- Menu rendering ---------------- */
 
   function money(value) {
-    return (SENE.CURRENCY || '$') + value.toFixed(2);
+    return (SENE.CURRENCY || '$') + (value % 1 === 0 ? value : value.toFixed(2));
   }
 
-  function dishMarkup(item) {
+  function esc(str) {
+    return String(str).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+
+  function dishMarkup(item, index) {
     var tags = (item.tags || []).map(function (t) {
-      var hot = /spicy/i.test(t) ? ' tag--hot' : '';
-      return '<span class="tag' + hot + '">' + t + '</span>';
+      var hot = /peanut|spicy/i.test(t) ? ' tag--hot' : '';
+      return '<span class="tag' + hot + '">' + esc(t) + '</span>';
     }).join('');
+
+    // Only the breakfast special has a confirmed price. Everything else shows
+    // no number at all — the note above each grid explains why, which reads
+    // better than repeating "call for price" on every card.
+    var price = item.price != null
+      ? '<span class="dish__price">' + money(item.price) + '</span>'
+      : '';
+
+    var desc = item.desc
+      ? '<p class="dish__desc">' + esc(item.desc) + '</p>'
+      : '<p class="dish__desc dish__desc--tbc">Ask the kitchen — call ' + esc(SENE.PHONE || '') + '.</p>';
 
     return '' +
       '<article class="dish" data-category="' + item.category + '">' +
         '<div class="dish__media" style="background:' + (TINT[item.category] || 'var(--surface-alt)') + '">' +
-          (item.flag ? '<span class="dish__flag">' + item.flag + '</span>' : '') +
-          dishArt(item.category) +
+          (item.flag ? '<span class="dish__flag">' + esc(item.flag) + '</span>' : '') +
+          dishArt(item.category, index) +
         '</div>' +
         '<div class="dish__body">' +
           '<div class="dish__title">' +
-            '<h3>' + item.name + '</h3>' +
-            '<span class="dish__price">' + money(item.price) + '</span>' +
+            '<h3>' + esc(item.name) + '</h3>' +
+            price +
           '</div>' +
-          '<p class="dish__desc">' + item.desc + '</p>' +
+          desc +
           (tags ? '<div class="dish__meta">' + tags + '</div>' : '') +
         '</div>' +
       '</article>';
@@ -121,10 +136,13 @@
     target.innerHTML = items.map(dishMarkup).join('');
   }
 
-  function initHighlights() {
-    var grid = document.getElementById('highlight-grid');
-    if (!grid || !SENE.MENU) return;
-    renderDishes(grid, SENE.MENU.filter(function (i) { return i.featured; }));
+  // Any element with data-dishes="<category>" is filled with that category.
+  function initSectionGrids() {
+    if (!SENE.MENU) return;
+    document.querySelectorAll('[data-dishes]').forEach(function (el) {
+      var cat = el.dataset.dishes;
+      renderDishes(el, SENE.MENU.filter(function (i) { return i.category === cat; }));
+    });
   }
 
   function initMenuPage() {
@@ -136,7 +154,7 @@
     if (filterBar && SENE.CATEGORIES) {
       filterBar.innerHTML = SENE.CATEGORIES.map(function (c, i) {
         return '<button type="button" class="filter' + (i === 0 ? ' is-active' : '') +
-               '" data-filter="' + c.id + '" aria-pressed="' + (i === 0) + '">' + c.label + '</button>';
+               '" data-filter="' + c.id + '" aria-pressed="' + (i === 0) + '">' + esc(c.label) + '</button>';
       }).join('');
     }
 
@@ -146,13 +164,13 @@
         : SENE.MENU.filter(function (i) { return i.category === category; });
 
       if (!items.length) {
-        grid.innerHTML = '<p class="empty-state">Nothing in this section right now — check back soon.</p>';
+        grid.innerHTML = '<p class="empty-state">Nothing in this section right now — give us a call.</p>';
       } else {
         renderDishes(grid, items);
       }
 
       if (count) {
-        count.textContent = items.length + (items.length === 1 ? ' item' : ' items');
+        count.textContent = items.length + (items.length === 1 ? ' dish' : ' dishes');
       }
     }
 
@@ -169,7 +187,7 @@
       });
     }
 
-    // Deep link support: menu.html#chicken opens that category.
+    // Deep link support: menu.html#desserts opens that category.
     var hash = (location.hash || '').replace('#', '');
     var known = (SENE.CATEGORIES || []).some(function (c) { return c.id === hash; });
     var start = known ? hash : 'all';
@@ -185,70 +203,22 @@
     apply(start);
   }
 
-  /* ---------------- Combos ---------------- */
+  /* ---------------- Open / closed right now ---------------- */
 
-  function initCombos() {
-    var wrap = document.getElementById('combo-grid');
-    if (!wrap || !SENE.COMBOS) return;
+  // Open every day 9:00 AM to 12:00 AM (midnight).
+  var OPEN_HOUR = 9;
+  var CLOSE_HOUR = 24;
 
-    wrap.innerHTML = SENE.COMBOS.map(function (c) {
-      return '' +
-        '<div class="combo__item' + (c.featured ? ' combo__item--featured' : '') + '">' +
-          '<h3>' + c.name + '</h3>' +
-          '<p class="combo__price">' + money(c.price) + '</p>' +
-          '<p>' + c.blurb + '</p>' +
-          '<ul class="combo__list">' +
-            c.includes.map(function (i) { return '<li>' + i + '</li>'; }).join('') +
-          '</ul>' +
-          '<a class="btn ' + (c.featured ? 'btn--primary' : 'btn--ghost') + '" href="contact.html#order">Order this</a>' +
-        '</div>';
-    }).join('');
-  }
+  function initOpenNow() {
+    var slots = document.querySelectorAll('#open-now');
+    if (!slots.length) return;
 
-  /* ---------------- Opening hours ---------------- */
+    var h = new Date().getHours();
+    var open = h >= OPEN_HOUR && h < CLOSE_HOUR;
 
-  function initHours() {
-    var table = document.querySelector('[data-hours]');
-    if (!table) return;
-    var today = new Date().getDay(); // 0 = Sunday
-    var row = table.querySelector('tr[data-day="' + today + '"]');
-    if (row) {
-      row.classList.add('is-today');
-      var th = row.querySelector('th');
-      if (th) th.insertAdjacentHTML('beforeend', ' <span class="visually-hidden">(today)</span>');
-    }
-  }
-
-  /* ---------------- Reservation / order form ---------------- */
-
-  function initForm() {
-    var form = document.getElementById('order-form');
-    if (!form) return;
-
-    var status = document.getElementById('form-status');
-    var dateField = form.querySelector('input[type="date"]');
-
-    if (dateField) {
-      var today = new Date();
-      var iso = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
-        .toISOString().slice(0, 10);
-      dateField.min = iso;
-      if (!dateField.value) dateField.value = iso;
-    }
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (!form.reportValidity()) return;
-
-      var name = (form.elements.name && form.elements.name.value.trim()) || 'there';
-      if (status) {
-        status.hidden = false;
-        status.textContent = 'Thanks ' + name + ' — this demo form is not connected to a backend yet. ' +
-          'Call the shop on the number listed to confirm your order.';
-        status.focus();
-      }
-      form.reset();
-      if (dateField) dateField.value = dateField.min;
+    slots.forEach(function (el) {
+      el.className = 'status-pill ' + (open ? 'status-pill--open' : 'status-pill--shut');
+      el.textContent = open ? 'Open now' : 'Closed — opens 9:00 AM';
     });
   }
 
@@ -284,11 +254,9 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     initNav();
-    initHighlights();
+    initSectionGrids();
     initMenuPage();
-    initCombos();
-    initHours();
-    initForm();
+    initOpenNow();
     initReveal();
     initYear();
   });
