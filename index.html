@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sene Fast Food — Authentic Senegalese Kitchen in Harlem, NYC</title>
 <meta name="description" content="Authentic Senegalese food on 116th Street in Harlem. $10 breakfast special until 11AM, thiebou dienne, dibi and traditional desserts. Open daily 9AM–12AM. Halal. Delivery available.">
-<meta name="theme-color" content="#1f5136">
+<meta name="theme-color" content="#191114">
 <meta property="og:title" content="Sene Fast Food — Senegalese kitchen in Harlem">
 <meta property="og:description" content="Authentic Senegalese food on 116th Street in Harlem. $10 breakfast special until 11AM, thiebou dienne, dibi and traditional desserts. Open daily 9AM–12AM. Halal. Delivery available.">
 <meta property="og:type" content="restaurant">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%231f5136'/><text x='16' y='23' font-size='19' font-family='Georgia,serif' fill='white' text-anchor='middle'>S</text></svg>">
-<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23f2b01e'/><text x='16' y='23' font-size='19' font-family='Georgia,serif' fill='%23191114' text-anchor='middle'>S</text></svg>">
+<link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -36,7 +36,7 @@
         <li><a href="menu.html#desserts">Desserts</a></li>
         <li><a href="index.html#story">Our story</a></li>
         <li><a href="contact.html">Visit</a></li>
-        <li><a class="btn btn--primary" href="tel:+19175696057">📞 Call to order</a></li>
+        <li><a class="btn btn--primary" href="tel:+19175696057">Call to order</a></li>
       </ul>
     </nav>
   </div>
@@ -44,11 +44,11 @@
 
 <main id="main">
 
-  <!-- ---------------- Hero ---------------- -->
+  <!-- ---------------- Hero: the board in the window ---------------- -->
   <section class="hero">
-    <div class="wrap">
-      <div class="hero__inner">
-        <p class="hero__badge">★ Authentic Senegalese kitchen · Harlem, NYC</p>
+    <div class="wrap hero__inner">
+      <div class="hero__copy">
+        <p class="eyebrow">Little Senegal · 116th Street</p>
         <h1>Real Senegalese flavor, <em>fast &amp; fresh</em> every day.</h1>
         <p class="lede">
           From sunrise sandwiches to slow-simmered stews, Sene Fast Food brings the
@@ -57,26 +57,42 @@
         </p>
         <div class="hero__actions">
           <a class="btn btn--primary" href="tel:+19175696057">Call to order</a>
-          <a class="btn btn--green" href="sms:+19175696057">Text to order</a>
-          <a class="btn btn--ghost" href="menu.html">View the menu</a>
+          <a class="btn btn--gold" href="sms:+19175696057">Text to order</a>
+          <a class="btn btn--quiet" href="menu.html">See the menu</a>
+        </div>
+        <div class="hero__stats">
+          <div><b>9AM – 12AM</b><span>Every day <span id="open-now"></span></span></div>
+          <div><b>$10</b><span>Breakfast until 11</span></div>
+          <div><b>Halal</b><span>Delivery &amp; pickup</span></div>
         </div>
       </div>
 
-      <div class="hero__crew">
-        <span data-char="kaani" data-char-delay="0"></span>
-        <span data-char="lemu" data-char-delay=".5"></span>
-        <span data-char="bissap" data-char-delay="1"></span>
-        <span data-char="jen" data-char-delay="1.5"></span>
-      <div class="hero__photo">
-        <img src="assets/img/hero.jpg" alt="A platter of Thiebou Diaga — millet couscous with braised meat, peas, shrimp and a charred lime" width="1024" height="495" fetchpriority="high" decoding="async">
-      </div>
-      </div>
+      <div class="board">
+        <div class="board__head">
+          <span data-flame></span>
+          <span class="board__title">Menu du jour</span>
+          <span data-flame></span>
+        </div>
+        <p class="board__brand">Sene Fast Food</p>
 
-      <div class="hero__stats">
-        <div><b>151 W 116th St</b><span>Harlem, New York</span></div>
-        <div><b>9AM – 12AM</b><span>Open daily <span id="open-now"></span></span></div>
-        <div><b>Delivery</b><span>Available all day</span></div>
-        <div><b>Halal</b><span>Dine-in · takeout</span></div>
+        <div class="board__stage" id="board-stage">
+          <noscript>
+            <figure class="board__plate is-on">
+              <img src="assets/img/dishes/thiebou-diaga.jpg" alt="Thiebou Diaga" width="900" height="800">
+            </figure>
+          </noscript>
+        </div>
+
+        <div class="board__foot">
+          <p class="board__foot-brand">Sene Fast Food</p>
+          <p>151 W 116th Street</p>
+          <p>
+            <a href="tel:+19175696057">917-569-6057</a> |
+            <a href="tel:+19175696871">917-569-6871</a>
+          </p>
+        </div>
+
+        <p class="board__note">Recent boards. Call to hear what’s on today.</p>
       </div>
     </div>
   </section>
@@ -115,7 +131,7 @@
   </section>
 
   <!-- ---------------- Pull quote ---------------- -->
-  <section class="section section--alt">
+  <section class="section section--board">
     <div class="wrap">
       <div class="pullquote reveal">
         <blockquote>
@@ -145,7 +161,7 @@
           and served fast — no compromises.
         </p>
         <div class="hero__actions">
-          <a class="btn btn--primary" href="menu.html">See what we cook</a>
+          <a class="btn btn--ghost" href="menu.html">See what we cook</a>
         </div>
       </div>
 
@@ -175,7 +191,7 @@
   </section>
 
   <!-- ---------------- What's cooking ---------------- -->
-  <section class="section section--alt" id="cooking">
+  <section class="section" id="cooking">
     <div class="wrap">
       <div class="section-head section-head--center reveal">
         <span data-char="ceeb"></span>
@@ -204,7 +220,7 @@
   </section>
 
   <!-- ---------------- Desserts ---------------- -->
-  <section class="section" id="desserts">
+  <section class="section section--alt" id="desserts">
     <div class="wrap">
       <div class="section-head section-head--center reveal">
         <span data-char="bissap"></span>
@@ -222,7 +238,7 @@
 
 
   <!-- ---------------- Menu du jour boards ---------------- -->
-  <section class="section" id="boards">
+  <section class="section section--board" id="boards">
     <div class="wrap">
       <div class="section-head section-head--center reveal">
         <p class="eyebrow">From the kitchen board</p>
@@ -291,7 +307,7 @@
             <dt>Delivery &amp; pickup</dt>
             <dd>Call or text ahead, or order for pickup.</dd>
           </dl>
-          <a class="btn btn--green" href="sms:+19175696057">💬 Text to order</a>
+          <a class="btn btn--gold" href="sms:+19175696057">💬 Text to order</a>
         </div>
       </div>
     </div>
@@ -373,7 +389,7 @@
 
 <div class="order-bar" role="group" aria-label="Quick order">
   <a class="btn btn--primary" href="tel:+19175696057">📞 Call</a>
-  <a class="btn btn--green" href="sms:+19175696057">💬 Text</a>
+  <a class="btn btn--gold" href="sms:+19175696057">💬 Text</a>
 </div>
 
 <script src="assets/js/characters.js"></script>

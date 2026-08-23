@@ -6,18 +6,43 @@ dependencies.
 
 ## Design direction
 
-Warm fast-casual, in the Sweetgreen mould: cream grounds, large food
-photography, generous whitespace, soft display type and pill actions, with an
-app-style sticky call/text bar on mobile.
+**The site is designed from Sene's own menu du jour board** — the poster the
+kitchen puts in the window every day — rather than from an outside reference.
 
-The palette deliberately keeps a Senegalese warmth rather than copying
-Sweetgreen's green — deep forest as the brand colour, terracotta for actions,
-gold as the accent. Every value is a token at the top of `styles.css`, so
-reskinning the site is a matter of editing that block.
+The palette is measured from those boards: a warm charcoal ground (sampled
+`#1c161a` / `#231515` / `#210e0e`), marigold header type, flame accents, white
+dish names in italic. An earlier pass used cream and terracotta, which made the
+boards look like foreign objects pasted onto a pale page.
 
-Type is Fraunces for display and Inter for UI, both self-hosted from
-`assets/fonts/` so the site makes no third-party request. Both are SIL Open
-Font License 1.1.
+The page alternates two grounds:
+
+| Ground | Colour | Carries |
+| --- | --- | --- |
+| **Board** | ember `#191114` | appetite — hero, pull quote, the board wall, the call to act |
+| **Counter** | bone `#f7f2e8` | practical — dishes, hours, address, allergens, FAQ |
+
+Type is Bricolage Grotesque for display (heavy, slightly narrowed — the boards'
+poster voice), Archivo for UI, and **Instrument Serif italic reserved for dish
+names**, which is how the kitchen sets them on the boards. All three are
+self-hosted from `assets/fonts/`, so the site makes no third-party request; all
+are SIL Open Font License 1.1.
+
+### The signature
+
+The hero is a working reproduction of the board: gold `MENU DU JOUR` header,
+the shop name, a cycling stage of recent dish photographs, and the real address
+and both phone numbers at the foot. It rotates every 4.2s, pauses on hover and
+focus, stops when the tab is hidden, and does not rotate at all under
+`prefers-reduced-motion`. The copy says "recent boards — call to hear what's on
+today", because claiming a specific dish is today's would not be true.
+
+### Colour and contrast
+
+`--flame` `#e2571f` is used for fills and on the ember ground (4.96:1). Text on
+paper uses `--flame-ink` `#ad3d0e` instead (5.45:1) — the bright flame only
+reaches 3.35:1 on bone, which fails AA for anything but large text. Focus rings
+follow the ground via an inherited `--focus` token: gold on ember, flame-ink on
+paper.
 
 ### The Ceeb Crew
 

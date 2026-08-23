@@ -122,6 +122,16 @@ window.SENE = window.SENE || {};
 
   window.SENE.CHARS = CHARS;
 
+  /* The flame off the top of every menu du jour board. A mark, not a cast
+     member — it stays faceless so the crew keeps its own register. */
+  window.SENE.flameSvg = function () {
+    return '<svg class="flame" viewBox="0 0 40 52" aria-hidden="true" focusable="false">' +
+      '<path d="M20 3c2 9-3 13-8 18C6 27 3 33 3 39c0 7 8 11 17 11s17-4 17-11c0-8-6-12-9-18-2 4-4 5-6 4 3-8 2-16-2-22z" ' +
+        'fill="' + '#e2571f' + '" stroke="' + INK + '" stroke-width="3.5" stroke-linejoin="round"/>' +
+      '<path d="M20 24c2 5 5 8 5 13 0 4-2 7-5 7s-6-3-6-7c0-4 4-8 6-13z" fill="' + GOLD + '"/>' +
+      '</svg>';
+  };
+
   /* Build one character's inline SVG.
    * `delay` staggers the idle animation so a row of them never moves in lockstep.
    */

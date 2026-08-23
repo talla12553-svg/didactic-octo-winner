@@ -121,6 +121,11 @@
 
   // Any element with data-dishes="<category>" is filled with that category.
   function initCharacters() {
+    if (SENE.flameSvg) {
+      document.querySelectorAll('[data-flame]').forEach(function (el) {
+        el.innerHTML = SENE.flameSvg();
+      });
+    }
     if (!SENE.charSvg) return;
     document.querySelectorAll('[data-char]').forEach(function (el, i) {
       el.innerHTML = SENE.charSvg(el.dataset.char, {
@@ -134,6 +139,53 @@
     document.querySelectorAll('[data-dishes]').forEach(function (el) {
       var cat = el.dataset.dishes;
       renderDishes(el, SENE.MENU.filter(function (i) { return i.category === cat; }));
+    });
+  }
+
+  /* ---------------- The live menu du jour board ----------------
+   * A working reproduction of the poster the kitchen puts in the window,
+   * cycling through the dishes we have boards for. The copy stays honest:
+   * these are recent boards, not a claim about what is on today.
+   */
+  function initLiveBoard() {
+    var stage = document.getElementById('board-stage');
+    if (!stage || !SENE.MENU) return;
+
+    var dishes = SENE.MENU.filter(function (i) { return i.photo; });
+    if (!dishes.length) return;
+
+    stage.innerHTML = dishes.map(function (d, i) {
+      return '<figure class="board__plate' + (i === 0 ? ' is-on' : '') + '">' +
+               '<img src="' + esc(d.photo) + '" alt="' + esc(d.name) + '"' +
+               (i === 0 ? ' fetchpriority="high"' : ' loading="lazy"') +
+               ' decoding="async" width="900" height="800">' +
+             '</figure>';
+    }).join('');
+
+    var plates = stage.querySelectorAll('.board__plate');
+    if (plates.length < 2) return;
+
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (still.matches) return;
+
+    var at = 0, timer = null;
+
+    function step() {
+      plates[at].classList.remove('is-on');
+      at = (at + 1) % plates.length;
+      plates[at].classList.add('is-on');
+    }
+
+    function start() { if (!timer) timer = setInterval(step, 4200); }
+    function stop()  { clearInterval(timer); timer = null; }
+
+    start();
+    stage.addEventListener('mouseenter', stop);
+    stage.addEventListener('mouseleave', start);
+    stage.addEventListener('focusin', stop);
+    stage.addEventListener('focusout', start);
+    document.addEventListener('visibilitychange', function () {
+      document.hidden ? stop() : start();
     });
   }
 
@@ -273,6 +325,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     initNav();
     initCharacters();
+    initLiveBoard();
     initSectionGrids();
     initBoards();
     initMenuPage();
