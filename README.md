@@ -1,8 +1,23 @@
 # Sene Fast Food — website
 
 Website for Sene Fast Food, an authentic Senegalese kitchen at 151 W 116th St in
-Harlem, NYC. Static HTML, CSS and vanilla JavaScript — no build step, no
-dependencies, no image files (all artwork is inline SVG).
+Harlem, NYC. Static HTML, CSS and vanilla JavaScript — no build step and no
+dependencies.
+
+## Design direction
+
+Warm fast-casual, in the Sweetgreen mould: cream grounds, large food
+photography, generous whitespace, soft display type and pill actions, with an
+app-style sticky call/text bar on mobile.
+
+The palette deliberately keeps a Senegalese warmth rather than copying
+Sweetgreen's green — deep forest as the brand colour, terracotta for actions,
+gold as the accent. Every value is a token at the top of `styles.css`, so
+reskinning the site is a matter of editing that block.
+
+Type is Fraunces for display and Inter for UI, both self-hosted from
+`assets/fonts/` so the site makes no third-party request. Both are SIL Open
+Font License 1.1.
 
 ## Pages
 
@@ -28,9 +43,16 @@ assets/
   css/styles.css        all styling, design tokens at the top of the file
   js/menu-data.js       dishes, sections and contact numbers — the data
   js/main.js            nav, menu rendering/filtering, open-now pill, reveal
+  img/hero.jpg          hero band photograph
   img/dishes/*.jpg      dish photos, cropped from the menu du jour boards
   img/boards/*.jpg      the full boards as posted
+  fonts/*.woff2         Fraunces + Inter, latin subsets
 ```
+
+Because the fonts are loaded with `@font-face`, the site must be **served over
+HTTP** to look right — opening `index.html` straight off disk gives a CORS error
+on the font files and falls back to Georgia and a system sans. Use the
+`python3 -m http.server` command above.
 
 ## Business details
 
@@ -75,10 +97,11 @@ Thiebou Guinar, Thiebou Diaga, C'est Bon and Mbakhal Yapp. Each one is used
 twice — cropped to the plate for its menu card, and in full on the homepage
 board gallery.
 
-To add a photo for another dish: crop it to roughly 4:3 or squarer, save it into
+To add a photo for another dish: crop it square, save it into
 `assets/img/dishes/` at about 900px wide, and add a `photo:` path to that item
-in `menu-data.js`. Dishes with no `photo` fall back to the SVG illustration
-automatically, so the two can be mixed freely.
+in `menu-data.js`. A dish with no `photo` renders a typographic tile instead —
+its name set large on a warm tint — which matches the photographed boards
+(those carry the dish name too), so the two mix without looking half-finished.
 
 Source images are around 1MB total. If more are added, keep them compressed —
 JPEG quality 80ish at 900px wide is roughly 150KB per photo.
@@ -98,7 +121,7 @@ Content taken from the business; a few gaps remain:
   traditional dishes generally are, not from the kitchen's own wording — worth
   a read-through. `C'est Bon` has `needsCopy: true` and shows "ask the kitchen"
   because it appears to be a house name rather than a standard dish.
-- **Photos for the other dishes.** Nine dishes still use illustrations:
+- **Photos for the other dishes.** Nine dishes still use typographic tiles:
   Thiebou Dienne, Tiebou Naar, Dibi, Poulet Entier, Tiere Sim, the five
   breakfast plates and the three desserts.
 - **Social links.** None are in the site; add them to the footer if the business

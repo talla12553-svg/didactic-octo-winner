@@ -5,11 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sene Fast Food — Authentic Senegalese Kitchen in Harlem, NYC</title>
 <meta name="description" content="Authentic Senegalese food on 116th Street in Harlem. $10 breakfast special until 11AM, thiebou dienne, dibi and traditional desserts. Open daily 9AM–12AM. Halal. Delivery available.">
-<meta name="theme-color" content="#c8102e">
+<meta name="theme-color" content="#1f5136">
 <meta property="og:title" content="Sene Fast Food — Senegalese kitchen in Harlem">
 <meta property="og:description" content="Authentic Senegalese food on 116th Street in Harlem. $10 breakfast special until 11AM, thiebou dienne, dibi and traditional desserts. Open daily 9AM–12AM. Halal. Delivery available.">
 <meta property="og:type" content="restaurant">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23c8102e'/><text x='16' y='23' font-size='19' font-family='Georgia,serif' fill='white' text-anchor='middle'>S</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%231f5136'/><text x='16' y='23' font-size='19' font-family='Georgia,serif' fill='white' text-anchor='middle'>S</text></svg>">
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -44,55 +46,31 @@
 
   <!-- ---------------- Hero ---------------- -->
   <section class="hero">
-    <div class="wrap hero__inner">
-      <div>
+    <div class="wrap">
+      <div class="hero__inner">
         <p class="hero__badge">★ Authentic Senegalese kitchen · Harlem, NYC</p>
-        <h1>Real Senegalese flavor, fast &amp; fresh every day.</h1>
+        <h1>Real Senegalese flavor, <em>fast &amp; fresh</em> every day.</h1>
         <p class="lede">
           From sunrise sandwiches to slow-simmered stews, Sene Fast Food brings the
           taste of Dakar to 116th Street — cooked fresh, served fast, and always
           with soul.
         </p>
         <div class="hero__actions">
-          <a class="btn btn--primary" href="tel:+19175696057">📞 Call to order</a>
-          <a class="btn btn--green" href="sms:+19175696057">💬 Text to order</a>
-          <a class="btn btn--ghost" href="menu.html">View full menu</a>
-        </div>
-        <div class="hero__stats">
-          <div><b>📍 116th St</b><span>151 W 116th St, Harlem</span></div>
-          <div><b>9AM – 12AM</b><span>Open daily <span id="open-now"></span></span></div>
-          <div><b>🛵 Delivery</b><span>Available all day</span></div>
+          <a class="btn btn--primary" href="tel:+19175696057">Call to order</a>
+          <a class="btn btn--green" href="sms:+19175696057">Text to order</a>
+          <a class="btn btn--ghost" href="menu.html">View the menu</a>
         </div>
       </div>
 
-      <div class="hero__art">
-        <svg viewBox="0 0 420 380" role="img" aria-label="Illustration of a bowl of Senegalese rice with fish and vegetables beside a baguette sandwich">
-          <ellipse cx="210" cy="336" rx="176" ry="28" fill="#e8ddd3"/>
+      <div class="hero__photo">
+        <img src="assets/img/hero.jpg" alt="A platter of Thiebou Diaga — millet couscous with braised meat, peas, shrimp and a charred lime" width="1024" height="495" fetchpriority="high" decoding="async">
+      </div>
 
-          <!-- baguette sandwich -->
-          <g transform="translate(232 150) rotate(-12)">
-            <path d="M0 40c-8-16 0-34 18-42l96-44c18-8 38-2 46 14 8 16 0 34-18 42l-96 44C28 62 8 56 0 40z" fill="#e8c98f"/>
-            <path d="M14 30l96-44" stroke="#d9b271" stroke-width="6" stroke-linecap="round"/>
-            <path d="M24 24c26 12 56 10 82-4 14-8 30-8 44 0l-16 8c-11-6-23-6-34 0-28 14-60 16-88 4z" fill="#8a5a2b"/>
-            <path d="M32 14c24 10 52 8 76-4" stroke="#6fae4e" stroke-width="10" stroke-linecap="round" fill="none"/>
-          </g>
-
-          <!-- bowl of thiebou -->
-          <g>
-            <path d="M40 176h200c0 60-45 100-100 100S40 236 40 176z" fill="#f4f4f4"/>
-            <path d="M52 176c0-32 39-56 88-56s88 24 88 56z" fill="#e06a3a"/>
-            <ellipse cx="140" cy="150" rx="40" ry="19" fill="#d98a3e"/>
-            <ellipse cx="140" cy="146" rx="26" ry="11" fill="#e8a460"/>
-            <circle cx="84" cy="160" r="12" fill="#6fae4e"/>
-            <circle cx="196" cy="160" r="12" fill="#6fae4e"/>
-            <circle cx="112" cy="140" r="8" fill="#f2b705"/>
-            <circle cx="170" cy="138" r="8" fill="#f2b705"/>
-            <rect x="34" y="170" width="212" height="16" rx="8" fill="#dedede"/>
-          </g>
-        </svg>
-
-        <span class="hero__tag hero__tag--one">🇸🇳 <em>Authentic</em> recipes</span>
-        <span class="hero__tag hero__tag--two">✅ <em>Halal</em> kitchen</span>
+      <div class="hero__stats">
+        <div><b>151 W 116th St</b><span>Harlem, New York</span></div>
+        <div><b>9AM – 12AM</b><span>Open daily <span id="open-now"></span></span></div>
+        <div><b>Delivery</b><span>Available all day</span></div>
+        <div><b>Halal</b><span>Dine-in · takeout</span></div>
       </div>
     </div>
   </section>
@@ -376,6 +354,11 @@
     </div>
   </div>
 </footer>
+
+<div class="order-bar" role="group" aria-label="Quick order">
+  <a class="btn btn--primary" href="tel:+19175696057">📞 Call</a>
+  <a class="btn btn--green" href="sms:+19175696057">💬 Text</a>
+</div>
 
 <script src="assets/js/menu-data.js"></script>
 <script src="assets/js/main.js"></script>

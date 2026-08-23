@@ -35,56 +35,16 @@
     });
   }
 
-  /* ---------------- Dish artwork ---------------- */
+  /* ---------------- Dish tiles ---------------- */
 
-  var ART = {
-    // Baguette sandwich — the $10 breakfast plates are all served this way.
-    breakfast:
-      '<path d="M14 74c-4-8 0-17 9-21l58-27c9-4 19-1 23 7 4 8 0 17-9 21l-58 27c-9 4-19 1-23-7z" fill="#e8c98f"/>' +
-      '<path d="M20 66l60-28" stroke="#d9b271" stroke-width="4" stroke-linecap="round"/>' +
-      '<path d="M26 62c14 6 30 5 44-2 8-4 16-4 23 0l-9 5c-6-3-12-3-18 0-15 7-32 8-47 2z" fill="#8a5a2b"/>' +
-      '<path d="M30 56c13 5 28 4 41-2" stroke="#6fae4e" stroke-width="6" stroke-linecap="round" fill="none"/>',
-    // Bowl of rice with fish/meat and vegetables — thiebou and mbakhal.
-    // GARNISH swaps the centre and vegetable colours so a row of bowls varies.
-    mains:
-      '<path d="M16 52h88c0 26-20 44-44 44S16 78 16 52z" fill="#f2f2f2"/>' +
-      '<path d="M22 52c0-14 17-24 38-24s38 10 38 24z" fill="{rice}"/>' +
-      '<ellipse cx="60" cy="40" rx="17" ry="8" fill="{centre}"/>' +
-      '<circle cx="38" cy="45" r="5" fill="{veg}"/><circle cx="84" cy="45" r="5" fill="{veg}"/>' +
-      '<rect x="14" y="50" width="92" height="7" rx="3.5" fill="#cfcfcf"/>',
-    // Cup of thiakry / ngalakh with a spoon.
-    desserts:
-      '<path d="M30 44h60l-7 46c-1 7-7 12-14 12H51c-7 0-13-5-14-12z" fill="#f7efe1"/>' +
-      '<path d="M31 52h58l-2 14H33z" fill="#e8d3a8"/>' +
-      '<circle cx="46" cy="60" r="3.5" fill="#8a5a2b"/><circle cx="60" cy="58" r="3.5" fill="#8a5a2b"/>' +
-      '<circle cx="74" cy="61" r="3.5" fill="#8a5a2b"/>' +
-      '<rect x="26" y="40" width="68" height="9" rx="4.5" fill="#e0d2b8"/>'
-  };
-
-  // A wash behind the artwork so sections read apart at a glance.
+  // Dishes without a photograph get a typographic tile instead of an
+  // illustration: the photographed boards carry the dish name too, so the two
+  // read as one system rather than photo-vs-clipart.
   var TINT = {
-    breakfast: '#fff5e3',
-    mains:     '#fdeade',
-    desserts:  '#f4f1e6'
+    breakfast: { bg: '#f3ede0', ink: '#7a5c2e' },
+    mains:     { bg: '#efe4da', ink: '#8a4a2c' },
+    desserts:  { bg: '#e9eee7', ink: '#3f5c42' }
   };
-
-  var GARNISH = [
-    { rice: '#e06a3a', centre: '#d98a3e', veg: '#6fae4e' },
-    { rice: '#d4552c', centre: '#e8a460', veg: '#3f8f57' },
-    { rice: '#e8843f', centre: '#c96a2c', veg: '#7cb85f' },
-    { rice: '#c85a30', centre: '#eab173', veg: '#5aa15c' }
-  ];
-
-  function dishArt(category, seed) {
-    var art = ART[category] || ART.mains;
-    if (art.indexOf('{rice}') !== -1) {
-      var g = GARNISH[(seed || 0) % GARNISH.length];
-      art = art.replace(/\{rice\}/g, g.rice)
-               .replace(/\{centre\}/g, g.centre)
-               .replace(/\{veg\}/g, g.veg);
-    }
-    return '<svg viewBox="0 0 120 110" role="img" aria-hidden="true" focusable="false">' + art + '</svg>';
-  }
 
   /* ---------------- Menu rendering ---------------- */
 
@@ -98,7 +58,12 @@
     });
   }
 
-  function dishMarkup(item, index) {
+  function tileStyle(category) {
+    var t = TINT[category] || TINT.mains;
+    return 'background:' + t.bg + ';color:' + t.ink;
+  }
+
+  function dishMarkup(item) {
     var tags = (item.tags || []).map(function (t) {
       var hot = /peanut|spicy/i.test(t) ? ' tag--hot' : '';
       return '<span class="tag' + hot + '">' + esc(t) + '</span>';
@@ -117,13 +82,16 @@
 
     return '' +
       '<article class="dish" data-category="' + item.category + '">' +
-        '<div class="dish__media' + (item.photo ? ' dish__media--photo' : '') + '"' +
-          (item.photo ? '' : ' style="background:' + (TINT[item.category] || 'var(--surface-alt)') + '"') + '>' +
-          (item.flag ? '<span class="dish__flag">' + esc(item.flag) + '</span>' : '') +
-          (item.photo
-            ? '<img src="' + esc(item.photo) + '" alt="' + esc(item.name) + '" loading="lazy" decoding="async" width="900" height="800">'
-            : dishArt(item.category, index)) +
-        '</div>' +
+        (item.photo
+          ? '<div class="dish__media dish__media--photo">' +
+              (item.flag ? '<span class="dish__flag">' + esc(item.flag) + '</span>' : '') +
+              '<img src="' + esc(item.photo) + '" alt="' + esc(item.name) + '"' +
+              ' loading="lazy" decoding="async" width="900" height="800">' +
+            '</div>'
+          : '<div class="dish__media dish__media--tile" style="' + tileStyle(item.category) + '">' +
+              (item.flag ? '<span class="dish__flag">' + esc(item.flag) + '</span>' : '') +
+              '<span class="dish__tile-name">' + esc(item.name) + '</span>' +
+            '</div>') +
         '<div class="dish__body">' +
           '<div class="dish__title">' +
             '<h3>' + esc(item.name) + '</h3>' +
@@ -260,6 +228,18 @@
     items.forEach(function (el) { io.observe(el); });
   }
 
+  /* ---------------- Header shadow on scroll ---------------- */
+
+  function initStickyHeader() {
+    var header = document.querySelector('.site-header');
+    if (!header) return;
+    var onScroll = function () {
+      header.classList.toggle('is-stuck', window.scrollY > 8);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
   /* ---------------- Footer year ---------------- */
 
   function initYear() {
@@ -273,6 +253,7 @@
     initBoards();
     initMenuPage();
     initOpenNow();
+    initStickyHeader();
     initReveal();
     initYear();
   });
