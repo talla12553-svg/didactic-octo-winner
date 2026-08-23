@@ -701,3 +701,52 @@ p { margin: 0 0 1rem; }
 
 .status-pill--open { background: var(--green-soft); color: var(--green); }
 .status-pill--shut { background: var(--brand-soft); color: var(--brand-dark); }
+
+/* ---------- Photo dish cards ---------- */
+
+.dish__media--photo { background: #17120f; }
+
+.dish__media--photo img {
+  /* The media box sizes itself from aspect-ratio, so its height is indefinite
+     and a percentage height on the image resolves to auto. Fill it instead. */
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.dish__flag { z-index: 1; }
+
+/* ---------- Menu du jour boards ---------- */
+
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  /* The boards are not all the same aspect ratio — let each keep its own
+     height rather than stretching one to match the tallest. */
+  align-items: start;
+}
+
+.board {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #17120f;
+  box-shadow: var(--shadow);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.board:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+.board img { width: 100%; height: auto; }
+
+@media (max-width: 960px) {
+  .board-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 520px) {
+  .board-grid { grid-template-columns: 1fr; gap: 1rem; }
+}

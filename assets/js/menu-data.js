@@ -82,9 +82,19 @@ window.SENE.MENU = [
   {
     name: 'Thiebou Guinar',
     category: 'mains',
-    desc: 'The same deep red rice, cooked with chicken in place of fish, and served hearty.',
+    photo: 'assets/img/dishes/thiebou-guinar.jpg',
+    desc: 'Deep red rice cooked in tomato under a whole roasted chicken, with mixed vegetables, green beans, pearl onions, olives, boiled egg and shrimp.',
     tags: ['Grilled & hearty'],
     flag: 'Grilled & hearty',
+    featured: true
+  },
+  {
+    name: 'Thiebou Diaga',
+    category: 'mains',
+    photo: 'assets/img/dishes/thiebou-diaga.jpg',
+    desc: 'Millet couscous under slow-braised chicken and beef with peas, peppers and shrimp, finished with a charred lime.',
+    tags: ['Slow braised'],
+    flag: 'Menu du jour',
     featured: true
   },
   {
@@ -97,7 +107,8 @@ window.SENE.MENU = [
   {
     name: 'Mbakhal Yapp',
     category: 'mains',
-    desc: 'Rice simmered with peanut and meat until thick and savory — a house favorite.',
+    photo: 'assets/img/dishes/mbakhal-yapp.jpg',
+    desc: 'Millet couscous simmered with peanut and tender beef, served with scotch bonnet, lime and a fresh pepper-and-onion relish.',
     tags: ['House favorite'],
     flag: 'House favorite',
     featured: true
@@ -120,10 +131,11 @@ window.SENE.MENU = [
   {
     name: 'C’est Bon',
     category: 'mains',
-    desc: '',
-    needsCopy: true,
-    tags: ['Plated'],
-    flag: 'En assiette'
+    photo: 'assets/img/dishes/cest-bon.jpg',
+    desc: 'A whole grilled fish over rice, piled with shrimp, crab and a fresh cucumber, tomato and pepper salsa with green chilli sauce. Built to share.',
+    tags: ['To share', 'Seafood'],
+    flag: 'En assiette',
+    featured: true
   },
   {
     name: 'Tiere Sim',
@@ -157,4 +169,12 @@ window.SENE.MENU = [
     tags: ['Millet & fresh curd'],
     flag: 'Millet & fresh curd'
   }
+];
+
+/* The "menu du jour" boards as they go out each day. */
+window.SENE.BOARDS = [
+  { img: 'assets/img/boards/board-thiebou-guinar.jpg', name: 'Thiebou Guinar' },
+  { img: 'assets/img/boards/board-thiebou-diaga.jpg',  name: 'Thiebou Diaga' },
+  { img: 'assets/img/boards/board-cest-bon.jpg',       name: 'C’est Bon' },
+  { img: 'assets/img/boards/board-mbakhal-yapp.jpg',   name: 'Mbakhal Yapp' }
 ];

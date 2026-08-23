@@ -117,9 +117,12 @@
 
     return '' +
       '<article class="dish" data-category="' + item.category + '">' +
-        '<div class="dish__media" style="background:' + (TINT[item.category] || 'var(--surface-alt)') + '">' +
+        '<div class="dish__media' + (item.photo ? ' dish__media--photo' : '') + '"' +
+          (item.photo ? '' : ' style="background:' + (TINT[item.category] || 'var(--surface-alt)') + '"') + '>' +
           (item.flag ? '<span class="dish__flag">' + esc(item.flag) + '</span>' : '') +
-          dishArt(item.category, index) +
+          (item.photo
+            ? '<img src="' + esc(item.photo) + '" alt="' + esc(item.name) + '" loading="lazy" decoding="async" width="900" height="800">'
+            : dishArt(item.category, index)) +
         '</div>' +
         '<div class="dish__body">' +
           '<div class="dish__title">' +
@@ -143,6 +146,18 @@
       var cat = el.dataset.dishes;
       renderDishes(el, SENE.MENU.filter(function (i) { return i.category === cat; }));
     });
+  }
+
+  function initBoards() {
+    var wrap = document.getElementById('board-grid');
+    if (!wrap || !SENE.BOARDS) return;
+
+    wrap.innerHTML = SENE.BOARDS.map(function (b) {
+      return '<figure class="board">' +
+               '<img src="' + esc(b.img) + '" alt="Menu du jour board for ' + esc(b.name) + '"' +
+               ' loading="lazy" decoding="async" width="720" height="1080">' +
+             '</figure>';
+    }).join('');
   }
 
   function initMenuPage() {
@@ -255,6 +270,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     initNav();
     initSectionGrids();
+    initBoards();
     initMenuPage();
     initOpenNow();
     initReveal();
