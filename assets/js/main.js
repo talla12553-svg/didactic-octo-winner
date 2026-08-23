@@ -40,11 +40,20 @@
   // Dishes without a photograph get a typographic tile instead of an
   // illustration: the photographed boards carry the dish name too, so the two
   // read as one system rather than photo-vs-clipart.
+  // Each section rotates through a small cast so a column of tiles never shows
+  // the same face six times running.
   var TINT = {
-    breakfast: { bg: '#f3ede0', ink: '#7a5c2e' },
-    mains:     { bg: '#efe4da', ink: '#8a4a2c' },
-    desserts:  { bg: '#e9eee7', ink: '#3f5c42' }
+    breakfast: { bg: '#f3ede0', ink: '#7a5c2e', cast: ['gerte', 'kaani', 'ceeb'] },
+    mains:     { bg: '#efe4da', ink: '#8a4a2c', cast: ['ceeb', 'jen', 'kaani'] },
+    desserts:  { bg: '#e9eee7', ink: '#3f5c42', cast: ['bissap', 'gerte', 'ceeb'] }
   };
+
+  function charFor(category, seed) {
+    if (!SENE.charSvg) return '';
+    var t = TINT[category] || TINT.mains;
+    var i = (seed || 0) % t.cast.length;
+    return SENE.charSvg(t.cast[i], { delay: ((seed || 0) % 5) * 0.4 });
+  }
 
   /* ---------------- Menu rendering ---------------- */
 
@@ -63,7 +72,7 @@
     return 'background:' + t.bg + ';color:' + t.ink;
   }
 
-  function dishMarkup(item) {
+  function dishMarkup(item, index) {
     var tags = (item.tags || []).map(function (t) {
       var hot = /peanut|spicy/i.test(t) ? ' tag--hot' : '';
       return '<span class="tag' + hot + '">' + esc(t) + '</span>';
@@ -90,7 +99,10 @@
             '</div>'
           : '<div class="dish__media dish__media--tile" style="' + tileStyle(item.category) + '">' +
               (item.flag ? '<span class="dish__flag">' + esc(item.flag) + '</span>' : '') +
-              '<span class="dish__tile-name">' + esc(item.name) + '</span>' +
+              '<span class="dish__tile-inner">' +
+                charFor(item.category, index) +
+                '<span class="dish__tile-name">' + esc(item.name) + '</span>' +
+              '</span>' +
             '</div>') +
         '<div class="dish__body">' +
           '<div class="dish__title">' +
@@ -108,6 +120,15 @@
   }
 
   // Any element with data-dishes="<category>" is filled with that category.
+  function initCharacters() {
+    if (!SENE.charSvg) return;
+    document.querySelectorAll('[data-char]').forEach(function (el, i) {
+      el.innerHTML = SENE.charSvg(el.dataset.char, {
+        delay: el.dataset.charDelay ? parseFloat(el.dataset.charDelay) : (i % 5) * 0.35
+      });
+    });
+  }
+
   function initSectionGrids() {
     if (!SENE.MENU) return;
     document.querySelectorAll('[data-dishes]').forEach(function (el) {
@@ -147,7 +168,9 @@
         : SENE.MENU.filter(function (i) { return i.category === category; });
 
       if (!items.length) {
-        grid.innerHTML = '<p class="empty-state">Nothing in this section right now — give us a call.</p>';
+        grid.innerHTML = '<div class="empty-state">' +
+          (SENE.charSvg ? SENE.charSvg('kaani') : '') +
+          '<p>Nothing in this section right now — give us a call.</p></div>';
       } else {
         renderDishes(grid, items);
       }
@@ -249,6 +272,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     initNav();
+    initCharacters();
     initSectionGrids();
     initBoards();
     initMenuPage();

@@ -316,7 +316,6 @@ p { margin: 0 0 1rem; }
 /* Wide photo band under the headline. */
 .hero__photo {
   position: relative;
-  margin-top: clamp(2.5rem, 6vw, 4.5rem);
   border-radius: var(--radius-xl);
   overflow: hidden;
   background: var(--green-deep);
@@ -338,7 +337,7 @@ p { margin: 0 0 1rem; }
   flex-wrap: wrap;
   justify-content: center;
   gap: clamp(1.75rem, 5vw, 4rem);
-  margin-top: clamp(2rem, 4vw, 3rem);
+  margin-top: clamp(2.75rem, 5vw, 3.75rem);
 }
 
 .hero__stats div { text-align: center; }
@@ -442,6 +441,7 @@ p { margin: 0 0 1rem; }
   border: 0;
   border-radius: 0;
   overflow: visible;
+  min-width: 0;
 }
 
 .dish__media {
@@ -908,3 +908,109 @@ p { margin: 0 0 1rem; }
 }
 
 @media print { .order-bar { display: none; } }
+
+/* ---------- The Ceeb Crew — characters ---------- */
+
+.char {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Idle motion. --char-delay staggers a row so they never move in lockstep. */
+.char__body {
+  transform-box: fill-box;
+  transform-origin: 50% 85%;
+  animation: char-bob 3.6s ease-in-out infinite;
+  animation-delay: var(--char-delay, 0s);
+}
+
+.char__eye {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: char-blink 6s ease-in-out infinite;
+  animation-delay: var(--char-delay, 0s);
+}
+
+@keyframes char-bob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-5%) rotate(-2deg); }
+}
+
+@keyframes char-blink {
+  0%, 91%, 100% { transform: scaleY(1); }
+  94%           { transform: scaleY(.1); }
+}
+
+/* Hero: the crew peeks out from BEHIND the photo band, so nobody has to
+   compete with the food for legibility. The photo sits on a higher layer
+   and crops each character to the half that lands in the cream. */
+/* The gap lives on the wrapper, not the photo: as the photo's own margin it
+   would collapse through this box and leave the crew with nowhere to stand. */
+.hero__crew {
+  position: relative;
+  margin-top: clamp(4.5rem, 8vw, 6.5rem);
+}
+
+.hero__crew .hero__photo { position: relative; z-index: 1; margin-top: 0; }
+
+.hero__crew .char {
+  position: absolute;
+  z-index: 0;
+  width: clamp(64px, 7.5vw, 104px);
+}
+
+/* All four along the top edge: peeking from the bottom would hide their
+   faces, which are set in the upper half of every character. */
+.hero__crew .char--kaani  { top: -66px; left: 5%; }
+.hero__crew .char--lemu   { top: -82px; left: 25%; }
+.hero__crew .char--bissap { top: -70px; right: 23%; }
+.hero__crew .char--jen    { top: -58px; right: 6%; }
+
+/* Green ribbon: the crew marches along the feature strip. */
+.strip li .char { width: 26px; flex: none; }
+
+/* Menu tiles: a character stands above the dish name. */
+.dish__media--tile .char {
+  width: clamp(74px, 36%, 132px);
+  flex: none;
+  margin: 0 auto .75rem;
+}
+
+/* Empty state and section flourishes. */
+.empty-state .char { width: 84px; margin: 0 auto 1rem; }
+
+.section-head .char {
+  width: 62px;
+  margin: 0 auto .75rem;
+}
+
+/* Footer line-up. */
+.footer-crew {
+  display: flex;
+  gap: .5rem;
+  margin-top: 1.25rem;
+}
+
+.footer-crew .char { width: 42px; }
+
+@media (max-width: 620px) {
+  .hero__crew .char--lemu,
+  .hero__crew .char--bissap { display: none; }
+  .hero__crew .char--kaani { top: -44px; }
+  .hero__crew .char--jen   { top: -40px; }
+}
+
+/* The global reduced-motion rule freezes these; each keyframe set ends on its
+   resting pose, so a frozen character still looks correct. */
+
+.dish__tile-inner { display: flex; flex-direction: column; align-items: center; }
+
+/* Very narrow phones: shrink the tile furniture so two columns still fit. */
+@media (max-width: 400px) {
+  .dish__media--tile { padding: .9rem; }
+  .dish__media--tile .char { width: clamp(50px, 42%, 88px); margin-bottom: .45rem; }
+  .dish__tile-name { font-size: 1.02rem; }
+  .footer-crew { flex-wrap: wrap; }
+}

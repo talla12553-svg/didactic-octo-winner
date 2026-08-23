@@ -19,6 +19,39 @@ Type is Fraunces for display and Inter for UI, both self-hosted from
 `assets/fonts/` so the site makes no third-party request. Both are SIL Open
 Font License 1.1.
 
+### The Ceeb Crew
+
+The site has its own cast of characters, defined in `assets/js/characters.js`.
+They are named in Wolof after ingredients the kitchen actually cooks with, so
+they read as Sene's own rather than generic food mascots:
+
+| Character | Is | Where it comes from |
+| --- | --- | --- |
+| **Kaani** | scotch bonnet | the heat in the mbakhal |
+| **Lëmu** | charred lime | the wedge on the Thiebou Diaga |
+| **Jën** | thiof | the fish under the thieboudienne |
+| **Gerte** | groundnut | Senegal's peanut basin |
+| **Bissap** | hibiscus | the jug by the counter |
+| **Ceeb** | grain of rice | what the whole menu is built on |
+
+*The Wolof spellings are worth a native check before this goes live.*
+
+House style, deliberately not Sweetgreen's (theirs is outline-free, muted and
+collage-ish):
+
+- Bold 5px ink outlines, round caps and joins
+- Flat fills only — no gradients, no shading
+- Slight asymmetry; nothing is perfectly centred
+- Faces are two dot eyes and one stroked smile, nothing more
+- No detail stroke ever crosses a character's face box
+
+They idle with a slow bob and blink on a stagger, so a row never moves in
+lockstep. Both animations rest on their neutral pose, so the global
+`prefers-reduced-motion` rule freezes them correctly.
+
+To place one anywhere: `<span data-char="kaani" data-char-delay=".4"></span>`.
+Menu tiles pull from a per-section cast automatically.
+
 ## Pages
 
 | File | What it is |
@@ -41,6 +74,7 @@ python3 -m http.server 8000
 ```
 assets/
   css/styles.css        all styling, design tokens at the top of the file
+  js/characters.js      the Ceeb Crew — character artwork and builder
   js/menu-data.js       dishes, sections and contact numbers — the data
   js/main.js            nav, menu rendering/filtering, open-now pill, reveal
   img/hero.jpg          hero band photograph
