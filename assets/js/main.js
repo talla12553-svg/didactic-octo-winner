@@ -245,8 +245,11 @@
       });
     }
 
-    // Deep link support: menu.html#desserts opens that category.
-    var hash = (location.hash || '').replace('#', '');
+    // Deep link support: menu.html#desserts opens that category. The
+    // single-file build routes as "#/menu@desserts" and sets startCategory
+    // instead, since the hash no longer holds the category on its own.
+    var hash = SENE.startCategory || (location.hash || '').replace('#', '');
+    SENE.startCategory = null;
     var known = (SENE.CATEGORIES || []).some(function (c) { return c.id === hash; });
     var start = known ? hash : 'all';
 
@@ -322,16 +325,23 @@
     if (el) el.textContent = String(new Date().getFullYear());
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
-    initNav();
+  /* Everything that depends on the page's own content. Exposed so a host that
+     swaps <main> without a reload (the single-file build) can re-run it. */
+  window.SENE.initContent = function () {
     initCharacters();
     initLiveBoard();
     initSectionGrids();
     initBoards();
     initMenuPage();
     initOpenNow();
-    initStickyHeader();
     initReveal();
     initYear();
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Bound once — the header and its nav persist across content swaps.
+    initNav();
+    initStickyHeader();
+    window.SENE.initContent();
   });
 })();
