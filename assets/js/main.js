@@ -479,6 +479,19 @@
     initYear();
   };
 
+  /* A host that swaps <main> without a reload — the single-file build — calls
+     this after the swap. initContent() on its own is not enough: the new
+     markup arrives in English and the motion layer has never seen it. */
+  SENE.refreshPage = function () {
+    SENE.initContent();
+    var restore = applyI18n(document);
+    if (SENE.motion) {
+      SENE.motion.refresh(document);
+      SENE.motion.open();
+      restore.forEach(function (el) { SENE.motion.show(el); });
+    }
+  };
+
   document.addEventListener('DOMContentLoaded', function () {
     // Bound once — the header and its nav persist across content swaps.
     initNav();

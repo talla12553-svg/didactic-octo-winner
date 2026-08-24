@@ -97,7 +97,7 @@ function route() {
   });
 
   window.SENE.startCategory = anchor || null;
-  window.SENE.initContent();
+  window.SENE.refreshPage();
 
   if (anchor) {
     const el = document.getElementById(anchor);
@@ -107,7 +107,12 @@ function route() {
 }
 
 addEventListener('hashchange', route);
-route();
+
+// The first route has to wait for DOMContentLoaded. This script is last, so
+// its listener runs after motion.js has installed its observer — routing at
+// parse time instead would find no observer and reveal the whole page at once.
+if (document.readyState === 'loading') addEventListener('DOMContentLoaded', route);
+else route();
 """ % json.dumps(pages)
 
 shell = f"""<title>Sene Fast Food</title>

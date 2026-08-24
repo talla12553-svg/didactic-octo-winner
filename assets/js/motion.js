@@ -329,8 +329,21 @@
     // be re-split, and anything already on screen has to come straight back
     // rather than wait for a scroll that may never come.
     show: show,
+
+    // Reveals whatever is above the fold without waiting for a scroll. Called
+    // once on load, and again by a host that swaps <main> for a new page.
+    open: openingSequence,
+
     refresh: function (scope) {
       scope = scope || document;
+
+      // A host that swaps <main> leaves the parallax loop holding nodes that
+      // are no longer in the document. Left alone it would keep measuring
+      // them every frame and never idle.
+      for (var i = live.length - 1; i >= 0; i--) {
+        if (!document.contains(live[i])) live.splice(i, 1);
+      }
+
       tagStaggers(scope);
       tagSplits(scope);
       tagSimple(scope);
