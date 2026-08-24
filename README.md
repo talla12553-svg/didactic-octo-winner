@@ -77,6 +77,71 @@ lockstep. Both animations rest on their neutral pose, so the global
 To place one anywhere: `<span data-char="kaani" data-char-delay=".4"></span>`.
 Menu tiles pull from a per-section cast automatically.
 
+## Motion
+
+Editorial and restrained: the page should feel expensive and calm, and never
+get between a hungry person and the phone number. All of it lives in
+`assets/js/motion.js` and the block at the foot of `styles.css`.
+
+| Effect | Where |
+| --- | --- |
+| Words rise out of a mask, staggered | every `h1`, `h2`, pull quote, the `$10` |
+| Children enter one after another | every grid, card row, button row, the gold strip |
+| Prose and notes fade up | ledes, eyebrows, notes, single cards |
+| A curtain wipes up | the hero poster, and only the hero poster |
+| Scroll-linked drift | the four boards in the gallery, and only those |
+| Slow push on the plate | whichever board photo is showing |
+| Sweep of light, slight lean toward the cursor | the call and text buttons |
+| Condenses, hides going down, returns going up | the header |
+| Progress hairline | under the header |
+
+Four rules hold it together:
+
+1. **Nothing is annotated in the HTML.** `motion.js` matches selectors, so the
+   markup stays clean and a new section inherits the motion for free.
+2. **Only `transform`, `opacity` and `clip-path` animate.** Nothing here can
+   force a reflow mid-scroll. On a phone throttled to a quarter of its speed
+   the page holds ~48fps through a continuous scroll with **no long tasks**.
+3. **One rAF loop**, shared, and it idles itself whenever nothing
+   scroll-linked is on screen. No per-element scroll listeners.
+4. **One easing curve** — `cubic-bezier(.16, 1, .3, 1)` — everywhere. Used
+   throughout, it is what makes separate effects read as one hand.
+
+Every hidden state is gated behind `html.js`, set by an inline script in
+`<head>` with a timeout as a safety net. **JavaScript off means a complete
+static page, not a blank one** — worth keeping true if you touch this.
+`prefers-reduced-motion` is honoured by skipping the movement, never by
+hiding anything: every effect rests on its finished state.
+
+Two things it deliberately does *not* do: parallax on the dish photographs
+(they get a pointer zoom in CSS instead, which costs nothing while scrolling),
+and a curtain on every dish card (the staggered entrance is already the
+entrance — a second effect inside it is one too many).
+
+## Languages — English, French, Wolof
+
+A switch sits in the header. The choice is remembered in `localStorage` and,
+on a first visit, taken from the browser's own language list.
+
+Everything lives in **`assets/js/i18n.js`** — three columns of strings plus the
+dish descriptions and the tag vocabulary. The engine that applies them is the
+top of `main.js`, and it is small:
+
+```html
+<p data-i18n="hero.lede">…</p>
+<meta name="description" data-i18n-attrs="content=meta.home.desc" content="…">
+```
+
+The HTML ships in English, so the untranslated page is a *complete English
+page* rather than a scaffold of empty elements. Dish **names** are never
+translated — Thiebou Dienne is Thiebou Dienne in every language, and that is
+how people ask for it at the counter.
+
+> ⚠️ **The Wolof needs a native read-through before this goes live.** It is
+> written in plain, everyday Wolof in the standard orthography, but nobody has
+> checked it. English and French are safe. It is one file and one column —
+> have someone at the counter read it and correct it.
+
 ## Pages
 
 | File | What it is |
@@ -119,15 +184,22 @@ python3 -m http.server 8000
 
 ```
 assets/
-  css/styles.css        all styling, design tokens at the top of the file
+  css/styles.css        all styling; design tokens at the top, motion at the foot
   js/characters.js      the Ceeb Crew — character artwork and builder
   js/menu-data.js       dishes, sections and contact numbers — the data
-  js/main.js            nav, menu rendering/filtering, open-now pill, reveal
-  img/hero.jpg          hero band photograph
+  js/i18n.js            English / French / Wolof strings — the translators' file
+  js/motion.js          the motion layer (see above)
+  js/main.js            language engine, nav, menu rendering, open-now pill
   img/dishes/*.jpg      dish photos, cropped from the menu du jour boards
   img/boards/*.jpg      the full boards as posted
-  fonts/*.woff2         Fraunces + Inter, latin subsets
+  img/hero.jpg          unused since the board redesign — kept, not referenced
+  fonts/*.woff2         Bricolage Grotesque, Archivo, Instrument Serif italic
 ```
+
+The script order in every page is **characters, menu-data, i18n, motion,
+main** — `motion.js` has to install its observer before `main.js` renders the
+dishes, or every entrance fires at once. `build-single.py` concatenates them
+in the same order for the same reason.
 
 Because the fonts are loaded with `@font-face`, the site must be **served over
 HTTP** to look right — opening `index.html` straight off disk gives a CORS error
@@ -190,6 +262,11 @@ JPEG quality 80ish at 900px wide is roughly 150KB per photo.
 
 Content taken from the business; a few gaps remain:
 
+- **The Wolof translation has not been checked by a native speaker.** See the
+  warning above. Until it is, consider shipping with English and French only —
+  drop the `wo` entry from `SENE.LANGS` in `i18n.js` and the switch loses that
+  button on its own.
+
 - **Lunch and dinner prices.** Only the $10 breakfast special has a confirmed
   price. The eight lunch/dinner dishes and three desserts currently show no
   price. Add `price:` to each in `menu-data.js` when the figures are known.
@@ -216,6 +293,11 @@ Content taken from the business; a few gaps remain:
 
 There is no online ordering form. Every call to action is a `tel:` or `sms:`
 link to the shop's real numbers, which is how orders are actually taken.
+
+`index.html` carries a `Restaurant` JSON-LD block — name, address, phone,
+opening hours, cuisine — so search engines and map cards read the real details
+instead of guessing at them. Its URLs are relative because the site has no
+domain yet; **make them absolute the day it gets one.**
 
 ## Browser support
 

@@ -24,8 +24,11 @@ css = re.sub(r'url\("\.\./fonts/([^"]+)"\)',
              lambda m: f'url("{data_uri("assets/fonts/" + m.group(1))}")', css)
 
 # --- JS ---
+# Order matters: motion.js has to install SENE.motion and its observer before
+# main.js runs its DOMContentLoaded pass, or every entrance would fire at once.
 js = '\n'.join((ROOT / f).read_text() for f in
-               ['assets/js/characters.js', 'assets/js/menu-data.js', 'assets/js/main.js'])
+               ['assets/js/characters.js', 'assets/js/menu-data.js',
+                'assets/js/i18n.js', 'assets/js/motion.js', 'assets/js/main.js'])
 
 # --- Page bodies ---
 def read(page):
@@ -110,6 +113,7 @@ route();
 shell = f"""<title>Sene Fast Food</title>
 <meta name="description" content="Authentic Senegalese kitchen on 116th Street in Harlem. Menu, hours and how to order.">
 <style>{css}</style>
+<script>document.documentElement.className+=' js';setTimeout(function(){{document.documentElement.classList.add('is-ready')}},1200);</script>
 
 <a class="skip-link" href="#app">Skip to content</a>
 {header}
