@@ -308,17 +308,31 @@ p { margin: 0 0 1rem; }
 }
 
 .nav a {
+  position: relative;
   color: var(--on-ember);
   text-decoration: none;
   font-weight: 500;
   font-size: .96rem;
   padding: .35rem 0;
-  border-bottom: 1.5px solid transparent;
-  transition: color .15s ease, border-color .15s ease;
+  transition: color .18s ease;
 }
 
-.nav a:hover, .nav a[aria-current="page"] { color: var(--gold); border-bottom-color: var(--gold); }
-.nav .btn { border-bottom: 0; }
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1.5px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform .34s cubic-bezier(.16,1,.3,1);
+}
+
+.nav a:hover, .nav a[aria-current="page"] { color: var(--gold); }
+.nav a:hover::after, .nav a[aria-current="page"]::after { transform: scaleX(1); }
+.nav .btn::after { display: none; }
 .nav .btn:hover { color: #fff; }
 
 .nav-toggle {
@@ -722,7 +736,6 @@ p { margin: 0 0 1rem; }
 .site-footer h4 { color: #fff; font-family: var(--font); font-size: .72rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; margin: 0 0 1.1rem; }
 .site-footer a { color: var(--on-ember-soft); text-decoration: none; transition: color .15s ease; }
 .site-footer a:hover { color: var(--gold); }
-.site-footer a:hover { color: #fff; }
 .site-footer .logo { color: #fff; margin-bottom: 1rem; }
 .site-footer .logo__text small { color: var(--on-ember-soft); }
 .site-footer .logo__mark { background: var(--gold); color: var(--ember); }
@@ -784,8 +797,10 @@ p { margin: 0 0 1rem; }
   border: 0;
 }
 
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
-.reveal.is-visible { opacity: 1; transform: none; }
+/* Entrance states are gated on `html.js`, set by an inline script in <head>.
+   With JavaScript off nothing is ever hidden — see the motion layer below. */
+.reveal { transition: opacity .6s ease, transform .6s ease; }
+.js .reveal:not(.is-visible):not(.anim) { opacity: 0; transform: translateY(18px); }
 
 /* ---------- Responsive ---------- */
 
@@ -803,26 +818,65 @@ p { margin: 0 0 1rem; }
 @media (max-width: 760px) {
   .nav-toggle { display: block; }
 
-  .nav {
+  /* Without JavaScript the nav stays a plain stacked list under the header,
+     so the site is still navigable on a phone. */
+  .nav ul { flex-direction: column; align-items: stretch; gap: 0; padding: .5rem 1.25rem 1.25rem; }
+  .nav li { border-bottom: 1px solid var(--ember-3); }
+  .nav li:last-child { border-bottom: 0; padding-top: .8rem; }
+  .nav a { display: block; padding: .85rem 0; border-bottom: 0; }
+  .nav a::after { display: none; }
+  .nav .btn { width: 100%; }
+
+  .js .nav {
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
-    background: #fff;
-    border-bottom: 1px solid var(--line);
-    box-shadow: var(--shadow);
-    display: none;
+    background: var(--ember-2);
+    border-bottom: 1px solid var(--ember-3);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity .22s ease, transform .34s cubic-bezier(.16,1,.3,1), visibility 0s .34s;
   }
 
-  .nav.is-open { display: block; }
+  .js .nav.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: opacity .22s ease, transform .34s cubic-bezier(.16,1,.3,1), visibility 0s;
+  }
 
-  .nav ul { flex-direction: column; align-items: stretch; gap: 0; padding: .5rem 1.25rem 1.25rem; }
-  .nav li { border-bottom: 1px solid var(--line); }
-  .nav li:last-child { border-bottom: 0; padding-top: .8rem; }
-  .nav a { display: block; padding: .85rem 0; border-bottom: 0; }
-  .nav .btn { width: 100%; }
+  /* The links come in one after another, so the panel unfolds rather than
+     appearing all at once. */
+  .js .nav li {
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity .28s ease, transform .34s cubic-bezier(.16,1,.3,1);
+  }
+
+  .js .nav.is-open li { opacity: 1; transform: none; }
+  .js .nav.is-open li:nth-child(1) { transition-delay: .04s; }
+  .js .nav.is-open li:nth-child(2) { transition-delay: .08s; }
+  .js .nav.is-open li:nth-child(3) { transition-delay: .12s; }
+  .js .nav.is-open li:nth-child(4) { transition-delay: .16s; }
+  .js .nav.is-open li:nth-child(5) { transition-delay: .20s; }
+  .js .nav.is-open li:nth-child(6) { transition-delay: .24s; }
 
   .site-header__inner { position: relative; }
+
+  /* logo · language · burger */
+  .lang-switch { order: 2; margin-right: .6rem; }
+  .nav-toggle { order: 3; }
+
+  /* The lockup has to share the bar with the language switch and the burger,
+     so it condenses rather than wrapping onto a second line. */
+  .site-header__inner { gap: .75rem; }
+  .logo { font-size: 1.2rem; gap: .55rem; }
+  .logo__mark { width: 36px; height: 36px; font-size: 1rem; }
+  .logo__text small { white-space: nowrap; font-size: .55rem; letter-spacing: .16em; }
+  .lang-switch button { padding: .38rem .48rem; font-size: .64rem; letter-spacing: .06em; }
 }
 
 @media (max-width: 620px) {
@@ -835,7 +889,6 @@ p { margin: 0 0 1rem; }
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem 1rem;
-    text-align: center;
   }
   .hero__stats b { font-size: 1.15rem; }
   .hero__photo { aspect-ratio: 4 / 3; }
@@ -971,6 +1024,9 @@ p { margin: 0 0 1rem; }
 @media (max-width: 620px) {
   .special { flex-direction: column; align-items: flex-start; gap: 1rem; }
   .special__price { font-size: 2.6rem; }
+  /* Stacked, the flex-basis applies to height — 260px of empty box under the
+     copy. Let the content size itself instead. */
+  .special__body { flex: 0 1 auto; }
 }
 
 /* ---------- Open / closed pill ---------- */
@@ -1193,3 +1249,234 @@ p { margin: 0 0 1rem; }
 }
 
 .notfound__crew .char { width: clamp(56px, 9vw, 84px); }
+
+/* ================================================================
+ * The motion layer
+ * ================================================================
+ * Rules, in order of importance:
+ *
+ *   1. Every hidden state is gated behind `html.js`. An inline script in
+ *      <head> sets that class, so if JavaScript is off — or fails — the page
+ *      renders complete and static rather than blank.
+ *   2. Only `transform`, `opacity` and `clip-path` are animated. Nothing here
+ *      can force a reflow mid-scroll, which is what keeps it smooth on a
+ *      three-year-old phone as well as a laptop.
+ *   3. Every effect rests on its finished state, so the reduced-motion block
+ *      at the end can switch the movement off without hiding anything.
+ *
+ * The easing is one curve throughout — cubic-bezier(.16, 1, .3, 1), a fast
+ * start into a long settle. Used everywhere, it is what makes separate
+ * effects read as one hand.
+ */
+
+:root {
+  --ease-out: cubic-bezier(.16, 1, .3, 1);
+  --enter: .8s;
+}
+
+/* ---------- Rise: prose, notes, single cards ---------- */
+
+.anim--rise {
+  transition: opacity .65s ease, transform var(--enter) var(--ease-out);
+}
+
+.js .anim--rise { opacity: 0; transform: translateY(22px); }
+.js .anim--rise.is-in { opacity: 1; transform: none; }
+
+/* ---------- Stagger: any grid, list or row of buttons ----------
+   --i is set per child by motion.js and capped, so a long grid never turns
+   into a queue you have to wait out. */
+
+.js .anim--stagger > * {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity .6s ease, transform var(--enter) var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 65ms);
+}
+
+.js .anim--stagger.is-in > * { opacity: 1; transform: none; }
+
+/* ---------- Words: headings rise out of a mask ----------
+   The mask is the word box itself. The padding/margin pair gives descenders
+   and italic overhang somewhere to live so nothing is clipped at rest. */
+
+.w {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding: 0 .06em .16em 0;
+  margin: 0 -.06em -.16em 0;
+}
+
+.js .w__i {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(112%);
+  transition: transform 1s var(--ease-out), opacity .45s ease;
+  transition-delay: calc(var(--wi, 0) * 42ms);
+}
+
+.js .anim--words.is-in .w__i { opacity: 1; transform: none; }
+
+/* ---------- Media: a curtain, not a fade ----------
+   Photographs wipe up from their own bottom edge. `round` keeps the corner
+   radius through the animation — a plain inset would square the corners for
+   the duration and read as a glitch. */
+
+.anim--media { --clip-r: var(--radius-xl); transition: clip-path 1.1s var(--ease-out); }
+
+.js .anim--media { clip-path: inset(0 0 100% 0 round var(--clip-r)); }
+.js .anim--media.is-in { clip-path: inset(0 0 0 0 round var(--clip-r)); }
+
+/* ---------- Drift: the board gallery only ----------
+   Scroll-linked parallax is the most expensive thing on the page, so it is
+   spent on the four boards and nowhere else. --p is written by one shared rAF
+   loop that idles whenever no board is on screen. The scale gives the image
+   headroom so the drift never exposes an edge. */
+
+.drift {
+  scale: 1.09;
+  transform: translate3d(0, calc(var(--p, 0) * 22px), 0);
+  will-change: transform;
+}
+
+/* ---------- Photographs answer the pointer ---------- */
+
+.dish__media--photo img { transition: transform .7s var(--ease-out); }
+.dish:hover .dish__media--photo img { transform: scale(1.05); }
+
+.card__icon { transition: transform .3s var(--ease-out), background-color .3s ease; }
+.card:hover .card__icon { transform: rotate(-6deg) scale(1.06); background: var(--brand-soft); }
+
+/* ---------- Buttons ----------
+   A light sweeps across the two order buttons on hover, and on a mouse they
+   lean very slightly toward the cursor. Both are deliberately small: the
+   point is that the button feels alive, not that it performs. */
+
+.btn--primary, .btn--gold, .btn--light { position: relative; overflow: hidden; }
+
+.btn--primary::after,
+.btn--gold::after,
+.btn--light::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 36%, rgba(255,255,255,.4) 50%, transparent 64%);
+  transform: translateX(-130%);
+  transition: transform .75s var(--ease-out);
+  pointer-events: none;
+}
+
+.btn--primary:hover::after,
+.btn--gold:hover::after,
+.btn--light:hover::after { transform: translateX(130%); }
+
+.btn.is-magnetic:hover {
+  transform: translate3d(var(--mx, 0px), calc(var(--my, 0px) - 2px), 0);
+}
+
+/* ---------- Header ----------
+   The height never changes: a sticky header that resizes shoves the whole
+   page up under the reader's eyes. It condenses by scaling its own parts
+   instead, which costs no layout at all. */
+
+.site-header {
+  transition: transform .4s var(--ease-out), background-color .3s ease, border-color .2s ease;
+}
+
+.site-header.is-condensed { background: rgba(25, 17, 20, .97); }
+.site-header.is-condensed .logo__mark { transform: scale(.86); }
+.site-header.is-condensed .logo__text small { opacity: 0; transform: translateY(-4px); }
+
+.logo__mark { transition: transform .35s var(--ease-out); }
+.logo__text small { transition: opacity .3s ease, transform .35s var(--ease-out); }
+
+/* Out of the way going down a long menu, back on any upward flick — the call
+   button is never more than one gesture away. */
+.site-header.is-away { transform: translateY(-100%); }
+
+.scroll-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--flame), var(--gold));
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* ---------- Language switch ---------- */
+
+.lang-switch {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--ember-3);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .04);
+  flex: none;
+}
+
+.lang-switch button {
+  border: 0;
+  background: transparent;
+  color: var(--on-ember-soft);
+  font: inherit;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  line-height: 1;
+  padding: .4rem .6rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color .2s ease, background-color .25s ease;
+}
+
+.lang-switch button:hover { color: #fff; }
+.lang-switch button.is-on { background: var(--gold); color: var(--ember); }
+.lang-switch button.is-on:hover { color: var(--ember); }
+
+/* ---------- The board in the window ----------
+   A slow push on whichever plate is showing. It rests at the start of the
+   move, so freezing it leaves the photograph correctly framed. */
+
+.board__plate.is-on img { animation: plate-push 9s ease-out forwards; }
+
+@keyframes plate-push {
+  from { transform: scale(1); }
+  to   { transform: scale(1.07); }
+}
+
+/* ---------- Opening sequence ----------
+   The page fades up once the webfonts have settled, so a heading never
+   reveals in the fallback face and then reflows into the real one. */
+
+.js body { opacity: 0; }
+.js.is-ready body { opacity: 1; transition: opacity .4s ease; }
+
+/* ---------- Reduced motion ----------
+   Everything above rests on its finished state, so switching the movement off
+   is a matter of skipping to that state — never of hiding anything. */
+
+@media (prefers-reduced-motion: reduce) {
+  .js .anim--rise,
+  .js .anim--stagger > *,
+  .js .w__i {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .js .anim--media { clip-path: none !important; }
+  .js body { opacity: 1 !important; }
+  .site-header.is-away { transform: none !important; }
+  .drift { transform: none !important; scale: 1; }
+  .btn.is-magnetic:hover { transform: none !important; }
+}
+
+@media (max-width: 380px) {
+  .logo__text small { display: none; }
+  .logo { font-size: 1.1rem; }
+}

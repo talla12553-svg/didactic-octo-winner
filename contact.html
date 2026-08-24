@@ -3,42 +3,51 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hours, Location & Contact — Sene Fast Food, Harlem</title>
-<meta name="description" content="Sene Fast Food is at 151 W 116th St, Harlem NYC. Open daily 9AM–12AM. Call (917) 569-6057 or text to order delivery or pickup.">
+<title data-i18n="meta.contact.title">Hours, Location &amp; Contact — Sene Fast Food, Harlem</title>
+<meta name="description" data-i18n-attrs="content=meta.contact.desc" content="Sene Fast Food is at 151 W 116th St, Harlem NYC. Open daily 9AM–12AM. Call (917) 569-6057 or text to order delivery or pickup.">
 <meta name="theme-color" content="#191114">
 <meta property="og:title" content="Sene Fast Food — Senegalese kitchen in Harlem">
 <meta property="og:description" content="Sene Fast Food is at 151 W 116th St, Harlem NYC. Open daily 9AM–12AM. Call (917) 569-6057 or text to order delivery or pickup.">
 <meta property="og:type" content="restaurant">
+<meta property="og:image" content="assets/img/dishes/thiebou-guinar.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23f2b01e'/><text x='16' y='23' font-size='19' font-family='Georgia,serif' fill='%23191114' text-anchor='middle'>S</text></svg>">
 <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/styles.css">
+<!-- Sets the class every entrance animation is gated behind, so JavaScript off
+     means a complete static page rather than a blank one. The timeout is the
+     safety net: if motion.js never runs, the page still un-hides itself. -->
+<script>document.documentElement.className+=' js';setTimeout(function(){document.documentElement.classList.add('is-ready')},1200);</script>
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to content</a>
+<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
 <header class="site-header">
   <div class="wrap site-header__inner">
     <a class="logo" href="index.html">
       <span class="logo__mark" aria-hidden="true">S</span>
-      <span class="logo__text">Sene<small>Fast Food · Harlem</small></span>
+      <span class="logo__text">Sene<small data-i18n="brand.tagline">Fast Food · Harlem</small></span>
     </a>
 
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
       <span></span>
-      <span class="visually-hidden">Menu</span>
+      <span class="visually-hidden" data-i18n="nav.open">Menu</span>
     </button>
 
-    <nav class="nav" id="primary-nav" aria-label="Primary">
+    <nav class="nav" id="primary-nav" aria-label="Primary" data-i18n-attrs="aria-label=nav.label">
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="menu.html">Menu</a></li>
-        <li><a href="menu.html#desserts">Desserts</a></li>
-        <li><a href="index.htmlindex.html#story">Our story</a></li>
-        <li><a href="contact.html" aria-current="page">Visit</a></li>
-        <li><a class="btn btn--primary" href="tel:+19175696057">Call to order</a></li>
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="menu.html" data-i18n="nav.menu">Menu</a></li>
+        <li><a href="menu.html#desserts" data-i18n="nav.desserts">Desserts</a></li>
+        <li><a href="index.html#story" data-i18n="nav.story">Our story</a></li>
+        <li><a href="contact.html" aria-current="page" data-i18n="nav.visit">Visit</a></li>
+        <li><a class="btn btn--primary" href="tel:+19175696057" data-i18n="cta.call">Call to order</a></li>
       </ul>
     </nav>
+
+    <div class="lang-switch" role="group" aria-label="Language" data-i18n-attrs="aria-label=lang.label"></div>
   </div>
 </header>
 
@@ -46,9 +55,9 @@
 
   <div class="page-head">
     <div class="wrap">
-      <p class="crumbs"><a href="index.html">Home</a> / Visit</p>
-      <h1>Hours, location &amp; contact</h1>
-      <p class="lede">
+      <p class="crumbs"><a href="index.html" data-i18n="nav.home">Home</a> / <span data-i18n="contactpage.crumb">Visit</span></p>
+      <h1 data-i18n="contactpage.title">Hours, location &amp; contact</h1>
+      <p class="lede" data-i18n="contactpage.lede">
         Open every day, late into the night — right in the heart of Harlem.
         Call or text to place a delivery or pickup order.
       </p>
@@ -57,46 +66,46 @@
 
   <section class="section">
     <div class="wrap">
-      <div class="contact-cards reveal">
+      <div class="contact-cards">
         <div class="contact-card">
           <p class="contact-card__icon" aria-hidden="true">🕘</p>
-          <h3>Hours <span id="open-now"></span></h3>
+          <h3><span data-i18n="hours.title">Hours</span> <span id="open-now"></span></h3>
           <dl>
-            <dt>Monday – Sunday</dt>
-            <dd>9:00 AM – 12:00 AM</dd>
-            <dt>Breakfast special</dt>
-            <dd>Until 11:00 AM</dd>
-            <dt>Delivery</dt>
-            <dd>All day</dd>
-            <dt>Kitchen</dt>
-            <dd>Halal</dd>
+            <dt data-i18n="hours.days">Monday – Sunday</dt>
+            <dd data-i18n="hours.daysValue">9:00 AM – 12:00 AM</dd>
+            <dt data-i18n="hours.breakfast">Breakfast special</dt>
+            <dd data-i18n="hours.breakfastValue">Until 11:00 AM</dd>
+            <dt data-i18n="hours.delivery">Delivery</dt>
+            <dd data-i18n="hours.deliveryValue">All day</dd>
+            <dt data-i18n="hours.kitchen">Kitchen</dt>
+            <dd data-i18n="hours.kitchenValue">Halal</dd>
           </dl>
         </div>
 
         <div class="contact-card">
           <p class="contact-card__icon" aria-hidden="true">📍</p>
-          <h3>Location</h3>
+          <h3 data-i18n="loc.title">Location</h3>
           <dl>
-            <dt>Address</dt>
+            <dt data-i18n="loc.address">Address</dt>
             <dd>151 W 116th Street<br>Harlem, New York, NY 10026</dd>
-            <dt>Getting here</dt>
-            <dd>A short walk from the 2/3 and B/C trains on 116th St.</dd>
+            <dt data-i18n="loc.getting">Getting here</dt>
+            <dd data-i18n="loc.gettingValue">A short walk from the 2/3 and B/C trains on 116th St.</dd>
           </dl>
-          <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=151+W+116th+St+New+York+NY+10026" target="_blank" rel="noopener">🧭 Get directions</a>
+          <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=151+W+116th+St+New+York+NY+10026" target="_blank" rel="noopener"><span aria-hidden="true">🧭</span> <span data-i18n="cta.directions">Get directions</span></a>
         </div>
 
         <div class="contact-card">
           <p class="contact-card__icon" aria-hidden="true">📞</p>
-          <h3>Call, text &amp; order</h3>
+          <h3 data-i18n="phone.title">Call, text &amp; order</h3>
           <dl>
-            <dt>Primary</dt>
+            <dt data-i18n="phone.primary">Primary</dt>
             <dd><a href="tel:+19175696057">(917) 569-6057</a></dd>
-            <dt>Alternate</dt>
+            <dt data-i18n="phone.alt">Alternate</dt>
             <dd><a href="tel:+19175696871">(917) 569-6871</a></dd>
-            <dt>Delivery &amp; pickup</dt>
-            <dd>Delivery available — call or text ahead, or place your order for pickup.</dd>
+            <dt data-i18n="phone.delivery">Delivery &amp; pickup</dt>
+            <dd data-i18n="phone.deliveryValueLong">Delivery available — call or text ahead, or place your order for pickup.</dd>
           </dl>
-          <a class="btn btn--gold" href="sms:+19175696057">💬 Text to order</a>
+          <a class="btn btn--gold" href="sms:+19175696057"><span aria-hidden="true">💬</span> <span data-i18n="cta.text">Text to order</span></a>
         </div>
       </div>
     </div>
@@ -104,49 +113,49 @@
 
   <section class="section section--alt">
     <div class="wrap">
-      <div class="section-head section-head--center reveal">
-        <p class="eyebrow">Questions</p>
-        <h2>Things people ask</h2>
+      <div class="section-head section-head--center">
+        <p class="eyebrow" data-i18n="faq.eyebrow">Questions</p>
+        <h2 data-i18n="faq.title">Things people ask</h2>
       </div>
 
-      <div class="grid grid--3 reveal">
+      <div class="grid grid--3">
         <div class="card">
-          <h3>Do you deliver?</h3>
-          <p>Yes, all day. Call or text and we’ll take the order and your address.</p>
+          <h3 data-i18n="faq.q1">Do you deliver?</h3>
+          <p data-i18n="faq.a1">Yes, all day. Call or text and we’ll take the order and your address.</p>
         </div>
         <div class="card">
-          <h3>Is the food halal?</h3>
-          <p>Yes — everything we serve is prepared in a halal kitchen.</p>
+          <h3 data-i18n="faq.q2">Is the food halal?</h3>
+          <p data-i18n="faq.a2">Yes — everything we serve is prepared in a halal kitchen.</p>
         </div>
         <div class="card">
-          <h3>How late are you open?</h3>
-          <p>Midnight, every night. We open at 9:00 AM the next morning.</p>
+          <h3 data-i18n="faq.q3">How late are you open?</h3>
+          <p data-i18n="faq.a3">Midnight, every night. We open at 9:00 AM the next morning.</p>
         </div>
         <div class="card">
-          <h3>When does breakfast end?</h3>
-          <p>The $10 breakfast plates are served until 11:00 AM daily.</p>
+          <h3 data-i18n="faq.q4">When does breakfast end?</h3>
+          <p data-i18n="faq.a4">The $10 breakfast plates are served until 11:00 AM daily.</p>
         </div>
         <div class="card">
-          <h3>Can I order ahead?</h3>
-          <p>Please do — call or text and we’ll have it ready for pickup.</p>
+          <h3 data-i18n="faq.q5">Can I order ahead?</h3>
+          <p data-i18n="faq.a5">Please do — call or text and we’ll have it ready for pickup.</p>
         </div>
         <div class="card">
-          <h3>Where exactly are you?</h3>
-          <p>151 W 116th St, between the 2/3 and B/C stops on 116th Street.</p>
+          <h3 data-i18n="faq.q6">Where exactly are you?</h3>
+          <p data-i18n="faq.a6">151 W 116th St, between the 2/3 and B/C stops on 116th Street.</p>
         </div>
       </div>
     </div>
   </section>
 
   <section class="wrap">
-    <div class="cta reveal">
+    <div class="cta">
       <div>
-        <h2>Hungry right now?</h2>
-        <p>Call or text us directly — fresh Senegalese food, right to your door.</p>
+        <h2 data-i18n="cta.hungry.title">Hungry right now?</h2>
+        <p data-i18n="cta.hungry.bodyShort">Call or text us directly — fresh Senegalese food, right to your door.</p>
       </div>
       <div class="hero__actions" style="margin:0">
         <a class="btn btn--light" href="tel:+19175696057">📞 (917) 569-6057</a>
-        <a class="btn btn--light" href="sms:+19175696057">💬 Text to order</a>
+        <a class="btn btn--light" href="sms:+19175696057"><span aria-hidden="true">💬</span> <span data-i18n="cta.text">Text to order</span></a>
       </div>
     </div>
   </section>
@@ -159,10 +168,10 @@
       <div>
         <a class="logo" href="index.html">
           <span class="logo__mark" aria-hidden="true">S</span>
-          <span class="logo__text">Sene<small>Fast Food · Harlem</small></span>
+          <span class="logo__text">Sene<small data-i18n="brand.tagline">Fast Food · Harlem</small></span>
         </a>
-        <p>Authentic Senegalese kitchen on 116th Street — breakfast, lunch and slow-cooked dinners, made fresh every day.</p>
-        <p><strong>Halal kitchen · Dine-in · Takeout · Delivery</strong></p>
+        <p data-i18n="footer.about">Authentic Senegalese kitchen on 116th Street — breakfast, lunch and slow-cooked dinners, made fresh every day.</p>
+        <p><strong data-i18n="footer.badges">Halal kitchen · Dine-in · Takeout · Delivery</strong></p>
         <div class="footer-crew" aria-hidden="true">
           <span data-char="ceeb" data-char-delay="0"></span>
           <span data-char="kaani" data-char-delay=".3"></span>
@@ -174,49 +183,51 @@
       </div>
 
       <div>
-        <h4>Menu</h4>
+        <h4 data-i18n="footer.menu">Menu</h4>
         <ul>
-          <li><a href="menu.html#breakfast">Breakfast special</a></li>
-          <li><a href="menu.html#mains">Lunch &amp; dinner</a></li>
-          <li><a href="menu.html#desserts">Desserts</a></li>
-          <li><a href="menu.html">Full menu</a></li>
+          <li><a href="menu.html#breakfast" data-i18n="footer.breakfast">Breakfast special</a></li>
+          <li><a href="menu.html#mains" data-i18n="footer.mains">Lunch &amp; dinner</a></li>
+          <li><a href="menu.html#desserts" data-i18n="footer.desserts">Desserts</a></li>
+          <li><a href="menu.html" data-i18n="footer.full">Full menu</a></li>
         </ul>
       </div>
 
       <div>
-        <h4>Visit</h4>
+        <h4 data-i18n="footer.visit">Visit</h4>
         <ul>
-          <li><a href="contact.html">Hours &amp; location</a></li>
-          <li><a href="index.htmlindex.html#story">Our story</a></li>
-          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=151+W+116th+St+New+York+NY+10026" target="_blank" rel="noopener">Get directions</a></li>
+          <li><a href="contact.html" data-i18n="footer.hoursLink">Hours &amp; location</a></li>
+          <li><a href="index.html#story" data-i18n="nav.story">Our story</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=151+W+116th+St+New+York+NY+10026" target="_blank" rel="noopener" data-i18n="cta.directions">Get directions</a></li>
         </ul>
       </div>
 
       <div>
-        <h4>Call, text &amp; order</h4>
+        <h4 data-i18n="footer.order">Call, text &amp; order</h4>
         <ul>
           <li>151 W 116th St, Harlem, NY 10026</li>
           <li><a href="tel:+19175696057">(917) 569-6057</a></li>
           <li><a href="tel:+19175696871">(917) 569-6871</a></li>
-          <li><a href="sms:+19175696057">Text to order</a></li>
+          <li><a href="sms:+19175696057" data-i18n="cta.text">Text to order</a></li>
         </ul>
       </div>
     </div>
 
     <div class="colophon">
-      <span>&copy; <span id="year">2026</span> Sene Fast Food · 151 W 116th St, Harlem, NYC</span>
-      <span>Open daily 9:00 AM – 12:00 AM · Halal</span>
+      <span>&copy; <span id="year">2026</span> <span data-i18n="colophon.rights">Sene Fast Food · 151 W 116th St, Harlem, NYC</span></span>
+      <span data-i18n="colophon.hours">Open daily 9:00 AM – 12:00 AM · Halal</span>
     </div>
   </div>
 </footer>
 
-<div class="order-bar" role="group" aria-label="Quick order">
-  <a class="btn btn--primary" href="tel:+19175696057">📞 Call</a>
-  <a class="btn btn--gold" href="sms:+19175696057">💬 Text</a>
+<div class="order-bar" role="group" aria-label="Quick order" data-i18n-attrs="aria-label=cta.orderBar">
+  <a class="btn btn--primary" href="tel:+19175696057"><span aria-hidden="true">📞</span> <span data-i18n="cta.callShort">Call</span></a>
+  <a class="btn btn--gold" href="sms:+19175696057"><span aria-hidden="true">💬</span> <span data-i18n="cta.textShort">Text</span></a>
 </div>
 
 <script src="assets/js/characters.js"></script>
 <script src="assets/js/menu-data.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/motion.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

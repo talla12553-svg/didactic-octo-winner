@@ -3,42 +3,51 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sene Fast Food — Authentic Senegalese Kitchen in Harlem, NYC</title>
-<meta name="description" content="Authentic Senegalese food on 116th Street in Harlem. $10 breakfast special until 11AM, thiebou dienne, dibi and traditional desserts. Open daily 9AM–12AM. Halal. Delivery available.">
+<title data-i18n="meta.home.title">Sene Fast Food — Authentic Senegalese Kitchen in Harlem, NYC</title>
+<meta name="description" data-i18n-attrs="content=meta.home.desc" content="Authentic Senegalese food on 116th Street in Harlem. $10 breakfast special until 11AM, thiebou dienne, dibi and traditional desserts. Open daily 9AM–12AM. Halal. Delivery available.">
 <meta name="theme-color" content="#191114">
 <meta property="og:title" content="Sene Fast Food — Senegalese kitchen in Harlem">
 <meta property="og:description" content="Authentic Senegalese food on 116th Street in Harlem. $10 breakfast special until 11AM, thiebou dienne, dibi and traditional desserts. Open daily 9AM–12AM. Halal. Delivery available.">
 <meta property="og:type" content="restaurant">
+<meta property="og:image" content="assets/img/dishes/thiebou-guinar.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23f2b01e'/><text x='16' y='23' font-size='19' font-family='Georgia,serif' fill='%23191114' text-anchor='middle'>S</text></svg>">
 <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/styles.css">
+<!-- Sets the class every entrance animation is gated behind, so JavaScript off
+     means a complete static page rather than a blank one. The timeout is the
+     safety net: if motion.js never runs, the page still un-hides itself. -->
+<script>document.documentElement.className+=' js';setTimeout(function(){document.documentElement.classList.add('is-ready')},1200);</script>
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to content</a>
+<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
 <header class="site-header">
   <div class="wrap site-header__inner">
     <a class="logo" href="index.html">
       <span class="logo__mark" aria-hidden="true">S</span>
-      <span class="logo__text">Sene<small>Fast Food · Harlem</small></span>
+      <span class="logo__text">Sene<small data-i18n="brand.tagline">Fast Food · Harlem</small></span>
     </a>
 
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
       <span></span>
-      <span class="visually-hidden">Menu</span>
+      <span class="visually-hidden" data-i18n="nav.open">Menu</span>
     </button>
 
-    <nav class="nav" id="primary-nav" aria-label="Primary">
+    <nav class="nav" id="primary-nav" aria-label="Primary" data-i18n-attrs="aria-label=nav.label">
       <ul>
-        <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="menu.html">Menu</a></li>
-        <li><a href="menu.html#desserts">Desserts</a></li>
-        <li><a href="index.html#story">Our story</a></li>
-        <li><a href="contact.html">Visit</a></li>
-        <li><a class="btn btn--primary" href="tel:+19175696057">Call to order</a></li>
+        <li><a href="index.html" aria-current="page" data-i18n="nav.home">Home</a></li>
+        <li><a href="menu.html" data-i18n="nav.menu">Menu</a></li>
+        <li><a href="menu.html#desserts" data-i18n="nav.desserts">Desserts</a></li>
+        <li><a href="index.html#story" data-i18n="nav.story">Our story</a></li>
+        <li><a href="contact.html" data-i18n="nav.visit">Visit</a></li>
+        <li><a class="btn btn--primary" href="tel:+19175696057" data-i18n="cta.call">Call to order</a></li>
       </ul>
     </nav>
+
+    <div class="lang-switch" role="group" aria-label="Language" data-i18n-attrs="aria-label=lang.label"></div>
   </div>
 </header>
 
@@ -48,29 +57,29 @@
   <section class="hero">
     <div class="wrap hero__inner">
       <div class="hero__copy">
-        <p class="eyebrow">Little Senegal · 116th Street</p>
-        <h1>Real Senegalese flavor, <em>fast &amp; fresh</em> every day.</h1>
-        <p class="lede">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Little Senegal · 116th Street</p>
+        <h1 data-i18n="hero.title">Real Senegalese flavor, <em>fast &amp; fresh</em> every day.</h1>
+        <p class="lede" data-i18n="hero.lede">
           From sunrise sandwiches to slow-simmered stews, Sene Fast Food brings the
           taste of Dakar to 116th Street — cooked fresh, served fast, and always
           with soul.
         </p>
         <div class="hero__actions">
-          <a class="btn btn--primary" href="tel:+19175696057">Call to order</a>
-          <a class="btn btn--gold" href="sms:+19175696057">Text to order</a>
-          <a class="btn btn--quiet" href="menu.html">See the menu</a>
+          <a class="btn btn--primary" href="tel:+19175696057" data-i18n="cta.call">Call to order</a>
+          <a class="btn btn--gold" href="sms:+19175696057" data-i18n="cta.text">Text to order</a>
+          <a class="btn btn--quiet" href="menu.html" data-i18n="cta.seeMenu">See the menu</a>
         </div>
         <div class="hero__stats">
-          <div><b>9AM – 12AM</b><span>Every day <span id="open-now"></span></span></div>
-          <div><b>$10</b><span>Breakfast until 11</span></div>
-          <div><b>Halal</b><span>Delivery &amp; pickup</span></div>
+          <div><b data-i18n="hero.hours">9AM – 12AM</b><span><span data-i18n="hero.everyDay">Every day</span> <span id="open-now"></span></span></div>
+          <div><b>$10</b><span data-i18n="hero.breakfastUntil">Breakfast until 11</span></div>
+          <div><b data-i18n="hero.halal">Halal</b><span data-i18n="hero.deliveryPickup">Delivery &amp; pickup</span></div>
         </div>
       </div>
 
       <div class="board">
         <div class="board__head">
           <span data-flame></span>
-          <span class="board__title">Menu du jour</span>
+          <span class="board__title" data-i18n="board.title">Menu du jour</span>
           <span data-flame></span>
         </div>
         <p class="board__brand">Sene Fast Food</p>
@@ -92,7 +101,7 @@
           </p>
         </div>
 
-        <p class="board__note">Recent boards. Call to hear what’s on today.</p>
+        <p class="board__note" data-i18n="board.note">Recent boards. Call to hear what’s on today.</p>
       </div>
     </div>
   </section>
@@ -101,11 +110,11 @@
   <div class="strip">
     <div class="wrap">
       <ul>
-        <li><span data-char="ceeb" data-char-delay="0"></span> Made fresh daily</li>
-        <li><span data-char="jen" data-char-delay=".4"></span> Authentic recipes</li>
-        <li><span data-char="lemu" data-char-delay=".8"></span> Delivery &amp; pickup</li>
-        <li><span data-char="gerte" data-char-delay="1.2"></span> Halal</li>
-        <li><span data-char="kaani" data-char-delay="1.6"></span> Dine-in · takeout</li>
+        <li><span data-char="ceeb" data-char-delay="0"></span> <span data-i18n="strip.fresh">Made fresh daily</span></li>
+        <li><span data-char="jen" data-char-delay=".4"></span> <span data-i18n="strip.authentic">Authentic recipes</span></li>
+        <li><span data-char="lemu" data-char-delay=".8"></span> <span data-i18n="strip.delivery">Delivery &amp; pickup</span></li>
+        <li><span data-char="gerte" data-char-delay="1.2"></span> <span data-i18n="strip.halal">Halal</span></li>
+        <li><span data-char="kaani" data-char-delay="1.6"></span> <span data-i18n="strip.dinein">Dine-in · takeout</span></li>
       </ul>
     </div>
   </div>
@@ -116,8 +125,8 @@
       <div class="special reveal">
         <p class="special__price">$10</p>
         <div class="special__body">
-          <h3>Breakfast special — served daily until 11 AM</h3>
-          <p>Every breakfast plate is $10 flat, made fresh every morning on French bread.</p>
+          <h3 data-i18n="special.title">Breakfast special — served daily until 11 AM</h3>
+          <p data-i18n="special.body">Every breakfast plate is $10 flat, made fresh every morning on French bread.</p>
           <ul class="special__items">
             <li>Meat Sandwich</li>
             <li>Chicken Sandwich</li>
@@ -133,12 +142,12 @@
   <!-- ---------------- Pull quote ---------------- -->
   <section class="section section--board">
     <div class="wrap">
-      <div class="pullquote reveal">
-        <blockquote>
+      <div class="pullquote">
+        <blockquote data-i18n="quote.text">
           “Every dish carries a recipe passed down through generations — Sene is
           Harlem’s home for Senegalese comfort food.”
         </blockquote>
-        <cite>— Sene Fast Food Kitchen</cite>
+        <cite data-i18n="quote.cite">— Sene Fast Food Kitchen</cite>
       </div>
     </div>
   </section>
@@ -146,45 +155,45 @@
   <!-- ---------------- Story ---------------- -->
   <section class="section" id="story">
     <div class="wrap contact-grid">
-      <div class="reveal">
-        <p class="eyebrow">Our story</p>
-        <h2>Senegal on 116th Street</h2>
-        <p>
+      <div>
+        <p class="eyebrow" data-i18n="story.eyebrow">Our story</p>
+        <h2 data-i18n="story.title">Senegal on 116th Street</h2>
+        <p class="story-p" data-i18n="story.p1">
           Sene Fast Food was built on one idea: real West African cooking shouldn’t
           take all day to get. We fire up our grills every morning to serve the Harlem
           community hearty breakfasts, hearty lunches, and slow-cooked dinners rooted
           in Senegalese tradition.
         </p>
-        <p>
+        <p class="story-p" data-i18n="story.p2">
           Whether you’re grabbing a $10 breakfast on your way to work or ordering a
           family-size Dibi for dinner, every plate is made fresh, seasoned generously,
           and served fast — no compromises.
         </p>
         <div class="hero__actions">
-          <a class="btn btn--ghost" href="menu.html">See what we cook</a>
+          <a class="btn btn--ghost" href="menu.html" data-i18n="story.cta">See what we cook</a>
         </div>
       </div>
 
-      <div class="grid grid--2 reveal">
+      <div class="grid grid--2">
         <div class="card">
           <div class="card__icon" aria-hidden="true">🔥</div>
-          <h3>Made fresh daily</h3>
-          <p>Grills on every morning. Nothing sits waiting under a lamp.</p>
+          <h3 data-i18n="card.fresh.title">Made fresh daily</h3>
+          <p data-i18n="card.fresh.desc">Grills on every morning. Nothing sits waiting under a lamp.</p>
         </div>
         <div class="card">
           <div class="card__icon" aria-hidden="true">🇸🇳</div>
-          <h3>Authentic recipes</h3>
-          <p>Dishes cooked the way they are at home, passed down through generations.</p>
+          <h3 data-i18n="card.authentic.title">Authentic recipes</h3>
+          <p data-i18n="card.authentic.desc">Dishes cooked the way they are at home, passed down through generations.</p>
         </div>
         <div class="card">
           <div class="card__icon" aria-hidden="true">✅</div>
-          <h3>Halal kitchen</h3>
-          <p>Everything we serve is prepared in a halal kitchen.</p>
+          <h3 data-i18n="card.halal.title">Halal kitchen</h3>
+          <p data-i18n="card.halal.desc">Everything we serve is prepared in a halal kitchen.</p>
         </div>
         <div class="card">
           <div class="card__icon" aria-hidden="true">🛵</div>
-          <h3>Delivery &amp; pickup</h3>
-          <p>Call or text ahead for delivery, or order for pickup on your way past.</p>
+          <h3 data-i18n="card.delivery.title">Delivery &amp; pickup</h3>
+          <p data-i18n="card.delivery.desc">Call or text ahead for delivery, or order for pickup on your way past.</p>
         </div>
       </div>
     </div>
@@ -193,22 +202,22 @@
   <!-- ---------------- What's cooking ---------------- -->
   <section class="section" id="cooking">
     <div class="wrap">
-      <div class="section-head section-head--center reveal">
+      <div class="section-head section-head--center">
         <span data-char="ceeb"></span>
-        <p class="eyebrow">From our kitchen</p>
-        <h2>What’s cooking at Sene</h2>
-        <p class="lede">
+        <p class="eyebrow" data-i18n="cooking.eyebrow">From our kitchen</p>
+        <h2 data-i18n="cooking.title">What’s cooking at Sene</h2>
+        <p class="lede" data-i18n="cooking.lede">
           Real plates, straight off our grill — this is what’s landing on the table today.
         </p>
       </div>
 
-      <p class="note reveal">
+      <p class="note" data-i18n="cooking.note">
         Dishes rotate through the day, so this is a sample of our cooking rather than a
         fixed daily menu. Call <a href="tel:+19175696057">(917) 569-6057</a> and we’ll
         tell you what’s ready right now.
       </p>
 
-      <div class="menu-grid reveal" data-dishes="mains">
+      <div class="menu-grid" data-dishes="mains">
         <noscript>
           <p class="empty-state">
             Enable JavaScript to see today’s dishes, or
@@ -222,36 +231,35 @@
   <!-- ---------------- Desserts ---------------- -->
   <section class="section section--alt" id="desserts">
     <div class="wrap">
-      <div class="section-head section-head--center reveal">
+      <div class="section-head section-head--center">
         <span data-char="bissap"></span>
-        <p class="eyebrow">Sweet endings</p>
-        <h2>Traditional Senegalese desserts</h2>
-        <p class="lede">
+        <p class="eyebrow" data-i18n="desserts.eyebrow">Sweet endings</p>
+        <h2 data-i18n="desserts.title">Traditional Senegalese desserts</h2>
+        <p class="lede" data-i18n="desserts.lede">
           The sweet side of Senegal — millet, peanut and fresh milk desserts served the
           way they are at home.
         </p>
       </div>
 
-      <div class="menu-grid reveal" data-dishes="desserts"></div>
+      <div class="menu-grid" data-dishes="desserts"></div>
     </div>
   </section>
-
 
   <!-- ---------------- Menu du jour boards ---------------- -->
   <section class="section section--board" id="boards">
     <div class="wrap">
-      <div class="section-head section-head--center reveal">
-        <p class="eyebrow">From the kitchen board</p>
-        <h2>What we post each day</h2>
-        <p class="lede">
+      <div class="section-head section-head--center">
+        <p class="eyebrow" data-i18n="boards.eyebrow">From the kitchen board</p>
+        <h2 data-i18n="boards.title">What we post each day</h2>
+        <p class="lede" data-i18n="boards.lede">
           We put out a fresh board for the kitchen — a look at how we cook and plate.
           Dishes rotate, so call ahead to hear what’s on today.
         </p>
       </div>
 
-      <div class="board-grid reveal" id="board-grid"></div>
+      <div class="board-grid" id="board-grid"></div>
 
-      <p class="note reveal" style="margin:2rem 0 0">
+      <p class="note" style="margin:2rem 0 0" data-i18n="boards.note">
         These boards are a sample of our cooking, not a fixed daily menu — give us a
         call on <a href="tel:+19175696057">(917) 569-6057</a> and we’ll tell you
         what’s ready right now.
@@ -262,52 +270,52 @@
   <!-- ---------------- Visit ---------------- -->
   <section class="section section--alt" id="visit">
     <div class="wrap">
-      <div class="section-head section-head--center reveal">
-        <p class="eyebrow">Visit us</p>
-        <h2>Hours, location &amp; contact</h2>
-        <p class="lede">Open every day, late into the night — right in the heart of Harlem.</p>
+      <div class="section-head section-head--center">
+        <p class="eyebrow" data-i18n="visit.eyebrow">Visit us</p>
+        <h2 data-i18n="visit.title">Hours, location &amp; contact</h2>
+        <p class="lede" data-i18n="visit.lede">Open every day, late into the night — right in the heart of Harlem.</p>
       </div>
 
-      <div class="contact-cards reveal">
+      <div class="contact-cards">
         <div class="contact-card">
           <p class="contact-card__icon" aria-hidden="true">🕘</p>
-          <h3>Hours</h3>
+          <h3 data-i18n="hours.title">Hours</h3>
           <dl>
-            <dt>Monday – Sunday</dt>
-            <dd>9:00 AM – 12:00 AM</dd>
-            <dt>Breakfast special</dt>
-            <dd>Until 11:00 AM</dd>
-            <dt>Delivery</dt>
-            <dd>All day</dd>
-            <dt>Kitchen</dt>
-            <dd>Halal</dd>
+            <dt data-i18n="hours.days">Monday – Sunday</dt>
+            <dd data-i18n="hours.daysValue">9:00 AM – 12:00 AM</dd>
+            <dt data-i18n="hours.breakfast">Breakfast special</dt>
+            <dd data-i18n="hours.breakfastValue">Until 11:00 AM</dd>
+            <dt data-i18n="hours.delivery">Delivery</dt>
+            <dd data-i18n="hours.deliveryValue">All day</dd>
+            <dt data-i18n="hours.kitchen">Kitchen</dt>
+            <dd data-i18n="hours.kitchenValue">Halal</dd>
           </dl>
         </div>
 
         <div class="contact-card">
           <p class="contact-card__icon" aria-hidden="true">📍</p>
-          <h3>Location</h3>
+          <h3 data-i18n="loc.title">Location</h3>
           <dl>
-            <dt>Address</dt>
+            <dt data-i18n="loc.address">Address</dt>
             <dd>151 W 116th Street<br>Harlem, New York, NY 10026</dd>
-            <dt>Getting here</dt>
-            <dd>A short walk from the 2/3 and B/C trains on 116th St.</dd>
+            <dt data-i18n="loc.getting">Getting here</dt>
+            <dd data-i18n="loc.gettingValue">A short walk from the 2/3 and B/C trains on 116th St.</dd>
           </dl>
-          <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=151+W+116th+St+New+York+NY+10026" target="_blank" rel="noopener">🧭 Get directions</a>
+          <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=151+W+116th+St+New+York+NY+10026" target="_blank" rel="noopener"><span aria-hidden="true">🧭</span> <span data-i18n="cta.directions">Get directions</span></a>
         </div>
 
         <div class="contact-card">
           <p class="contact-card__icon" aria-hidden="true">📞</p>
-          <h3>Call, text &amp; order</h3>
+          <h3 data-i18n="phone.title">Call, text &amp; order</h3>
           <dl>
-            <dt>Primary</dt>
+            <dt data-i18n="phone.primary">Primary</dt>
             <dd><a href="tel:+19175696057">(917) 569-6057</a></dd>
-            <dt>Alternate</dt>
+            <dt data-i18n="phone.alt">Alternate</dt>
             <dd><a href="tel:+19175696871">(917) 569-6871</a></dd>
-            <dt>Delivery &amp; pickup</dt>
-            <dd>Call or text ahead, or order for pickup.</dd>
+            <dt data-i18n="phone.delivery">Delivery &amp; pickup</dt>
+            <dd data-i18n="phone.deliveryValue">Call or text ahead, or order for pickup.</dd>
           </dl>
-          <a class="btn btn--gold" href="sms:+19175696057">💬 Text to order</a>
+          <a class="btn btn--gold" href="sms:+19175696057"><span aria-hidden="true">💬</span> <span data-i18n="cta.text">Text to order</span></a>
         </div>
       </div>
     </div>
@@ -315,14 +323,14 @@
 
   <!-- ---------------- CTA ---------------- -->
   <section class="wrap">
-    <div class="cta reveal">
+    <div class="cta">
       <div>
-        <h2>Hungry right now?</h2>
-        <p>Call or text us directly to place a delivery or pickup order — fresh Senegalese food, right to your door.</p>
+        <h2 data-i18n="cta.hungry.title">Hungry right now?</h2>
+        <p data-i18n="cta.hungry.body">Call or text us directly to place a delivery or pickup order — fresh Senegalese food, right to your door.</p>
       </div>
       <div class="hero__actions" style="margin:0">
         <a class="btn btn--light" href="tel:+19175696057">📞 (917) 569-6057</a>
-        <a class="btn btn--light" href="sms:+19175696057">💬 Text to order</a>
+        <a class="btn btn--light" href="sms:+19175696057"><span aria-hidden="true">💬</span> <span data-i18n="cta.text">Text to order</span></a>
         <a class="btn btn--light" href="tel:+19175696871">📞 (917) 569-6871</a>
       </div>
     </div>
@@ -336,10 +344,10 @@
       <div>
         <a class="logo" href="index.html">
           <span class="logo__mark" aria-hidden="true">S</span>
-          <span class="logo__text">Sene<small>Fast Food · Harlem</small></span>
+          <span class="logo__text">Sene<small data-i18n="brand.tagline">Fast Food · Harlem</small></span>
         </a>
-        <p>Authentic Senegalese kitchen on 116th Street — breakfast, lunch and slow-cooked dinners, made fresh every day.</p>
-        <p><strong>Halal kitchen · Dine-in · Takeout · Delivery</strong></p>
+        <p data-i18n="footer.about">Authentic Senegalese kitchen on 116th Street — breakfast, lunch and slow-cooked dinners, made fresh every day.</p>
+        <p><strong data-i18n="footer.badges">Halal kitchen · Dine-in · Takeout · Delivery</strong></p>
         <div class="footer-crew" aria-hidden="true">
           <span data-char="ceeb" data-char-delay="0"></span>
           <span data-char="kaani" data-char-delay=".3"></span>
@@ -351,49 +359,84 @@
       </div>
 
       <div>
-        <h4>Menu</h4>
+        <h4 data-i18n="footer.menu">Menu</h4>
         <ul>
-          <li><a href="menu.html#breakfast">Breakfast special</a></li>
-          <li><a href="menu.html#mains">Lunch &amp; dinner</a></li>
-          <li><a href="menu.html#desserts">Desserts</a></li>
-          <li><a href="menu.html">Full menu</a></li>
+          <li><a href="menu.html#breakfast" data-i18n="footer.breakfast">Breakfast special</a></li>
+          <li><a href="menu.html#mains" data-i18n="footer.mains">Lunch &amp; dinner</a></li>
+          <li><a href="menu.html#desserts" data-i18n="footer.desserts">Desserts</a></li>
+          <li><a href="menu.html" data-i18n="footer.full">Full menu</a></li>
         </ul>
       </div>
 
       <div>
-        <h4>Visit</h4>
+        <h4 data-i18n="footer.visit">Visit</h4>
         <ul>
-          <li><a href="contact.html">Hours &amp; location</a></li>
-          <li><a href="index.html#story">Our story</a></li>
-          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=151+W+116th+St+New+York+NY+10026" target="_blank" rel="noopener">Get directions</a></li>
+          <li><a href="contact.html" data-i18n="footer.hoursLink">Hours &amp; location</a></li>
+          <li><a href="index.html#story" data-i18n="nav.story">Our story</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=151+W+116th+St+New+York+NY+10026" target="_blank" rel="noopener" data-i18n="cta.directions">Get directions</a></li>
         </ul>
       </div>
 
       <div>
-        <h4>Call, text &amp; order</h4>
+        <h4 data-i18n="footer.order">Call, text &amp; order</h4>
         <ul>
           <li>151 W 116th St, Harlem, NY 10026</li>
           <li><a href="tel:+19175696057">(917) 569-6057</a></li>
           <li><a href="tel:+19175696871">(917) 569-6871</a></li>
-          <li><a href="sms:+19175696057">Text to order</a></li>
+          <li><a href="sms:+19175696057" data-i18n="cta.text">Text to order</a></li>
         </ul>
       </div>
     </div>
 
     <div class="colophon">
-      <span>&copy; <span id="year">2026</span> Sene Fast Food · 151 W 116th St, Harlem, NYC</span>
-      <span>Open daily 9:00 AM – 12:00 AM · Halal</span>
+      <span>&copy; <span id="year">2026</span> <span data-i18n="colophon.rights">Sene Fast Food · 151 W 116th St, Harlem, NYC</span></span>
+      <span data-i18n="colophon.hours">Open daily 9:00 AM – 12:00 AM · Halal</span>
     </div>
   </div>
 </footer>
 
-<div class="order-bar" role="group" aria-label="Quick order">
-  <a class="btn btn--primary" href="tel:+19175696057">📞 Call</a>
-  <a class="btn btn--gold" href="sms:+19175696057">💬 Text</a>
+<div class="order-bar" role="group" aria-label="Quick order" data-i18n-attrs="aria-label=cta.orderBar">
+  <a class="btn btn--primary" href="tel:+19175696057"><span aria-hidden="true">📞</span> <span data-i18n="cta.callShort">Call</span></a>
+  <a class="btn btn--gold" href="sms:+19175696057"><span aria-hidden="true">💬</span> <span data-i18n="cta.textShort">Text</span></a>
 </div>
+
+<!-- Search engines and map cards read this rather than guessing from the page.
+     URLs are relative because the site has no fixed domain yet — set them to
+     absolute ones the day it gets a real address. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Sene Fast Food",
+  "description": "Authentic Senegalese kitchen on 116th Street in Harlem, New York.",
+  "servesCuisine": ["Senegalese", "West African", "Halal"],
+  "priceRange": "$",
+  "image": "assets/img/dishes/thiebou-guinar.jpg",
+  "menu": "menu.html",
+  "telephone": "+1-917-569-6057",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "151 W 116th Street",
+    "addressLocality": "New York",
+    "addressRegion": "NY",
+    "postalCode": "10026",
+    "addressCountry": "US"
+  },
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=151+W+116th+St+New+York+NY+10026",
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "opens": "09:00",
+    "closes": "24:00"
+  }],
+  "acceptsReservations": "False"
+}
+</script>
 
 <script src="assets/js/characters.js"></script>
 <script src="assets/js/menu-data.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/motion.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>
