@@ -150,6 +150,54 @@ how people ask for it at the counter.
 | `menu.html` | Full menu with section filters and deep links (`menu.html#desserts`) |
 | `contact.html` | Hours, location, phone numbers, FAQ |
 
+## The ui-ux-pro-max skill
+
+`.claude/skills/ui-ux-pro-max/` is a vendored copy of the `ui-ux-pro-max`
+skill from [nextlevelbuilder/ui-ux-pro-max-skill][uuxpm] (MIT, v2.13.0,
+commit `c87cdc2`). It is a searchable local database of UI/UX guidance —
+styles, palettes, font pairings, UX guidelines, icons, chart types and
+per-stack notes — driven by a Python script with no external dependencies and
+no network access.
+
+```sh
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py "warm dark restaurant" --domain style
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py "focus not obscured" --domain ux
+```
+
+It lives in the repo rather than in a user-level plugin directory so it is
+there for anyone who opens this project, including ephemeral cloud sessions
+that start from a fresh clone.
+
+Two deviations from upstream, both deliberate:
+
+- `scripts/tests/` is not vendored — it is the skill's own maintainer test
+  suite, not something you need to use it.
+- Every documented command in `SKILL.md` had a `${CLAUDE_PLUGIN_ROOT}/` prefix,
+  which is only set when the skill is loaded as a *plugin*. Vendored as a
+  project skill the variable is unset and every path would resolve to
+  `/.claude/skills/…`. They now read `${CLAUDE_PLUGIN_ROOT:-.}/`, which works
+  both ways.
+
+To update it, re-copy from upstream and re-apply that one substitution:
+
+```sh
+sed -i 's|${CLAUDE_PLUGIN_ROOT}/|${CLAUDE_PLUGIN_ROOT:-.}/|g' \
+  .claude/skills/ui-ux-pro-max/SKILL.md
+```
+
+The upstream repo also ships six other skills (`design`, `design-system`,
+`ui-styling`, `brand`, `slides`, `banner-design`). They are not vendored here:
+they are a different job from this site, and several reference sibling skills
+(`ai-artist`, `ai-multimodal`, `frontend-design`) that are not present. To get
+the whole set on your own machine instead, use the plugin marketplace:
+
+```
+/plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill
+/plugin install ui-ux-pro-max@ui-ux-pro-max-skill
+```
+
+[uuxpm]: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill
+
 ## Deploying
 
 The site is plain static files at the repo root, so it needs no build step.
