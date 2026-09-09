@@ -129,7 +129,7 @@ sesam/
     css/systeme-de-design.css   styles de la page de documentation uniquement
     js/sesam.js                 nav mobile, FAQ, apparition au défilement
     fonts/*.woff2               Fraunces + Work Sans, latin et latin-ext
-    img/                        logo, affiche du héros, bandeau, publications
+    img/                        logo, affiche du héros, publications
   tools/contraste.py            vérificateur de contraste WCAG
 ```
 

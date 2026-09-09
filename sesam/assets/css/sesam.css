@@ -368,10 +368,6 @@ strong{font-weight:600;}
 .step p{margin-top:4px;color:var(--ink-2);font-size:.95rem;}
 
 /* ---------- 11. Galerie créations ---------- */
-.banner{
-  border-radius:var(--r-lg);overflow:hidden;margin-bottom:26px;
-  border:1px solid var(--line);box-shadow:0 22px 40px -30px rgb(var(--shadow) / .55);
-}
 .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .shot{
   border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);
