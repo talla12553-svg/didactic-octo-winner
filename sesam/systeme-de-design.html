@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Système de design — Sesam Digital</title>
+<meta name="description" content="Les jetons, la typographie, les motifs et les composants du site Sesam Digital, avec les règles de contraste qui les accompagnent.">
+<meta name="theme-color" content="#FBF7EC">
+<meta property="og:title" content="Système de design — Sesam Digital">
+<meta property="og:description" content="Les jetons, la typographie, les motifs et les composants du site Sesam Digital, avec les règles de contraste qui les accompagnent.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/img/logo.jpg">
+<meta property="og:locale" content="fr_FR">
+<link rel="icon" href="assets/img/logo.jpg">
+<link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/work-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/sesam.css">
+<link rel="stylesheet" href="assets/css/systeme-de-design.css">
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="brand" href="index.html">
+      <img src="assets/img/logo.jpg" alt="" width="46" height="46">
+      <span class="brand-word">Sesam<span>Digital</span></span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="probleme.html">Le problème</a>
+        <a href="solution.html">La solution</a>
+        <a href="index.html#tarifs">Tarifs</a>
+        <a href="index.html#faq">FAQ</a>
+    </nav>
+    <div class="head-cta">
+      <a class="btn btn-ghost btn-sm" href="tel:+19175696871">917-569-6871</a>
+      <a class="btn btn-primary btn-sm" href="index.html#contact">Audit gratuit</a>
+    </div>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Ouvrir le menu">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 5.5h14M3 10h14M3 14.5h14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="contenu">
+
+  <section class="band" style="padding-bottom:calc(var(--band) * .55)">
+    <div class="wrap">
+      <div style="max-width:760px">
+        <p class="eyebrow"><span class="steps" aria-hidden="true"><i></i><i></i><i></i></span> Document interne</p>
+        <h1>Le système de design de <span class="mark">Sesam Digital</span>.</h1>
+        <p class="lede" style="margin-top:20px;font-size:1.1rem">Chaleureux, posé, lisible. Toutes les couleurs de ce système sont relevées sur le logo Sesam et les coups de pinceau qui l'entourent : c'est la marque qui donne la palette, pas une référence extérieure. Cette page est la source de vérité &mdash; si une valeur diverge du CSS, c'est le CSS qui a raison, et cette page qu'il faut corriger.</p>
+        <nav class="ds-toc" aria-label="Sommaire">
+          <a href="#origine">Origine</a>
+          <a href="#couleurs">Couleurs</a>
+          <a href="#contraste">Contraste</a>
+          <a href="#typo">Typographie</a>
+          <a href="#rythme">Rythme</a>
+          <a href="#motifs">Motifs</a>
+          <a href="#composants">Composants</a>
+          <a href="#regles">Règles</a>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <div class="swash-divider" aria-hidden="true"><svg class="swash" viewBox="0 0 1200 66" fill="none" aria-hidden="true" focusable="false">
+  <path d="M-12 20C258 3 470 33 700 25c230-8 380-18 512-10" stroke="var(--sesam-vert)" stroke-width="12" stroke-linecap="round" opacity=".9"/>
+  <path d="M-12 37C238 22 500 50 760 40c220-8 330-14 452-8" stroke="var(--sesam-or)" stroke-width="16" stroke-linecap="round"/>
+  <path d="M-12 53C278 43 460 62 720 55c230-7 380-10 492-6" stroke="var(--sesam-rouge)" stroke-width="9" stroke-linecap="round" opacity=".85"/>
+</svg></div>
+
+  <!-- Origine -->
+  <section class="band band-sand" id="origine">
+    <div class="wrap">
+      <div class="grid-2" style="gap:clamp(30px,5vw,52px);align-items:center">
+        <div>
+          <p class="eyebrow eyebrow-plum">Origine</p>
+          <h2>Le logo est la charte.</h2>
+          <p class="lede" style="margin-top:16px">Le violet et l'orange du sigle, l'ivoire du disque, et le vert, l'or et le rouge des coups de pinceau derrière : six couleurs, toutes déjà présentes dans la marque. Le système n'en ajoute aucune. Il se contente de les assombrir ou de les éclaircir juste ce qu'il faut pour rester lisible.</p>
+          <p style="margin-top:14px;font-size:.92rem;color:var(--ink-2)">Le choix «&nbsp;chaleureux&nbsp;» tient à un déplacement&nbsp;: le fond n'est pas blanc ni lavande, c'est l'ivoire du logo, réchauffé (<code style="font-size:.85em">#FBF7EC</code>). L'orange devient l'accent principal, le violet passe en second, et l'or, le vert et le rouge n'apparaissent que par touches &mdash; dans le coup de pinceau et les pastilles.</p>
+        </div>
+        <figure style="margin:0">
+          <img src="assets/img/logo.jpg" width="420" height="420" alt="Logo Sesam Digital : le sigle violet et orange sur un disque ivoire, entouré de coups de pinceau vert, or et rouge." style="border-radius:var(--r-lg);border:1px solid var(--line);box-shadow:0 24px 44px -30px rgb(var(--shadow) / .55)">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Couleurs -->
+  <section class="band" id="couleurs">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Couleurs</p>
+        <h2>Les jetons de couleur.</h2>
+        <p class="lede">Chaque accent existe en deux versions&nbsp;: la vive, pour les aplats, et la version <code style="font-size:.85em">-ink</code>, assombrie jusqu'à passer AA en texte. Ne jamais employer la vive pour du texte courant.</p>
+      </div>
+
+      <p class="ds-sub">Fonds</p>
+      <div class="swatches">
+        <div class="sw">
+          <div class="sw-chip" style="background:#FBF7EC;color:#FFFFFF"></div>
+          <div class="sw-body">
+            <b>Ivoire</b><code>#FBF7EC &middot; --ground</code>
+            <p>Le fond de page. L'ivoire du logo, réchauffé.</p>
+            
+          </div>
+        </div>
+        <div class="sw">
+          <div class="sw-chip" style="background:#FFFDF6;color:#FFFFFF"></div>
+          <div class="sw-body">
+            <b>Papier</b><code>#FFFDF6 &middot; --surface</code>
+            <p>Les cartes, posées sur l’ivoire.</p>
+            
+          </div>
+        </div>
+        <div class="sw">
+          <div class="sw-chip" style="background:#F4EBDA;color:#FFFFFF"></div>
+          <div class="sw-body">
+            <b>Sable</b><code>#F4EBDA &middot; --surface-2</code>
+            <p>Les bandes alternées, une section sur deux.</p>
+            
+          </div>
+        </div>
+        <div class="sw">
+          <div class="sw-chip" style="background:#2B1726;color:#FFFFFF"></div>
+          <div class="sw-body">
+            <b>Nuit</b><code>#2B1726 &middot; --night</code>
+            <p>Prune profonde. Les bandes fortes : citation, histoire, appel à l’action.</p>
+            
+          </div>
+        </div>
+      </div>
+
+      <p class="ds-sub">Encres</p>
+      <div class="swatches">
+        <div class="sw">
+          <div class="sw-chip" style="background:#2A1D18;color:#FFFFFF"></div>
+          <div class="sw-body">
+            <b>Encre</b><code>#2A1D18 &middot; --ink</code>
+            <p>Titres et texte courant.</p>
+            <span class="ratio pass">15.2:1 sur ivoire &middot; AA</span>
+          </div>
+        </div>
+        <div class="sw">
+          <div class="sw-chip" style="background:#6E5B4E;color:#FFFFFF"></div>
+          <div class="sw-body">
+            <b>Encre secondaire</b><code>#6E5B4E &middot; --ink-2</code>
+            <p>Chapôs, légendes, texte de soutien.</p>
+            <span class="ratio pass">6.0:1 sur ivoire &middot; AA</span>
+          </div>
+        </div>
+        <div class="sw">
+          <div class="sw-chip" style="background:#E4D8C3;color:#FFFFFF"></div>
+          <div class="sw-body">
+            <b>Filet</b><code>#E4D8C3 &middot; --line</code>
+            <p>Bordures de cartes et séparateurs.</p>
+            
+          </div>
+        </div>
+        <div class="sw">
+          <div class="sw-chip" style="background:#D3C2A6;color:#FFFFFF"></div>
+          <div class="sw-body">
+            <b>Filet appuyé</b><code>#D3C2A6 &middot; --line-strong</code>
+            <p>Boutons fantômes, contours au survol.</p>
+            
+          </div>
+        </div>
+      </div>
+
+      <p class="ds-sub">Accents de marque</p>
+      <div class="swatches">
+        <div class="sw">
+          <div class="sw-chip" style="background:#E46812;color:#FFFFFF"></div>
+          <div class="sw-body">
+            <b>Orange Sesam</b><code>#E46812 &middot; --brand / --sesam-orange</code>
+            <p>Accent principal. Aplats, boutons, pastilles.</p>
+            <span class="ratio large">3.1:1 sur ivoire &middot; AA grand texte</span>
+          </div>
+        </div>
+        <div class="sw">
+          <div class="sw-chip" style="background:#C0530C;color:#FFFFFF"></div>
+          <div class="sw-body">
+            <b>Orange d’aplat</b><code>#C0530C &middot; --brand-solid</code>
+            <p>Le fond des boutons principaux : il porte du texte blanc à 4,7:1, ce que l’orange vif ne fait pas (3,3:1).</p>
+            <span class="ratio large">4.4:1 sur ivoire &middot; AA grand texte</span>
+          </div>
+        </div>
+        <div class="sw">
+          <div class="sw-chip" style="background:#A34608;color:#FFFFFF"></div>
+          <div class="sw-body">
+            <b>Orange encre</b><code>#A34608 &middot; --brand-ink</code>
+            <p>La même couleur en texte : liens, surtitres, chiffres, étoiles.</p>
+            <span class="ratio pass">5.7:1 sur ivoire &middot; AA</span>
+          </div>
+        </div>
+        <div class="sw">
+          <div class="sw-chip" style="background:#7524A5;color:#FFFFFF"></div>
+          <div class="sw-body">
+            <b>Violet Sesam</b><code>#7524A5 &middot; --plum / --sesam-violet</code>
+            <p>Accent secondaire. Forfait mis en avant, avatars.</p>
+            <span class="ratio pass">7.7:1 sur ivoire &middot; AA</span>
+          </div>
+        </div>
+        <div class="sw">
+          <div class="sw-chip" style="background:#177734;color:#FFFFFF"></div>
+          <div class="sw-body">
+            <b>Vert Sesam</b><code>#177734 &middot; --leaf / --sesam-vert</code>
+            <p>Confirmation, coches, coup de pinceau.</p>
+            <span class="ratio pass">5.3:1 sur ivoire &middot; AA</span>
+          </div>
+        </div>
+        <div class="sw">
+          <div class="sw-chip" style="background:#E2B51A;color:#FFFFFF"></div>
+          <div class="sw-body">
+            <b>Or Sesam</b><code>#E2B51A &middot; --gold / --sesam-or</code>
+            <p>Surligneur et coup de pinceau. Jamais en texte sur clair.</p>
+            <span class="ratio fail">1.8:1 sur ivoire &middot; aplats seulement</span>
+          </div>
+        </div>
+        <div class="sw">
+          <div class="sw-chip" style="background:#B71D1D;color:#FFFFFF"></div>
+          <div class="sw-body">
+            <b>Rouge Sesam</b><code>#B71D1D &middot; --clay / --sesam-rouge</code>
+            <p>Coup de pinceau et signaux d’erreur, avec parcimonie.</p>
+            <span class="ratio pass">6.1:1 sur ivoire &middot; AA</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="ds-sub">Sur fond nuit — la bande inverse les jetons toute seule</p>
+      <p class="note" style="max-width:64ch;margin-bottom:16px">La classe <code style="font-size:.85em">.on-night</code> redéfinit <code style="font-size:.85em">--ink</code>, <code style="font-size:.85em">--brand-ink</code>, <code style="font-size:.85em">--plum-ink</code>, <code style="font-size:.85em">--line</code> et <code style="font-size:.85em">--focus</code>. Les composants n'ont rien à savoir du fond sur lequel ils sont posés.</p>
+      <div class="swatches">
+        <div class="sw">
+          <div class="sw-chip" style="background:#FBF7EC;color:#2B1726"></div>
+          <div class="sw-body">
+            <b>Ivoire (texte)</b><code>#FBF7EC &middot; --ink sur nuit</code>
+            <p>Titres et texte courant sur la bande sombre.</p>
+            <span class="ratio pass">15.7:1 sur nuit &middot; AA</span>
+          </div>
+        </div>
+        <div class="sw">
+          <div class="sw-chip" style="background:#CBB9BE;color:#2B1726"></div>
+          <div class="sw-body">
+            <b>Mauve pâle</b><code>#CBB9BE &middot; --ink-2 sur nuit</code>
+            <p>Chapôs et légendes sur la bande sombre.</p>
+            <span class="ratio pass">9.0:1 sur nuit &middot; AA</span>
+          </div>
+        </div>
+        <div class="sw">
+          <div class="sw-chip" style="background:#F0842F;color:#2B1726"></div>
+          <div class="sw-body">
+            <b>Orange clair</b><code>#F0842F &middot; --brand-ink sur nuit</code>
+            <p>L’orange remonté pour rester lisible sur la nuit.</p>
+            <span class="ratio pass">6.4:1 sur nuit &middot; AA</span>
+          </div>
+        </div>
+        <div class="sw">
+          <div class="sw-chip" style="background:#B98AD8;color:#2B1726"></div>
+          <div class="sw-body">
+            <b>Violet clair</b><code>#B98AD8 &middot; --plum-ink sur nuit</code>
+            <p>Le violet remonté : le violet de marque y tombe à 2,0:1.</p>
+            <span class="ratio pass">6.1:1 sur nuit &middot; AA</span>
+          </div>
+        </div>
+        <div class="sw">
+          <div class="sw-chip" style="background:#5CC585;color:#2B1726"></div>
+          <div class="sw-body">
+            <b>Vert clair</b><code>#5CC585 &middot; --leaf-ink sur nuit</code>
+            <p>Les coches sur fond sombre.</p>
+            <span class="ratio pass">7.8:1 sur nuit &middot; AA</span>
+          </div>
+        </div>
+        <div class="sw">
+          <div class="sw-chip" style="background:#F0C94A;color:#2B1726"></div>
+          <div class="sw-body">
+            <b>Or clair</b><code>#F0C94A &middot; --focus sur nuit</code>
+            <p>L’anneau de focus sur la bande sombre.</p>
+            <span class="ratio pass">10.5:1 sur nuit &middot; AA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contraste -->
+  <section class="band band-sand" id="contraste">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow eyebrow-plum">Contraste</p>
+        <h2>La règle qui décide de tout.</h2>
+        <p class="lede">Les ratios ci-dessous sont calculés selon WCAG 2.1. Le seuil retenu est AA (4,5:1) pour le texte courant, 3:1 pour le grand texte et les éléments d’interface.</p>
+      </div>
+      <div class="table-scroll">
+        <table class="tokens">
+          <thead><tr><th>Couleur</th><th>sur ivoire</th><th>sur sable</th><th>sur nuit</th><th>Emploi</th></tr></thead>
+          <tbody>
+            <tr><td><code>--ink #2A1D18</code></td><td><span class="ratio pass">15.2:1</span></td><td><span class="ratio pass">13.8:1</span></td><td><span class="ratio fail">1.0:1</span></td><td>Texte courant, partout sur fond clair.</td></tr>
+            <tr><td><code>--ink-2 #6E5B4E</code></td><td><span class="ratio pass">6.0:1</span></td><td><span class="ratio pass">5.4:1</span></td><td><span class="ratio fail">2.6:1</span></td><td>Texte de soutien sur fond clair.</td></tr>
+            <tr><td><code>--brand-ink #A34608</code></td><td><span class="ratio pass">5.7:1</span></td><td><span class="ratio pass">5.2:1</span></td><td><span class="ratio fail">2.7:1</span></td><td>Texte orange sur fond clair.</td></tr>
+            <tr><td><code>--brand #E46812</code></td><td><span class="ratio large">3.1:1</span></td><td><span class="ratio fail">2.8:1</span></td><td><span class="ratio pass">5.0:1</span></td><td>Pastilles à icône blanche (3,3:1) ; jamais de texte dessus.</td></tr>
+            <tr><td><code>--brand-solid #C0530C</code></td><td><span class="ratio large">4.4:1</span></td><td><span class="ratio large">4.0:1</span></td><td><span class="ratio large">3.6:1</span></td><td>Fond des boutons principaux, texte blanc à 4,7:1.</td></tr>
+            <tr><td><code>--plum-ink #7524A5</code></td><td><span class="ratio pass">7.7:1</span></td><td><span class="ratio pass">7.0:1</span></td><td><span class="ratio fail">2.0:1</span></td><td>Texte violet sur fond clair uniquement.</td></tr>
+            <tr><td><code>--leaf #177734</code></td><td><span class="ratio pass">5.3:1</span></td><td><span class="ratio pass">4.8:1</span></td><td><span class="ratio fail">3.0:1</span></td><td>Coches et confirmations sur fond clair.</td></tr>
+            <tr><td><code>--gold #E2B51A</code></td><td><span class="ratio fail">1.8:1</span></td><td><span class="ratio fail">1.6:1</span></td><td><span class="ratio pass">8.7:1</span></td><td>Aplats seulement sur clair ; lisible sur nuit.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note" style="margin-top:14px">Vert&nbsp;: AA (4,5:1). Orange&nbsp;: 3:1, donc grand texte et éléments d’interface seulement. Rouge&nbsp;: aplats seulement.</p>
+      <div class="card" style="margin-top:20px">
+        <h3>Vérifier soi-même</h3>
+        <p style="margin-top:10px;color:var(--ink-2);font-size:.95rem">Ces valeurs sont figées dans le HTML de cette page&nbsp;: rien ne les recalcule au chargement. Après toute modification d’un jeton de couleur dans <code style="font-size:.85em">assets/css/sesam.css</code>, reporter la nouvelle valeur dans <code style="font-size:.85em">tools/contraste.py</code> puis&nbsp;:</p>
+        <p style="margin-top:12px"><code style="display:inline-block;background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-sm);padding:9px 14px;font-size:.88rem">python3 sesam/tools/contraste.py</code></p>
+        <p style="margin-top:12px;color:var(--ink-2);font-size:.95rem">Le script vérifie chaque encre sur chaque fond, plus le texte blanc sur chaque aplat, et sort en erreur si un seuil n’est pas atteint. C’est lui qui a fait descendre le bouton principal de <code style="font-size:.85em">#E46812</code> à <code style="font-size:.85em">#C0530C</code>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Typographie -->
+  <section class="band" id="typo">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Typographie</p>
+        <h2>Deux familles, auto-hébergées.</h2>
+        <p class="lede"><strong>Fraunces</strong> pour les titres &mdash; une antique douce, à empattements arrondis, qui porte la chaleur. <strong>Work Sans</strong> pour tout le reste. Les deux sont sous licence SIL OFL 1.1 et servies depuis <code style="font-size:.85em">assets/fonts/</code>, donc le site ne fait aucune requête vers un tiers.</p>
+      </div>
+      <div class="card">
+        <div class="type-row">
+          <div class="type-meta"><b>h1</b>Fraunces 700<br>clamp(2.05rem, 4.4vw, 3.3rem) / 1.1</div>
+          <div><p style="margin:0;font-family:'Fraunces',serif;font-weight:700;font-size:clamp(2.05rem,4.4vw,3.3rem);line-height:1.1;letter-spacing:-.012em">Votre site existe déjà</p></div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><b>h2</b>Fraunces 700<br>clamp(1.6rem, 3vw, 2.35rem) / 1.1</div>
+          <div><h2 style="margin:0">Le problème est ailleurs</h2></div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><b>h3</b>Fraunces 700<br>1.14rem / 1.28</div>
+          <div><h3 style="margin:0">Un site qui ne fait qu’exister</h3></div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><b>h4</b>Work Sans 600<br>1rem / 1.3</div>
+          <div><h4 style="margin:0">Prise de rendez-vous automatisée</h4></div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><b>.lede</b>Work Sans 400<br>1.1rem / 1.65 &middot; --ink-2</div>
+          <div><p class="lede" style="max-width:none">Nous intégrons sur votre site les outils qui lui manquent.</p></div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><b>corps</b>Work Sans 400<br>1rem / 1.65</div>
+          <div><p>Vos abonnées cliquent, regardent, puis repartent sans réserver.</p></div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><b>.eyebrow</b>Work Sans 600<br>0.73rem &middot; 0.15em &middot; capitales</div>
+          <div><p class="eyebrow" style="margin:0"><span class="steps" aria-hidden="true"><i></i><i></i><i></i></span> Le constat</p></div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><b>.note</b>Work Sans 400<br>0.84rem &middot; --ink-2</div>
+          <div><p class="note">Réponse sous 24h &middot; Premier appel offert</p></div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><b>.quote</b>Fraunces 600<br>clamp(1.3rem, 2.6vw, 1.9rem) / 1.3</div>
+          <div><p class="quote" style="margin:0">Sésame, ouvre-toi.</p></div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:14px">Les titres portent <code style="font-size:.85em">text-wrap:balance</code> et un interlettrage de &minus;0,012&nbsp;em. Les chiffres alignés en colonne (tarifs, statistiques) prennent la classe <code style="font-size:.85em">.tabnum</code>.</p>
+    </div>
+  </section>
+
+  <!-- Rythme -->
+  <section class="band band-sand" id="rythme">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow eyebrow-plum">Rythme</p>
+        <h2>Rayons, ombres et respiration.</h2>
+        <p class="lede">Des angles francs mais généreux, et des ombres teintées d’encre chaude plutôt que de noir &mdash; c’est ce qui empêche l’ensemble de paraître froid.</p>
+      </div>
+      <p class="ds-sub">Rayons</p>
+      <div class="specimens">
+        <div class="spec" style="border-radius:8px">--r-sm · 8px</div>
+        <div class="spec" style="border-radius:14px">--r-md · 14px</div>
+        <div class="spec" style="border-radius:20px">--r-lg · 20px</div>
+        <div class="spec" style="border-radius:28px">--r-xl · 28px</div>
+        <div class="spec" style="border-radius:999px">--r-pill · 999px</div>
+      </div>
+      <p class="ds-sub">Ombres</p>
+      <div class="specimens">
+        <div class="spec" style="border-radius:14px;box-shadow:0 16px 32px -28px rgb(var(--shadow) / .5)">carte au repos</div>
+        <div class="spec" style="border-radius:14px;box-shadow:0 24px 40px -28px rgb(var(--shadow) / .6)">carte au survol</div>
+        <div class="spec" style="border-radius:14px;box-shadow:0 34px 60px -34px rgb(var(--shadow) / .55)">héros</div>
+      </div>
+      <p class="ds-sub">Autres jetons</p>
+      <div class="table-scroll">
+        <table class="tokens">
+          <thead><tr><th>Jeton</th><th>Valeur</th><th>Rôle</th></tr></thead>
+          <tbody>
+            <tr><td><code>--wrap</code></td><td>1120px</td><td>Largeur maximale du contenu.</td></tr>
+            <tr><td><code>--gutter</code></td><td>24px</td><td>Marge intérieure gauche/droite.</td></tr>
+            <tr><td><code>--band</code></td><td>clamp(56px, 8vw, 104px)</td><td>Hauteur de respiration d’une section.</td></tr>
+            <tr><td><code>--shadow</code></td><td>42 29 24</td><td>Triplet RVB de l’encre, pour des ombres chaudes.</td></tr>
+            <tr><td><code>--ease</code></td><td>cubic-bezier(.22,.61,.36,1)</td><td>Courbe unique de toutes les transitions.</td></tr>
+            <tr><td><code>--focus</code></td><td>violet, or sur nuit</td><td>Anneau de focus, hérité du fond.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Motifs -->
+  <section class="band" id="motifs">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Motifs</p>
+        <h2>Trois signatures, toutes tirées du logo.</h2>
+        <p class="lede">Ce sont elles qui rendent le site reconnaissable sans photo ni illustration. Aucune n’est décorative par hasard&nbsp;: chacune cite un élément du logo.</p>
+      </div>
+
+      <div class="demo">
+        <h3>Le coup de pinceau &mdash; <code style="font-size:.8em;font-weight:400">.swash</code></h3>
+        <p class="note" style="margin-top:6px;margin-bottom:18px">Vert, or, rouge&nbsp;: les trois traits qui entourent le logo. Employé comme séparateur entre deux sections, une ou deux fois par page au maximum.</p>
+        <svg class="swash" viewBox="0 0 1200 66" fill="none" aria-hidden="true" focusable="false">
+  <path d="M-12 20C258 3 470 33 700 25c230-8 380-18 512-10" stroke="var(--sesam-vert)" stroke-width="12" stroke-linecap="round" opacity=".9"/>
+  <path d="M-12 37C238 22 500 50 760 40c220-8 330-14 452-8" stroke="var(--sesam-or)" stroke-width="16" stroke-linecap="round"/>
+  <path d="M-12 53C278 43 460 62 720 55c230-7 380-10 492-6" stroke="var(--sesam-rouge)" stroke-width="9" stroke-linecap="round" opacity=".85"/>
+</svg>
+      </div>
+
+      <div class="demo">
+        <h3>Les pixels en escalier &mdash; <code style="font-size:.8em;font-weight:400">.steps</code></h3>
+        <p class="note" style="margin-top:6px;margin-bottom:18px">Les trois carrés orange qui entrent dans le «&nbsp;D&nbsp;» du sigle. Ils précèdent un surtitre pour marquer une section principale.</p>
+        <div class="demo-row">
+          <p class="eyebrow" style="margin:0"><span class="steps" aria-hidden="true"><i></i><i></i><i></i></span> La solution</p>
+          <p class="eyebrow eyebrow-plum" style="margin:0">Sans le motif, pour une section secondaire</p>
+        </div>
+      </div>
+
+      <div class="demo">
+        <h3>Le surligneur or &mdash; <code style="font-size:.8em;font-weight:400">.mark</code></h3>
+        <p class="note" style="margin-top:6px;margin-bottom:18px">Un trait d’or légèrement penché derrière deux ou trois mots. Un seul par titre, et jamais dans un paragraphe.</p>
+        <h2 style="margin:0">Le problème est <span class="mark">ailleurs</span>.</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- Composants -->
+  <section class="band band-sand" id="composants">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow eyebrow-plum">Composants</p>
+        <h2>La bibliothèque.</h2>
+      </div>
+
+      <p class="ds-sub">Boutons</p>
+      <div class="demo">
+        <div class="demo-row">
+          <a class="btn btn-primary" href="#composants">Bouton principal</a>
+          <a class="btn btn-plum" href="#composants">Violet</a>
+          <a class="btn btn-ghost" href="#composants">Fantôme</a>
+          <a class="btn btn-primary btn-sm" href="#composants">Petit</a>
+          <a class="arrow" href="#composants">Lien fléché <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9m0 0L8.5 4.5M12 8l-3.5 3.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <p class="note" style="margin-top:16px">Un seul bouton principal par écran visible. Le bouton fantôme porte l’action secondaire. Tous sont en pilule (<code style="font-size:.85em">--r-pill</code>) et montent de 2&nbsp;px au survol.</p>
+      </div>
+
+      <p class="ds-sub">Cartes</p>
+      <div class="grid-3">
+        <article class="card card-hover">
+          <p class="num"><b>01</b> Interactivité</p>
+          <h3>Carte numérotée</h3>
+          <p>Pour une liste de constats ou d’étapes. Le numéro est en Fraunces violet, le libellé en orange.</p>
+        </article>
+        <article class="card card-hover">
+          <span class="chip" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M2.4 8.8l4.2 4.2L14.6 4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h3>Carte à pastille</h3>
+          <p>Pour un bénéfice ou une fonctionnalité. Quatre variantes de pastille&nbsp;: orange, violette, verte, douce.</p>
+        </article>
+        <article class="card avis">
+          <span class="tag">Exemple</span>
+          <p class="stars" aria-label="5 étoiles sur 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <p>«&nbsp;Carte d’avis. L’étiquette «&nbsp;Exemple&nbsp;» reste tant que le témoignage n’est pas réel.&nbsp;»</p>
+          <div class="who"><span class="av" aria-hidden="true">A.D.</span><span><b>Aïssatou D.</b><span>Salon de coiffure, Dakar</span></span></div>
+        </article>
+      </div>
+
+      <p class="ds-sub">Pastilles</p>
+      <div class="demo">
+        <div class="demo-row">
+          <span class="chip" style="margin-bottom:0" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M2.4 8.8l4.2 4.2L14.6 4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="chip chip-plum" style="margin-bottom:0" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M2.4 8.8l4.2 4.2L14.6 4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="chip chip-leaf" style="margin-bottom:0" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M2.4 8.8l4.2 4.2L14.6 4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="chip chip-soft" style="margin-bottom:0" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M2.4 8.8l4.2 4.2L14.6 4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="tag">Étiquette</span>
+        </div>
+      </div>
+
+      <p class="ds-sub">Rail d’étapes et listes</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="rail">
+            <div class="step"><span class="step-n">01</span><div><h4>Appel découverte</h4><p>Le filet vertical relie les étapes et disparaît sur la dernière.</p></div></div>
+            <div class="step"><span class="step-n">02</span><div><h4>Audit &amp; plan</h4><p>Numéro en Fraunces, sur papier, encadré d’un filet appuyé.</p></div></div>
+          </div>
+        </div>
+        <div class="card">
+          <h4 style="margin-bottom:14px">Liste à coches</h4>
+          <ul class="checks checks-plum">
+            <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2 7.6l3.5 3.5L13 3.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Coche violette&nbsp;: <code style="font-size:.85em">.checks-plum</code>, pour les forfaits.</span></li>
+            <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true" style="color:var(--leaf-ink)"><path d="M2 7.6l3.5 3.5L13 3.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Coche verte par défaut&nbsp;: <code style="font-size:.85em">.checks</code>.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="ds-sub">FAQ</p>
+      <div class="faq">
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" type="button"><span>Un panneau à la fois s’ouvre.</span><span class="faq-i" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2.4v11.2M2.4 8h11.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span></button>
+          <div class="faq-a"><div>Le «&nbsp;+&nbsp;» pivote de 45&deg; pour devenir une croix. Sans JavaScript, tous les panneaux restent dépliés et l’icône disparaît.</div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" type="button"><span>Le bouton porte aria-expanded.</span><span class="faq-i" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2.4v11.2M2.4 8h11.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span></button>
+          <div class="faq-a"><div>Il est mis à jour par le script à chaque ouverture et fermeture.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bande nuit : démonstration d'héritage -->
+  <section class="band band-night on-night">
+    <div class="wrap">
+      <div class="head" style="max-width:640px">
+        <p class="eyebrow"><span class="steps" aria-hidden="true"><i></i><i></i><i></i></span> Bande nuit</p>
+        <h2>Les mêmes composants, aucun style en plus.</h2>
+        <p class="lede">Cette section porte seulement <code style="font-size:.85em">class="band band-night on-night"</code>. Tout ce qui suit hérite des jetons inversés.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <p class="num"><b>01</b> Innover</p>
+          <h3>Carte sur nuit</h3>
+          <p>Le fond de carte devient un voile d’ivoire à 7&nbsp;%, le filet un ivoire à 18&nbsp;%.</p>
+        </article>
+        <article class="card">
+          <h4 style="margin-bottom:14px">Liste et lien</h4>
+          <ul class="checks"><li><svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2 7.6l3.5 3.5L13 3.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>La coche passe au vert clair.</span></li></ul>
+          <p style="margin-top:14px"><a class="arrow" href="#composants">Le lien passe à l’orange clair <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9m0 0L8.5 4.5M12 8l-3.5 3.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
+        </article>
+        <article class="card">
+          <h4 style="margin-bottom:14px">Boutons</h4>
+          <div class="demo-row">
+            <a class="btn btn-cream btn-sm" href="#composants">Crème</a>
+            <a class="btn btn-ghost btn-sm" href="#composants">Fantôme</a>
+          </div>
+          <p class="note" style="margin-top:14px">Sur nuit, le bouton principal devient crème&nbsp;: l’orange sur prune tient à 5,0:1, mais le crème à 15,7:1 est plus franc.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Règles -->
+  <section class="band" id="regles">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Règles</p>
+        <h2>Ce qui tient le système debout.</h2>
+      </div>
+      <div class="rules">
+        <div class="rule rule-do">
+          <h4>À faire</h4>
+          <ul>
+            <li>Alterner ivoire et sable d’une section à l’autre, et réserver la nuit à deux moments forts par page au plus.</li>
+            <li>Employer <code>--brand-ink</code> dès qu’un accent devient du texte sur fond clair, et <code>--brand-solid</code> dès qu’un aplat orange doit porter du texte blanc.</li>
+            <li>Poser <code>.on-night</code> sur la section, jamais sur les composants qu’elle contient.</li>
+            <li>Garder les images dans un <code>figure</code> avec une alternative textuelle qui décrit le contenu, pas le fichier.</li>
+            <li>Recalculer le tableau de contraste après toute modification d’un jeton de couleur.</li>
+            <li>Conserver l’étiquette «&nbsp;Exemple&nbsp;» sur les avis tant qu’ils ne sont pas réels.</li>
+          </ul>
+        </div>
+        <div class="rule rule-dont">
+          <h4>À ne pas faire</h4>
+          <ul>
+            <li>Écrire du texte en or sur fond clair&nbsp;: 1,8:1, illisible.</li>
+            <li>Poser du texte blanc sur l’orange vif <code>--brand</code>&nbsp;: 3,3:1, insuffisant pour un libellé.</li>
+            <li>Employer le violet de marque en texte sur la bande nuit&nbsp;: 2,0:1.</li>
+            <li>Ajouter un dégradé. Le système est en aplats&nbsp;; les dégradés appartenaient à la version précédente.</li>
+            <li>Mettre plus d’un surligneur or par titre, ou un surligneur dans un paragraphe.</li>
+            <li>Introduire une couleur absente du logo.</li>
+            <li>Ajouter une troisième famille de caractères.</li>
+            <li>Employer un chemin absolu (<code>/assets/…</code>)&nbsp;: le site doit fonctionner dans un sous-dossier.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:26px">
+        <h3>Accessibilité &mdash; le socle</h3>
+        <ul class="checks" style="margin-top:16px">
+          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2 7.6l3.5 3.5L13 3.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Un lien d’évitement en tête de chaque page.</span></li>
+          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2 7.6l3.5 3.5L13 3.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Un anneau de focus visible partout, dont la couleur suit le fond via <code style="font-size:.85em">--focus</code>.</span></li>
+          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2 7.6l3.5 3.5L13 3.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Les décorations SVG portent <code style="font-size:.85em">aria-hidden="true"</code>.</span></li>
+          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2 7.6l3.5 3.5L13 3.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><code style="font-size:.85em">prefers-reduced-motion</code> coupe transitions et apparitions.</span></li>
+          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2 7.6l3.5 3.5L13 3.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Le site reste lisible sans JavaScript.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html">
+          <img src="assets/img/logo.jpg" alt="" width="46" height="46">
+          <span class="brand-word">Sesam<span>Digital</span></span>
+        </a>
+        <p>Des idées en solutions digitales. Sites web et applications sur mesure pour les entreprises de Dakar, conçus depuis New York.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="probleme.html">Le problème</a></li>
+          <li><a href="solution.html">La solution</a></li>
+          <li><a href="solution.html#histoire">Notre histoire</a></li>
+          <li><a href="index.html#tarifs">Tarifs</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+19175696871">917-569-6871</a></li>
+          <li><a href="mailto:sesamgroupllc@gmail.com">sesamgroupllc@gmail.com</a></li>
+          <li><a href="https://wa.me/19175696871">WhatsApp</a></li>
+          <li><a href="systeme-de-design.html">Système de design</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; <span data-year>2026</span> Sesam Digital &mdash; Talla Sylla. Tous droits réservés.</span>
+      <span class="devise"><b>Innover</b> &middot; <b>Développer</b> &middot; <b>Réussir</b></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/sesam.js"></script>
+</body>
+</html>

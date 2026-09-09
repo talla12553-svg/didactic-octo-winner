@@ -1,3 +1,17 @@
+# didactic-octo-winner
+
+This repository holds two independent static sites.
+
+| Folder | Site |
+| --- | --- |
+| repo root | **Sene Fast Food** — Senegalese kitchen in Harlem, NYC (documented below) |
+| [`sesam/`](sesam/) | **Sesam Digital** — digital studio for Dakar businesses, in French. Its own design system, tokens and fonts; see [`sesam/README.md`](sesam/README.md) |
+
+Neither site shares code or assets with the other. The rest of this file
+documents the Sene Fast Food site at the repo root.
+
+---
+
 # Sene Fast Food — website
 
 Website for Sene Fast Food, an authentic Senegalese kitchen at 151 W 116th St in

@@ -1,0 +1,92 @@
+/* Styles propres à la page « Système de design ».
+   Ils ne servent qu'à documenter le système, jamais sur le site public. */
+
+.ds-toc{
+  display:flex;flex-wrap:wrap;gap:9px;margin-top:26px;
+}
+.ds-toc a{
+  font-size:.85rem;font-weight:600;text-decoration:none;
+  padding:7px 15px;border-radius:var(--r-pill);
+  border:1.5px solid var(--line-strong);color:var(--ink);
+}
+.ds-toc a:hover{border-color:var(--brand);color:var(--brand-ink);}
+
+.ds-sub{
+  font-family:'Work Sans',sans-serif;font-weight:600;font-size:.76rem;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--ink-2);
+  margin:38px 0 16px;
+}
+
+/* Nuancier */
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:16px;}
+.sw{border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;background:var(--surface);}
+.sw-chip{
+  height:84px;display:flex;align-items:flex-end;justify-content:flex-end;padding:9px;
+  /* liseré interne : sans lui, l'ivoire et le papier disparaissent sur la carte */
+  box-shadow:inset 0 0 0 1px rgb(var(--shadow) / .14);
+}
+.sw-body{padding:13px 15px 15px;}
+.sw-body b{display:block;font-size:.92rem;font-weight:600;}
+.sw-body code{
+  display:block;margin-top:3px;font-size:.79rem;color:var(--ink-2);
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+.sw-body p{margin-top:7px;font-size:.82rem;color:var(--ink-2);line-height:1.5;}
+.ratio{
+  display:inline-block;margin-top:8px;font-size:.72rem;font-weight:600;
+  padding:2px 8px;border-radius:var(--r-pill);
+  border:1px solid var(--line-strong);color:var(--ink-2);
+}
+.ratio.pass{border-color:var(--leaf-ink);color:var(--leaf-ink);}
+.ratio.large{border-color:var(--brand-ink);color:var(--brand-ink);}
+.ratio.fail{border-color:var(--clay);color:var(--clay);}
+
+/* Échelle typographique */
+.type-row{
+  display:grid;grid-template-columns:180px 1fr;gap:22px;align-items:baseline;
+  padding:18px 0;border-bottom:1px solid var(--line);
+}
+.type-row:last-child{border-bottom:0;}
+.type-meta{font-size:.79rem;color:var(--ink-2);line-height:1.5;}
+.type-meta b{display:block;color:var(--ink);font-size:.86rem;font-weight:600;}
+
+/* Jetons génériques */
+.tokens{width:100%;border-collapse:collapse;font-size:.88rem;}
+.tokens th,.tokens td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top;}
+.tokens th{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);font-weight:600;}
+.tokens code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.83rem;color:var(--plum-ink);}
+.tokens td:last-child{color:var(--ink-2);}
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface);}
+
+/* Démonstrations de composants */
+.demo{
+  border:1px dashed var(--line-strong);border-radius:var(--r-md);
+  padding:26px;background:var(--surface);
+}
+.demo + .demo{margin-top:16px;}
+.demo-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;}
+
+/* Rayons et ombres */
+.specimens{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px;}
+.spec{
+  background:var(--surface);border:1px solid var(--line);
+  height:104px;display:flex;align-items:flex-end;padding:12px;
+  font-size:.78rem;color:var(--ink-2);
+}
+
+/* Règles oui / non */
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.rule{border-radius:var(--r-md);padding:20px 22px;border:1px solid var(--line);background:var(--surface);}
+.rule h4{display:flex;align-items:center;gap:9px;font-size:.95rem;}
+.rule ul{list-style:none;margin-top:13px;display:flex;flex-direction:column;gap:9px;}
+.rule li{font-size:.9rem;color:var(--ink-2);padding-left:18px;position:relative;}
+.rule li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;}
+.rule-do{border-left:4px solid var(--leaf-ink);}
+.rule-do li::before{background:var(--leaf-ink);}
+.rule-dont{border-left:4px solid var(--clay);}
+.rule-dont li::before{background:var(--clay);}
+
+@media (max-width:720px){
+  .type-row{grid-template-columns:1fr;gap:8px;}
+  .rules{grid-template-columns:1fr;}
+}
