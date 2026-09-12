@@ -1,0 +1,54 @@
+{
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 1860,
+      "title": "A — Bold editorial"
+    },
+    {
+      "file": "DirectionB.dc.html",
+      "x": 1560,
+      "y": 0,
+      "w": 1440,
+      "h": 1600,
+      "title": "B — Dark technical"
+    },
+    {
+      "file": "DirectionC.dc.html",
+      "x": 3120,
+      "y": 0,
+      "w": 1440,
+      "h": 2000,
+      "title": "C — Warm & human"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "dir-a",
+      "x": 0,
+      "y": -250,
+      "w": 460,
+      "text": "A — BOLD EDITORIAL\n\nSells a point of view. Serif display on warm paper, one hot accent, the headline doing the work.\n\nTradeoff: it promises taste, so the writing and the case studies have to carry it. Weakest if your buyers want proof before personality."
+    },
+    {
+      "id": "dir-b",
+      "x": 1560,
+      "y": -250,
+      "w": 460,
+      "text": "B — DARK TECHNICAL\n\nSells measurement. Dark ground, mono labels, numbers and a live dashboard above the fold.\n\nTradeoff: reads B2B and performance-led; can feel cold to owner-run local clients. Needs real metrics to replace the placeholders."
+    },
+    {
+      "id": "dir-c",
+      "x": 3120,
+      "y": -250,
+      "w": 460,
+      "text": "C — WARM & HUMAN\n\nSells approachability. Cream, rounded arches, plain speech, a free chat instead of a pitch.\n\nTradeoff: the safest and the most common. Without your own photography and voice it looks like every other small-agency site."
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  }
+}
