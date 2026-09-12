@@ -1,8 +1,29 @@
 {
   "artboards": [
-    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 1440, "h": 1860, "title": "A — Bold editorial" },
-    { "file": "DirectionB.dc.html", "x": 1560, "y": 0, "w": 1440, "h": 1860, "title": "B — Dark technical" },
-    { "file": "DirectionC.dc.html", "x": 3120, "y": 0, "w": 1440, "h": 1860, "title": "C — Warm & human" }
+    {
+      "file": "Main.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 1860,
+      "title": "A — Bold editorial"
+    },
+    {
+      "file": "DirectionB.dc.html",
+      "x": 1560,
+      "y": 0,
+      "w": 1440,
+      "h": 1600,
+      "title": "B — Dark technical"
+    },
+    {
+      "file": "DirectionC.dc.html",
+      "x": 3120,
+      "y": 0,
+      "w": 1440,
+      "h": 2000,
+      "title": "C — Warm & human"
+    }
   ],
   "annotations": [
     {
@@ -27,5 +48,7 @@
       "text": "C — WARM & HUMAN\n\nSells approachability. Cream, rounded arches, plain speech, a free chat instead of a pitch.\n\nTradeoff: the safest and the most common. Without your own photography and voice it looks like every other small-agency site."
     }
   ],
-  "launch": { "view": "canvas" }
+  "launch": {
+    "view": "canvas"
+  }
 }
