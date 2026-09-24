@@ -1,6 +1,6 @@
-# Sesam Digital — site web
+# Sesam.sn — site web
 
-Site de Sesam Digital (agence) et Sesam SaaS, construit à partir du
+Site de Sesam.sn (agence) et Sesam SaaS, construit à partir du
 *Cahier des charges général*. HTML, CSS et JavaScript simples : aucune étape de
 build, aucune dépendance, polices hébergées localement (léger en 3G).
 
@@ -29,7 +29,7 @@ peut copier. Une fois remplis, il propose « Envoyer sur WhatsApp » et/ou
 ## Lancer en local
 
 ```sh
-python3 -m http.server   # puis ouvrir http://localhost:8000/sesam-digital/
+python3 -m http.server   # puis ouvrir http://localhost:8000/sesam-sn/
 ```
 
-Avec le déploiement GitHub Pages existant, le site est servi sous `/sesam-digital/`.
+Avec le déploiement GitHub Pages existant, le site est servi sous `/sesam-sn/`.

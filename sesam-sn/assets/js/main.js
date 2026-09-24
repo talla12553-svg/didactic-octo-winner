@@ -1,4 +1,4 @@
-/* Sesam Digital — site behaviour. Vanilla JS, no dependencies. */
+/* Sesam.sn — site behaviour. Vanilla JS, no dependencies. */
 
 /* Where contact requests go. Leave empty until the real addresses are known:
    the form then shows a recap the visitor can copy instead of sending.
@@ -159,7 +159,7 @@ const stockStatus = days => days < 0 ? ['Expiré', 's-bad'] : days <= 30 ? ['Bie
   }
 
   function header(m) {
-    return `<div class="screen-top"><div class="url">sesam.app/${m.slug}</div><strong>${esc(m.business)}</strong><span>${esc(m.place)}</span></div>`;
+    return `<div class="screen-top"><div class="url">sesam.sn/${m.slug}</div><strong>${esc(m.business)}</strong><span>${esc(m.place)}</span></div>`;
   }
   function stepper(n) {
     return `<div class="stepper" aria-label="Étape ${n} sur 4">${[1, 2, 3, 4].map(i => `<i class="${i <= n ? 'on' : ''}"></i>`).join('')}</div>`;
@@ -309,7 +309,7 @@ const stockStatus = days => days < 0 ? ['Expiré', 's-bad'] : days <= 30 ? ['Bie
       setError('telephone', /^\+?\d{9,15}$/.test(tel) ? '' : 'Numéro invalide — ex. 77 123 45 67.'),
       setError('email', !f.email.value || f.email.checkValidity() ? '' : 'Adresse e-mail invalide.'),
       setError('secteur', secteur.value === 'sante'
-        ? "Sesam Digital n'accompagne pas les cliniques et établissements de santé."
+        ? "Sesam.sn n'accompagne pas les cliniques et établissements de santé."
         : secteur.value ? '' : 'Choisissez votre secteur.'),
     ];
     if (checks.includes(false)) {
@@ -332,7 +332,7 @@ const stockStatus = days => days < 0 ? ['Expiré', 's-bad'] : days <= 30 ? ['Bie
       !saasBlock.hidden && picked('module') && `Module : ${picked('module')}`,
       f.message.value.trim() && `Message : ${f.message.value.trim()}`,
     ].filter(Boolean);
-    const text = `Demande de devis — Sesam Digital\n\n${lines.join('\n')}`;
+    const text = `Demande de devis — Sesam.sn\n\n${lines.join('\n')}`;
 
     let actions = '';
     if (CONTACT.whatsapp) actions += `<a class="btn btn-violet" href="https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(text)}" target="_blank" rel="noopener">Envoyer sur WhatsApp</a>`;
