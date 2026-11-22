@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Review Card — LOY Perfume</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500&display=swap">
+<style>
+  :root { --cream: #f7f0e4; --ivory: #fcf8f1; --amber: #9a5f22; --brown: #2b1a12; --soft: #5c4334; --line: #e2d3bb; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #e9dfcf; color: var(--brown); font: 400 16px/1.5 "Jost", system-ui, sans-serif; display: grid; place-items: center; min-height: 100vh; padding: 24px 16px; }
+  .card { width: min(100%, 105mm); min-height: 148mm; background: var(--ivory); border-radius: 14px; padding: 12mm 10mm; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 4mm; box-shadow: 0 20px 50px -20px rgb(43 26 18 / .4); }
+  .logo { display: flex; align-items: center; gap: 8px; font: 600 26px/1 "Cormorant Garamond", Georgia, serif; letter-spacing: .28em; }
+  .logo svg { width: 30px; height: 30px; }
+  h1 { margin: 2mm 0 0; font: 600 30px/1.05 "Cormorant Garamond", Georgia, serif; }
+  .fr { font: 500 18px/1.2 "Cormorant Garamond", Georgia, serif; color: var(--soft); margin: 0; }
+  .qr { width: 62mm; height: 62mm; border: 1px solid var(--line); border-radius: 10px; padding: 3mm; background: var(--cream); }
+  .qr img { width: 100%; height: 100%; display: block; }
+  .scan { margin: 0; font-size: 14px; color: var(--soft); }
+  .foot { margin-top: auto; font-size: 12px; color: var(--soft); border-top: 1px solid var(--line); padding-top: 3mm; width: 100%; }
+  .print { margin-top: 16px; min-height: 44px; padding: 0 22px; border: 0; border-radius: 999px; background: var(--amber); color: var(--ivory); font: 500 15px "Jost", sans-serif; cursor: pointer; }
+  .wrap { display: flex; flex-direction: column; align-items: center; }
+  @page { size: A6; margin: 0; }
+  @media print {
+    body { background: none; padding: 0; min-height: 0; }
+    .card { box-shadow: none; border-radius: 0; width: 105mm; height: 148mm; }
+    .print { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <div class="logo">
+      <svg viewBox="0 0 40 40" aria-hidden="true">
+        <rect x="15" y="2" width="10" height="8" rx="2" fill="#2b1a12"/>
+        <rect x="17" y="10" width="6" height="4" fill="#d9a35a"/>
+        <path d="M20 14c9 0 15 6 15 13s-6 11-15 11S5 34 5 27s6-13 15-13z" fill="#9a5f22"/>
+        <path d="M20 20c3 3.5 4.5 6 4.5 8.2a4.5 4.5 0 0 1-9 0c0-2.2 1.5-4.7 4.5-8.2z" fill="#fcf8f1"/>
+      </svg>
+      LOY
+    </div>
+    <h1>Loved your scent?</h1>
+    <p class="fr">Vous avez aimé votre parfum ?</p>
+    <div class="qr"><img src="img/review-qr.svg" alt="QR code to leave LOY Perfume a Google review"></div>
+    <p class="scan">Scan to leave a Google review · Scannez pour laisser un avis</p>
+    <p class="foot">222 W 116th St #10, Harlem · (347) 718-7453</p>
+  </div>
+  <button class="print" type="button" onclick="window.print()">Print card</button>
+</div>
+</body>
+</html>

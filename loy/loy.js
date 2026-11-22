@@ -32,9 +32,7 @@
   function nyNow() {
     return new Date(new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }));
   }
-  function renderHours() {
-    var body = document.getElementById('hours');
-    if (!body) return;
+  function openState() {
     var d = nyNow(), day = d.getDay(), mins = d.getHours() * 60 + d.getMinutes();
     var o = HOURS[day][0], c = HOURS[day][1];
     var om = o[0] * 60 + o[1], cm = c[0] * 60 + c[1];
@@ -49,6 +47,12 @@
         ? 'Fermé · ouvre ' + DAYS.fr[n].toLowerCase() + ' à ' + fmt(HOURS[n][0])
         : 'Closed now · opens ' + DAYS.en[n] + ' at ' + fmt(HOURS[n][0]);
     }
+    return { open: open, text: text, day: day };
+  }
+  function renderHours() {
+    var body = document.getElementById('hours');
+    if (!body) return;
+    var st = openState(), open = st.open, text = st.text, day = st.day;
     document.getElementById('dot').classList.toggle('on', open);
     document.getElementById('statustext').textContent = text;
     body.innerHTML = [1, 2, 3, 4, 5, 6, 0].map(function (i) {
@@ -138,7 +142,24 @@
     renderHours();
     renderMatch();
     store.set('loy-lang', lang);
+    listeners.forEach(function (fn) { fn(lang); });
   }
+  var listeners = [];
+  function weekText(l) {
+    var keep = lang; lang = l;
+    var t = [1, 2, 3, 4, 5, 6, 0].map(function (i) {
+      return DAYS[l][i].slice(0, 3) + ' ' + fmt(HOURS[i][0]) + '–' + fmt(HOURS[i][1]);
+    }).join(', ');
+    lang = keep; return t;
+  }
+  window.LOY = {
+    lang: function () { return lang; },
+    scents: SCENTS,
+    price: function (n, l) { return (l || lang) === 'fr' ? n + ' $' : '$' + n; },
+    status: function (l) { var keep = lang; lang = l || lang; var st = openState(); lang = keep; return st; },
+    week: weekText,
+    onLang: function (fn) { listeners.push(fn); }
+  };
   // Prices print as "$90" in the HTML; remember the number so French can show "90 $".
   Array.prototype.forEach.call(document.querySelectorAll('.scent__price'), function (el) {
     var n = el.textContent.replace(/[^0-9]/g, '');
