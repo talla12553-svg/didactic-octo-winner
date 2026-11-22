@@ -259,5 +259,17 @@ html[lang="en"] .lang [data-l="en"], html[lang="fr"] .lang [data-l="fr"] { backg
 .chat__form { display: flex; gap: 8px; padding: 10px; border-top: 1px solid var(--line); }
 .chat__form input { flex: 1; min-width: 0; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--cream); color: var(--brown); font: 400 1rem var(--sans); }
 .chat__form button { min-height: 44px; padding: 0 18px; border: 0; border-radius: 999px; background: var(--amber); color: var(--ivory); font: 500 .95rem var(--sans); cursor: pointer; }
-@media (max-width: 480px) { .fab__label { display: none; } .fab { padding: 4px; } }
+.fab { padding: 6px 22px 6px 6px; font-size: 1.05rem; }
+.fab .face { width: 60px; height: 60px; border-width: 3px; }
+.fab .face { position: relative; }
+@media (max-width: 480px) { .fab { padding: 5px 18px 5px 5px; } .fab .face { width: 52px; height: 52px; } }
+
+/* Meet Aïcha */
+.meet__inner { display: grid; grid-template-columns: auto 1fr; gap: 56px; align-items: center; max-width: 900px; }
+.meet__photo { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; border: 5px solid var(--honey); box-shadow: 0 24px 50px -24px rgb(43 26 18 / .5); }
+.meet p { margin: 16px 0 30px; color: var(--brown-soft); font-size: 1.125rem; max-width: 40ch; }
+@media (max-width: 640px) {
+  .meet__inner { grid-template-columns: 1fr; gap: 28px; }
+  .meet__photo { width: 180px; height: 180px; }
+}
 @media print { .fab, .chat { display: none !important; } }

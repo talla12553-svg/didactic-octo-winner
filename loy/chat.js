@@ -82,6 +82,9 @@
   }
   function closeChat() { box.hidden = true; fab.hidden = false; fab.focus(); }
   fab.addEventListener('click', openChat);
+  Array.prototype.forEach.call(document.querySelectorAll('[data-open-chat]'), function (b) {
+    b.addEventListener('click', openChat);
+  });
   box.querySelector('.chat__close').addEventListener('click', closeChat);
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !box.hidden) closeChat(); });
 
