@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LOY Perfume — Fine Fragrances in Harlem, NYC</title>
-<meta name="description" content="LOY Perfume: signature Parfum, EDP and EDT for him, her and everyone. Visit our boutique at 222 W 116th St, Harlem, New York.">
+<meta name="description" content="LOY Perfume: signature Parfum, EDP and oud for him, her and everyone. Visit our boutique at 222 W 116th St, Harlem, New York.">
 <meta name="theme-color" content="#f7f0e4">
 <meta property="og:title" content="LOY Perfume — Where luxury meets legacy">
 <meta property="og:description" content="Signature fragrances for him, her and everyone. Visit us at 222 W 116th St, Harlem, NYC.">
@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to content</a>
+<a class="skip-link" href="#main" data-fr="Aller au contenu">Skip to content</a>
 
 <!-- Logo mark -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -35,8 +35,9 @@
     </a>
     <nav class="nav" aria-label="Primary">
       <a href="collection.html">Collection</a>
-      <a href="#about">About</a>
-      <a class="btn" href="#visit">Visit us</a>
+      <a href="#finder" data-fr="Votre parfum">Find yours</a>
+      <button class="lang" type="button" id="lang" aria-label="Français / English"><span data-l="en">EN</span><span data-l="fr">FR</span></button>
+      <a class="btn" href="#visit" data-fr="Nous rendre visite">Visit us</a>
     </nav>
   </div>
 </header>
@@ -46,9 +47,9 @@
   <section class="hero">
     <div class="wrap hero__grid">
       <div>
-        <h1>Find the scent that feels like you.</h1>
-        <p>Fine fragrances for him, her and everyone, on 116th Street in Harlem.</p>
-        <a class="btn" href="#visit">Plan your visit</a>
+        <h1 data-fr="Trouvez le parfum qui vous ressemble.">Find the scent that feels like you.</h1>
+        <p data-fr="Des parfums raffinés pour lui, pour elle et pour tous, sur la 116e Rue à Harlem.">Fine fragrances for him, her and everyone, on 116th Street in Harlem.</p>
+        <a class="btn" href="#visit" data-fr="Préparer votre visite">Plan your visit</a>
       </div>
       <div class="hero__art">
         <img src="img/hero.jpg" alt="The glowing LOY Perfume sign above a shelf of fragrances in the Harlem boutique" width="720" height="1280" fetchpriority="high">
@@ -59,8 +60,8 @@
   <section class="alt" id="featured">
     <div class="wrap">
       <div class="section-head">
-        <h2>Featured scents</h2>
-        <p>A few favorites to try on your next visit.</p>
+        <h2 data-fr="Nos coups de cœur">Featured scents</h2>
+        <p data-fr="Quelques favoris à essayer lors de votre prochaine visite.">A few favorites to try on your next visit.</p>
       </div>
       <div class="scents">
         <article class="scent">
@@ -68,7 +69,7 @@
           <div class="scent__body">
             <span class="scent__house">Private Gold by Sky</span>
             <h3>Ameer Al Oud</h3>
-            <span class="scent__notes">Oud and amber · 60 ml</span>
+            <span class="scent__notes" data-fr="Oud et ambre · 60 ml">Oud and amber · 60 ml</span>
             <span class="scent__price">$90</span>
           </div>
         </article>
@@ -77,7 +78,7 @@
           <div class="scent__body">
             <span class="scent__house">Private Gold by Sky</span>
             <h3>Baccarat Vanille</h3>
-            <span class="scent__notes">Warm vanilla · 60 ml</span>
+            <span class="scent__notes" data-fr="Vanille chaude · 60 ml">Warm vanilla · 60 ml</span>
             <span class="scent__price">$95</span>
           </div>
         </article>
@@ -86,7 +87,7 @@
           <div class="scent__body">
             <span class="scent__house">Deep Forest</span>
             <h3>Taiga Oud</h3>
-            <span class="scent__notes">Woody and green · 100 ml</span>
+            <span class="scent__notes" data-fr="Boisé et vert · 100 ml">Woody and green · 100 ml</span>
             <span class="scent__price">$100</span>
           </div>
         </article>
@@ -95,62 +96,106 @@
           <div class="scent__body">
             <span class="scent__house">Sky</span>
             <h3>Lualaba</h3>
-            <span class="scent__notes">Floral and amber · 100 ml</span>
+            <span class="scent__notes" data-fr="Floral et ambré · 100 ml">Floral and amber · 100 ml</span>
             <span class="scent__price">$110</span>
           </div>
         </article>
       </div>
-      <div class="center"><a class="btn btn--ghost" href="collection.html">See the full collection</a></div>
+      <div class="center"><a class="btn btn--ghost" href="collection.html" data-fr="Voir toute la collection">See the full collection</a></div>
     </div>
   </section>
 
-  <section id="services">
+  <section id="finder">
+    <div class="wrap finder">
+      <div>
+        <div class="section-head">
+          <h2 data-fr="Votre parfum en trois touches.">Your scent in three taps.</h2>
+          <p data-fr="Répondez à trois questions, puis venez le sentir en boutique.">Answer three questions, then come smell it in store.</p>
+        </div>
+        <div class="q">
+          <p class="q__label" id="q1" data-fr="Pour qui ?">Who is it for?</p>
+          <div class="chips" role="group" aria-labelledby="q1" data-q="who">
+            <button class="chip" type="button" data-v="him" aria-pressed="false" data-fr="Lui">Him</button>
+            <button class="chip" type="button" data-v="her" aria-pressed="false" data-fr="Elle">Her</button>
+            <button class="chip" type="button" data-v="any" aria-pressed="false" data-fr="Tout le monde">Anyone</button>
+          </div>
+        </div>
+        <div class="q">
+          <p class="q__label" id="q2" data-fr="L'occasion">The moment</p>
+          <div class="chips" role="group" aria-labelledby="q2" data-q="when">
+            <button class="chip" type="button" data-v="day" aria-pressed="false" data-fr="Tous les jours">Every day</button>
+            <button class="chip" type="button" data-v="night" aria-pressed="false" data-fr="Une soirée">Evening out</button>
+            <button class="chip" type="button" data-v="event" aria-pressed="false" data-fr="Mariage · Aïd">Wedding · Eid</button>
+          </div>
+        </div>
+        <div class="q">
+          <p class="q__label" id="q3" data-fr="Quelle intensité ?">How strong?</p>
+          <div class="chips" role="group" aria-labelledby="q3" data-q="loud">
+            <button class="chip" type="button" data-v="soft" aria-pressed="false" data-fr="Près de la peau">Close to the skin</button>
+            <button class="chip" type="button" data-v="bold" aria-pressed="false" data-fr="Remplit la pièce">Fills the room</button>
+          </div>
+        </div>
+      </div>
+      <div class="match" aria-live="polite">
+        <img id="matchimg" src="img/scents/ameer-al-oud.jpg" alt="" width="720" height="900" loading="lazy">
+        <div class="match__body">
+          <span class="scent__house" id="matchhouse">Private Gold by Sky</span>
+          <h3 id="matchname">Ameer Al Oud</h3>
+          <p id="matchwhy">Tap your answers to find your match.</p>
+          <span class="scent__price" id="matchprice">$90</span>
+          <a class="btn" href="#visit" data-fr="L'essayer en boutique">Try it in store</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="services">
     <div class="wrap">
       <div class="section-head">
-        <h2>How we help</h2>
-        <p>A calm, personal way to choose a fragrance.</p>
+        <h2 data-fr="Comment nous vous aidons">How we help</h2>
+        <p data-fr="Une façon calme et personnelle de choisir un parfum.">A calm, personal way to choose a fragrance.</p>
       </div>
       <div class="services">
         <div class="service">
           <img src="img/signature.jpg" alt="A LOY team member presenting fragrances in the boutique" loading="lazy">
-          <h3>Find your signature</h3>
-          <p>Tell us your mood and style. We'll guide you to a scent that feels like you.</p>
+          <h3 data-fr="Trouvez votre signature">Find your signature</h3>
+          <p data-fr="Parlez-nous de votre humeur et de votre style. Nous vous guidons vers deux ou trois parfums, jamais vingt.">Tell us your mood and style. We'll guide you to two or three scents, never twenty.</p>
         </div>
         <div class="service">
           <img src="img/try.jpg" alt="Testing a fragrance at the LOY counter" loading="lazy">
-          <h3>Try before you buy</h3>
-          <p>Test every scent on your skin in the boutique, at your own pace.</p>
+          <h3 data-fr="Essayez avant d'acheter">Try before you buy</h3>
+          <p data-fr="Testez chaque parfum sur votre peau en boutique, à votre rythme.">Test every scent on your skin in the boutique, at your own pace.</p>
         </div>
         <div class="service">
           <img src="img/gift.jpg" alt="Kanz and Elite fragrances styled with roses and vanilla" loading="lazy">
-          <h3>The perfect gift</h3>
-          <p>Not sure what they love? We'll help you pick a gift they'll wear every day.</p>
+          <h3 data-fr="Le cadeau parfait">The perfect gift</h3>
+          <p data-fr="Vous ne savez pas ce qu'ils aiment ? Nous vous aidons à choisir un cadeau qu'ils porteront chaque jour.">Not sure what they love? We'll help you pick a gift they'll wear every day.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="alt" id="about">
+  <section id="about">
     <div class="wrap about">
       <div>
-        <h2>Where luxury meets legacy.</h2>
-        <p>LOY is a fragrance boutique in the heart of Harlem.</p>
-        <p>We bring together rich ouds, soft florals and fresh signatures for every kind of person.</p>
+        <h2 data-fr="Là où le luxe rencontre l'héritage.">Where luxury meets legacy.</h2>
+        <p data-fr="LOY est une boutique de parfums au cœur de Harlem.">LOY is a fragrance boutique in the heart of Harlem.</p>
+        <p data-fr="Nous réunissons des ouds riches, des floraux doux et des signatures fraîches pour chacun.">We bring together rich ouds, soft florals and fresh signatures for every kind of person.</p>
       </div>
       <div class="stats">
-        <div class="stat"><strong>8</strong><span>Signature scents</span></div>
-        <div class="stat"><strong>3</strong><span>Collections: him, her, everyone</span></div>
-        <div class="stat"><strong>$75</strong><span>Starting price</span></div>
-        <div class="stat"><strong>116th</strong><span>Street, Harlem</span></div>
+        <div class="stat"><strong>8</strong><span data-fr="Parfums signature">Signature scents</span></div>
+        <div class="stat"><strong>3</strong><span data-fr="Collections : lui, elle, tous">Collections: him, her, everyone</span></div>
+        <div class="stat"><strong>$75</strong><span data-fr="Prix de départ">Starting price</span></div>
+        <div class="stat"><strong>116th</strong><span data-fr="Rue, Harlem">Street, Harlem</span></div>
       </div>
     </div>
   </section>
 
-  <section class="inside" id="inside">
+  <section class="alt inside" id="inside">
     <div class="wrap">
       <div class="section-head">
-        <h2>Step inside.</h2>
-        <p>Shelves full of scents, waiting to be discovered.</p>
+        <h2 data-fr="Entrez.">Step inside.</h2>
+        <p data-fr="Des rayons pleins de parfums qui n'attendent que vous.">Shelves full of scents, waiting to be discovered.</p>
       </div>
       <div class="gallery">
         <img src="img/wall.jpg" alt="A wall of fragrance boxes on white shelves" loading="lazy">
@@ -163,14 +208,14 @@
 
   <section class="proof" id="reviews">
     <div class="wrap">
-      <h2>Harlem is talking.</h2>
-      <p>Our scents travel fast on TikTok. Come see what everyone is wearing.</p>
+      <h2 data-fr="Harlem en parle.">Harlem is talking.</h2>
+      <p data-fr="Nos parfums font le tour de TikTok. Venez voir ce que tout le monde porte.">Our scents travel fast on TikTok. Come see what everyone is wearing.</p>
       <div class="proof__nums">
-        <div><strong>11.8K</strong><span>views on our latest drop</span></div>
-        <div><strong>8.3K</strong><span>likes</span></div>
-        <div><strong>1.8K</strong><span>followers</span></div>
+        <div><strong>11.8K</strong><span data-fr="vues sur notre dernière vidéo">views on our latest drop</span></div>
+        <div><strong>8.3K</strong><span data-fr="j'aime">likes</span></div>
+        <div><strong>1.8K</strong><span data-fr="abonnés">followers</span></div>
       </div>
-      <a class="btn btn--light" href="https://www.tiktok.com/@loy.perfume.com" rel="noopener">Watch us on TikTok</a>
+      <a class="btn btn--light" href="https://www.tiktok.com/@loy.perfume.com" rel="noopener" data-fr="Nous suivre sur TikTok">Watch us on TikTok</a>
     </div>
   </section>
 
@@ -178,20 +223,56 @@
     <div class="wrap visit">
       <div class="visit__info">
         <div>
-          <h2>Visit the boutique.</h2>
-          <p style="margin-top:14px">Call before you come and we'll have your favorites ready.</p>
+          <h2 data-fr="Visitez la boutique.">Visit the boutique.</h2>
+          <p class="status" id="status"><span class="dot" id="dot"></span><span id="statustext"></span></p>
         </div>
         <ul class="visit__list">
-          <li><b>Address</b><a href="https://www.google.com/maps/dir/?api=1&amp;destination=222+W+116th+St,+New+York,+NY+10026" rel="noopener">222 W 116th St, New York, NY 10026</a></li>
-          <li><b>Phone</b><a href="tel:+13477187453">+1 (347) 718-7453</a></li>
+          <li><b data-fr="Adresse">Address</b><a href="https://www.google.com/maps/dir/?api=1&amp;destination=222+W+116th+St,+New+York,+NY+10026" rel="noopener">222 W 116th St #10, New York, NY 10026</a></li>
+          <li><b data-fr="Téléphone">Phone</b><a href="tel:+13477187453">+1 (347) 718-7453</a></li>
+          <li><b>Email</b><a href="mailto:loyperfumecontact@gmail.com">loyperfumecontact@gmail.com</a></li>
         </ul>
+        <table class="hours" aria-label="Opening hours"><tbody id="hours"></tbody></table>
         <div class="visit__actions">
-          <a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=222+W+116th+St,+New+York,+NY+10026" rel="noopener">Get directions</a>
-          <a class="btn btn--ghost" href="tel:+13477187453">Call the boutique</a>
+          <a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=222+W+116th+St,+New+York,+NY+10026" rel="noopener" data-fr="Itinéraire">Get directions</a>
+          <a class="btn btn--ghost" href="tel:+13477187453" data-fr="Appeler la boutique">Call the boutique</a>
         </div>
       </div>
       <iframe class="map" title="Map to LOY Perfume, 222 W 116th St" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
         src="https://www.google.com/maps?q=222+W+116th+St,+New+York,+NY+10026&amp;output=embed"></iframe>
+    </div>
+  </section>
+
+  <section class="trade" id="wholesale">
+    <div class="wrap">
+      <h2 data-fr="Proposez LOY dans votre boutique.">Stock LOY in your shop.</h2>
+      <p data-fr="Boutiques, salons et revendeurs : demandez notre liste de prix de gros.">Shops, salons and resellers: ask for our wholesale price list.</p>
+      <a class="btn" href="mailto:loyperfumecontact@gmail.com?subject=Wholesale%20price%20list" data-fr="Demander les prix de gros">Ask for wholesale prices</a>
+    </div>
+  </section>
+
+  <section class="alt" id="faq">
+    <div class="wrap faq">
+      <h2 data-fr="Avant de venir.">Before you come in.</h2>
+      <details>
+        <summary data-fr="Quelle différence entre Parfum, EDP et EDT ?">What's the difference between Parfum, EDP and EDT?</summary>
+        <p data-fr="C'est la concentration en huiles. Le parfum est le plus riche et tient le plus longtemps. L'eau de parfum (EDP) est la favorite du quotidien, l'eau de toilette (EDT) est plus légère.">It's the concentration of oils. Parfum is the richest and lasts longest. Eau de parfum (EDP) is the everyday favorite, and eau de toilette (EDT) is lighter.</p>
+      </details>
+      <details>
+        <summary data-fr="Puis-je essayer un parfum avant d'acheter ?">Can I try a scent before buying?</summary>
+        <p data-fr="Oui. Chaque parfum en rayon peut être essayé au comptoir.">Yes. Every fragrance on the shelf can be tried at the counter.</p>
+      </details>
+      <details>
+        <summary data-fr="Puis-je réserver un parfum ?">Can I reserve a bottle?</summary>
+        <p data-fr="Oui. Appelez-nous et nous le mettons de côté pour vous.">Yes. Call us and we'll set it aside for you.</p>
+      </details>
+      <details>
+        <summary data-fr="Faites-vous de la vente en gros ?">Do you sell wholesale?</summary>
+        <p data-fr="Oui. Écrivez-nous ou appelez-nous pour recevoir la liste des prix de gros.">Yes. Email or call us for the wholesale price list.</p>
+      </details>
+      <details>
+        <summary data-fr="Pourquoi êtes-vous fermés le vendredi matin ?">Why are you closed Friday mornings?</summary>
+        <p data-fr="Le vendredi, nous ouvrons à 17 h et restons ouverts jusqu'à 21 h 30.">On Fridays we open at 5:00 PM and stay open until 9:30 PM.</p>
+      </details>
     </div>
   </section>
 
@@ -205,12 +286,14 @@
     </a>
     <nav aria-label="Footer">
       <a href="collection.html">Collection</a>
-      <a href="#visit">Visit</a>
+      <a href="#visit" data-fr="Visite">Visit</a>
+      <a href="#wholesale" data-fr="Vente en gros">Wholesale</a>
       <a href="https://www.tiktok.com/@loy.perfume.com" rel="noopener">TikTok</a>
-      <a href="https://loysenteur.com" rel="noopener">Shop online</a>
+      <a href="https://loysenteur.com" rel="noopener" data-fr="Boutique en ligne">Shop online</a>
     </nav>
     <span>© 2026 LOY Perfume · Harlem, NYC</span>
   </div>
 </footer>
+<script src="loy.js"></script>
 </body>
 </html>

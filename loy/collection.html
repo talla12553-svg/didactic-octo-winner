@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to content</a>
+<a class="skip-link" href="#main" data-fr="Aller au contenu">Skip to content</a>
 
 <!-- Logo mark -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -35,8 +35,9 @@
     </a>
     <nav class="nav" aria-label="Primary">
       <a href="collection.html" aria-current="page">Collection</a>
-      <a href="index.html#about">About</a>
-      <a class="btn" href="index.html#visit">Visit us</a>
+      <a href="index.html#finder" data-fr="Votre parfum">Find yours</a>
+      <button class="lang" type="button" id="lang" aria-label="Français / English"><span data-l="en">EN</span><span data-l="fr">FR</span></button>
+      <a class="btn" href="index.html#visit" data-fr="Nous rendre visite">Visit us</a>
     </nav>
   </div>
 </header>
@@ -45,24 +46,24 @@
 
   <section class="page-hero">
     <div class="wrap">
-      <h1>The full collection.</h1>
-      <p>Every scent we carry today. Come smell them in person.</p>
-      <a class="btn" href="index.html#visit">Visit the boutique</a>
+      <h1 data-fr="Toute la collection.">The full collection.</h1>
+      <p data-fr="Tous nos parfums du moment. Venez les sentir en personne.">Every scent we carry today. Come smell them in person.</p>
+      <a class="btn" href="index.html#visit" data-fr="Visiter la boutique">Visit the boutique</a>
     </div>
   </section>
 
   <section class="alt">
     <div class="wrap">
       <div class="group" id="men">
-        <h2>For him</h2>
-        <p>Deep ouds, warm vanilla and fresh aromatics.</p>
+        <h2 data-fr="Pour lui">For him</h2>
+        <p data-fr="Ouds profonds, vanille chaude et notes aromatiques fraîches.">Deep ouds, warm vanilla and fresh aromatics.</p>
         <div class="scents">
         <article class="scent">
           <div class="scent__art"><img src="img/scents/ameer-al-oud.jpg" alt="Ameer Al Oud bottle and box" loading="lazy" width="720" height="900"></div>
           <div class="scent__body">
             <span class="scent__house">Private Gold by Sky</span>
             <h3>Ameer Al Oud</h3>
-            <span class="scent__notes">Oud and amber · Oud, 60 ml</span>
+            <span class="scent__notes" data-fr="Oud et ambre · Oud, 60 ml">Oud and amber · Oud, 60 ml</span>
             <span class="scent__price">$90</span>
           </div>
         </article>
@@ -71,7 +72,7 @@
           <div class="scent__body">
             <span class="scent__house">Private Gold by Sky</span>
             <h3>Baccarat Vanille</h3>
-            <span class="scent__notes">Vanilla and gourmand · Parfum, 60 ml</span>
+            <span class="scent__notes" data-fr="Vanille gourmande · Parfum, 60 ml">Vanilla and gourmand · Parfum, 60 ml</span>
             <span class="scent__price">$95</span>
           </div>
         </article>
@@ -80,7 +81,7 @@
           <div class="scent__body">
             <span class="scent__house">Sky</span>
             <h3>Iconic Collection M1</h3>
-            <span class="scent__notes">Fresh and aromatic · EDP, 100 ml</span>
+            <span class="scent__notes" data-fr="Frais et aromatique · EDP, 100 ml">Fresh and aromatic · EDP, 100 ml</span>
             <span class="scent__price">$90</span>
           </div>
         </article>
@@ -89,22 +90,22 @@
           <div class="scent__body">
             <span class="scent__house">Sky</span>
             <h3>Just 4 You</h3>
-            <span class="scent__notes">Amber and woody · Parfum, 100 ml</span>
+            <span class="scent__notes" data-fr="Ambré et boisé · Parfum, 100 ml">Amber and woody · Parfum, 100 ml</span>
             <span class="scent__price">$95</span>
           </div>
         </article>
         </div>
       </div>
       <div class="group" id="women">
-        <h2>For her</h2>
-        <p>Bright florals and rich oriental warmth.</p>
+        <h2 data-fr="Pour elle">For her</h2>
+        <p data-fr="Floraux lumineux et chaleur orientale.">Bright florals and rich oriental warmth.</p>
         <div class="scents">
         <article class="scent">
           <div class="scent__art"><img src="img/scents/lualaba.jpg" alt="Lualaba bottle and box" loading="lazy" width="720" height="900"></div>
           <div class="scent__body">
             <span class="scent__house">Sky</span>
             <h3>Lualaba</h3>
-            <span class="scent__notes">Floral and amber · EDP, 100 ml</span>
+            <span class="scent__notes" data-fr="Floral et ambré · EDP, 100 ml">Floral and amber · EDP, 100 ml</span>
             <span class="scent__price">$110</span>
           </div>
         </article>
@@ -113,7 +114,7 @@
           <div class="scent__body">
             <span class="scent__house">Sky</span>
             <h3>Magic Oriental</h3>
-            <span class="scent__notes">Oriental and spicy · EDP, 60 ml</span>
+            <span class="scent__notes" data-fr="Oriental et épicé · EDP, 60 ml">Oriental and spicy · EDP, 60 ml</span>
             <span class="scent__price">$75</span>
           </div>
         </article>
@@ -122,22 +123,22 @@
           <div class="scent__body">
             <span class="scent__house">Sky</span>
             <h3>The Moment – Girl Power</h3>
-            <span class="scent__notes">Fruity and floral · EDP, 100 ml</span>
+            <span class="scent__notes" data-fr="Fruité et floral · EDP, 100 ml">Fruity and floral · EDP, 100 ml</span>
             <span class="scent__price">$90</span>
           </div>
         </article>
         </div>
       </div>
       <div class="group" id="unisex">
-        <h2>For everyone</h2>
-        <p>Made to be shared.</p>
+        <h2 data-fr="Pour tous">For everyone</h2>
+        <p data-fr="Fait pour être partagé.">Made to be shared.</p>
         <div class="scents">
         <article class="scent">
           <div class="scent__art"><img src="img/scents/taiga-oud.jpg" alt="Taiga Oud bottle and box" loading="lazy" width="720" height="900"></div>
           <div class="scent__body">
             <span class="scent__house">Deep Forest</span>
             <h3>Taiga Oud</h3>
-            <span class="scent__notes">Woody and green · Parfum, 100 ml</span>
+            <span class="scent__notes" data-fr="Boisé et vert · Parfum, 100 ml">Woody and green · Parfum, 100 ml</span>
             <span class="scent__price">$100</span>
           </div>
         </article>
@@ -148,9 +149,9 @@
 
   <section class="cta">
     <div class="wrap">
-      <h2>Smell it before you choose.</h2>
-      <p>Stop by 222 W 116th St and try any scent on your skin.</p>
-      <a class="btn" href="index.html#visit">Plan your visit</a>
+      <h2 data-fr="Sentez-le avant de choisir.">Smell it before you choose.</h2>
+      <p data-fr="Passez au 222 W 116th St et essayez n'importe quel parfum sur votre peau.">Stop by 222 W 116th St and try any scent on your skin.</p>
+      <a class="btn" href="index.html#visit" data-fr="Préparer votre visite">Plan your visit</a>
     </div>
   </section>
 
@@ -164,12 +165,14 @@
     </a>
     <nav aria-label="Footer">
       <a href="collection.html">Collection</a>
-      <a href="index.html#visit">Visit</a>
+      <a href="index.html#visit" data-fr="Visite">Visit</a>
+      <a href="index.html#wholesale" data-fr="Vente en gros">Wholesale</a>
       <a href="https://www.tiktok.com/@loy.perfume.com" rel="noopener">TikTok</a>
-      <a href="https://loysenteur.com" rel="noopener">Shop online</a>
+      <a href="https://loysenteur.com" rel="noopener" data-fr="Boutique en ligne">Shop online</a>
     </nav>
     <span>© 2026 LOY Perfume · Harlem, NYC</span>
   </div>
 </footer>
+<script src="loy.js"></script>
 </body>
 </html>
